@@ -8,29 +8,51 @@ return [
     'slug' => 'modern/heart',
     'name' => 'Modern Heart',
     'description' => 'Smooth animated heart - clean, modern, 2026 style',
-        'version' => '1.0.2',
+        'version' => '1.0.3',
     'author' => 'RatePress',
     'category' => 'binary',
+    'styles' => ['style.css'],
+    'scripts' => [], // Core JS handles all interactions
+    'requires_core_js' => true,
+    'supports' => [
+        'objects' => ['post', 'comment'],
+        'responsive' => true,
+        'dark_mode' => true
+    ],
+    'demo_data' => [
+        'user_value' => 1, // User loved it
+        'user_has_rated' => true,
+        'category_stats' => [
+            'positive' => 128
+        ]
+    ],
     'preview' => 'preview.png',
     'preview_theme' => 'dark',
     'preview_background' => '#0a0a0a',
     'preview_zoom' => 2.5,
     
     'settings' => [
+        'icon_size' => [
+            'type' => 'select',
+            'default' => 'medium',
+            'options' => [
+                'small' => '20px',
+                'medium' => '24px', 
+                'large' => '28px'
+            ]
+        ],
         'show_counts' => [
-            'type' => 'checkbox',
-            'label' => 'Show love count',
+            'type' => 'boolean',
             'default' => true
         ],
-        'size' => [
+        'color_scheme' => [
             'type' => 'select',
-            'label' => 'Heart size',
+            'default' => 'red',
             'options' => [
-                'small' => 'Small',
-                'medium' => 'Medium',
-                'large' => 'Large'
-            ],
-            'default' => 'medium'
+                'red' => '#e11d48',
+                'pink' => '#e91e63',
+                'purple' => '#9b59b6'
+            ]
         ]
     ],
     

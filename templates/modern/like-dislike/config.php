@@ -8,34 +8,60 @@ return [
     'slug' => 'modern/like-dislike',
     'name' => 'Modern Like/Dislike',
     'description' => 'Clean like/dislike buttons with modern design - 2026 style',
-        'version' => '1.0.2',
+        'version' => '1.0.3',
     'author' => 'RatePress',
     'category' => 'bipolar',
+    'styles' => ['style.css'],
+    'scripts' => [], // Core JS handles all interactions
+    'requires_core_js' => true,
+    'supports' => [
+        'objects' => ['post', 'comment'],
+        'responsive' => true,
+        'dark_mode' => true
+    ],
+    'demo_data' => [
+        'user_value' => 1, // User liked it
+        'user_has_rated' => true,
+        'category_stats' => [
+            'positive' => 89,
+            'negative' => 12
+        ]
+    ],
     'preview' => 'preview.png',
     'preview_theme' => 'dark',
     'preview_background' => '#0a0a0a',
     'preview_zoom' => 2.5,
     
     'settings' => [
+        'icon_size' => [
+            'type' => 'select',
+            'default' => 'medium',
+            'options' => [
+                'small' => '20px',
+                'medium' => '24px',
+                'large' => '28px'
+            ]
+        ],
         'show_counts' => [
-            'type' => 'checkbox',
-            'label' => 'Show vote counts',
+            'type' => 'boolean',
             'default' => true
         ],
-        'show_percentage' => [
-            'type' => 'checkbox',
-            'label' => 'Show percentage',
-            'default' => false
-        ],
-        'size' => [
+        'layout' => [
             'type' => 'select',
-            'label' => 'Button size',
+            'default' => 'horizontal',
             'options' => [
-                'small' => 'Small',
-                'medium' => 'Medium',
-                'large' => 'Large'
-            ],
-            'default' => 'medium'
+                'horizontal' => 'Side by side',
+                'vertical' => 'Stacked'
+            ]
+        ],
+        'color_scheme' => [
+            'type' => 'select',
+            'default' => 'default',
+            'options' => [
+                'default' => 'Green/Red',
+                'blue' => 'Blue/Orange',
+                'purple' => 'Purple/Pink'
+            ]
         ]
     ],
     

@@ -51,6 +51,10 @@ if ($is_js_mode) {
         <?php echo number_format($score); ?>
     </div>
     
+    <!-- Hidden counters for JS updates -->
+    <span class="hidden" data-count="positive" aria-hidden="true"><?php echo $upvotes; ?></span>
+    <span class="hidden" data-count="negative" aria-hidden="true"><?php echo $downvotes; ?></span>
+    
     <button class="rp-vote-btn rp-vote-down<?php echo $user_downvoted ? ' active' : ''; ?>" 
             type="button"
             data-value="-1"

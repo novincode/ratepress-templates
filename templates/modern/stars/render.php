@@ -62,11 +62,11 @@ if ($is_js_mode) {
     
     <?php if ($show_counts && $total > 0): ?>
         <div class="stars-info" id="stars-info-<?php echo esc_attr($object_id); ?>">
-            <span class="average" 
+            <span class="ratepress-average" 
                   aria-label="<?php printf(__('Average rating: %s out of 5 stars'), number_format($display_average, 1)); ?>">
                 <?php echo number_format($display_average, 1); ?>
             </span>
-            <span class="count" 
+            <span class="ratepress-count" 
                   aria-label="<?php printf(_n('%d rating', '%d ratings', $total), $total); ?>">
                 (<?php echo number_format($total); ?>)
             </span>

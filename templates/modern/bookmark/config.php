@@ -4,7 +4,7 @@ return [
     'name' => 'Modern Bookmark',
     'description' => 'Clean bookmark button for saving content',
     'category' => 'binary',
-        'version' => '1.0.2',
+        'version' => '1.0.3',
     'author' => 'RatePress',
     'author_url' => 'https://ratepress.com',
     'tags' => ['bookmark', 'save', 'binary', 'minimal'],
@@ -26,6 +26,15 @@ return [
     'preview_theme' => 'dark',
     'preview_zoom' => 2.5,
     'settings' => [
+        'icon_size' => [
+            'type' => 'select',
+            'default' => 'medium',
+            'options' => [
+                'small' => '20px',
+                'medium' => '24px',
+                'large' => '28px'
+            ]
+        ],
         'show_counts' => ['type' => 'boolean', 'default' => true]
     ]
 ];

@@ -10,7 +10,7 @@ return [
     'name' => 'Vote Stack',
     'description' => 'Clean vertical voting like Stack Overflow',
     'category' => 'bipolar',
-        'version' => '1.0.2',
+        'version' => '1.0.3',
     'author' => 'RatePress',
     'author_url' => 'https://ratepress.com',
     'tags' => ['vote', 'stackoverflow', 'bipolar', 'minimal'],
@@ -35,6 +35,15 @@ return [
     'preview_theme' => 'dark',
     'preview_zoom' => 2.5,
     'settings' => [
+        'icon_size' => [
+            'type' => 'select',
+            'default' => 'medium',
+            'options' => [
+                'small' => '20px',
+                'medium' => '24px',
+                'large' => '28px'
+            ]
+        ],
         'show_counts' => [
             'type' => 'boolean',
             'default' => false

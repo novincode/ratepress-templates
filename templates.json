@@ -30,7 +30,7 @@
         "preview_image": "https://raw.githubusercontent.com/novincode/ratepress-templates/main/templates/modern/heart/preview.png",
         "download_url": "https://github.com/novincode/ratepress-templates/tree/main/templates/modern/heart",
         "min_ratepress_version": "1.0.0",
-        "requires_core_js": false
+        "requires_core_js": true
     },
     {
         "slug": "modern/like-dislike",
@@ -44,7 +44,7 @@
         "preview_image": "https://raw.githubusercontent.com/novincode/ratepress-templates/main/templates/modern/like-dislike/preview.png",
         "download_url": "https://github.com/novincode/ratepress-templates/tree/main/templates/modern/like-dislike",
         "min_ratepress_version": "1.0.0",
-        "requires_core_js": false
+        "requires_core_js": true
     },
     {
         "slug": "modern/stars",
