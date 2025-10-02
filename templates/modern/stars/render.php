@@ -27,7 +27,7 @@ if ($is_js_mode) {
 }
 ?>
 
-<div class="ratepress-widget ratepress-stars<?php echo $is_js_mode ? ' ratepress-js-mode' : ''; ?>"<?php echo $theme === 'dark' ? ' data-theme="dark"' : ''; ?>
+<div class="ratepress-widget ratepress-stars-widget<?php echo $is_js_mode ? ' ratepress-js-mode' : ''; ?>"<?php echo $theme === 'dark' ? ' data-theme="dark"' : ''; ?>
      data-object-id="<?php echo esc_attr($object_id); ?>"
      data-object-type="<?php echo esc_attr($object_type); ?>"
      data-category="scale"
@@ -45,7 +45,7 @@ if ($is_js_mode) {
             $value = $i / 5;
             $isSelected = $user_has_rated && ($user_value * 5) >= $i;
         ?>
-            <button class="star-btn <?php echo $isSelected ? 'active' : ''; ?>" 
+            <button class="ratepress-star-btn <?php echo $isSelected ? 'active' : ''; ?>" 
                     type="button"
                     data-value="<?php echo esc_attr($value); ?>"
                     data-star="<?php echo $i; ?>"

@@ -25,7 +25,7 @@ if ($is_js_mode) {
 }
 ?>
 
-<div class="rp-vote-stack<?php echo $is_js_mode ? ' rp-js-mode' : ''; ?>"<?php echo $theme === 'dark' ? ' data-theme="dark"' : ''; ?>
+<div class="ratepress-widget rp-vote-stack<?php echo $is_js_mode ? ' rp-js-mode' : ''; ?>"<?php echo $theme === 'dark' ? ' data-theme="dark"' : ''; ?>
      data-object-id="<?php echo esc_attr($object_id); ?>"
      data-object-type="<?php echo esc_attr($object_type); ?>"
      data-category="bipolar"

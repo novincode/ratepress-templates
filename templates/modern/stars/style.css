@@ -1,6 +1,6 @@
 /* Modern Stars Rating - 2026 Clean Design */
 
-.ratepress-stars {
+.ratepress-stars-widget {
     --stars-primary: #ffc107;
     --stars-secondary: #ffb300;
     --stars-hover: #ffd54f;
@@ -25,22 +25,22 @@
 }
 
 /* Dark theme - only when explicitly set */
-[data-theme="dark"] .ratepress-stars,
-.dark .ratepress-stars {
+[data-theme="dark"] .ratepress-stars-widget,
+.dark .ratepress-stars-widget {
     --stars-bg: rgba(255, 255, 255, 0.08);
     --stars-text: rgba(255, 255, 255, 0.95);
     --stars-text-secondary: rgba(255, 255, 255, 0.6);
 }
 
 /* Stars input container */
-.ratepress-stars .stars-input {
+.ratepress-stars-widget .stars-input {
     display: flex;
     gap: var(--stars-gap-medium);
     align-items: center;
 }
 
 /* Star buttons */
-.ratepress-stars .star-btn {
+.ratepress-stars-widget .ratepress-star-btn {
     background: none;
     border: none;
     padding: 0;
@@ -54,7 +54,7 @@
     flex-shrink: 0;
 }
 
-.ratepress-stars .star-btn svg {
+.ratepress-stars-widget .ratepress-star-btn svg {
     width: 100%;
     height: 100%;
     display: block;
@@ -62,41 +62,41 @@
 }
 
 /* Hover effects */
-.ratepress-stars .star-btn:hover {
+.ratepress-stars-widget .ratepress-star-btn:hover {
     color: var(--stars-hover);
     transform: scale(1.15);
 }
 
-.ratepress-stars .star-btn:hover ~ .star-btn {
+.ratepress-stars-widget .ratepress-star-btn:hover ~ .ratepress-star-btn {
     transform: scale(0.95);
 }
 
 /* Active/selected state */
-.ratepress-stars .star-btn.active {
+.ratepress-stars-widget .ratepress-star-btn.active {
     color: var(--stars-primary);
 }
 
-.ratepress-stars .star-btn.active:hover {
+.ratepress-stars-widget .ratepress-star-btn.active:hover {
     color: var(--stars-secondary);
 }
 
 /* Interactive fill on hover - fill all stars up to hovered */
-.ratepress-stars .stars-input:hover .star-btn {
+.ratepress-stars-widget .stars-input:hover .ratepress-star-btn {
     color: var(--stars-bg);
 }
 
-.ratepress-stars .stars-input .star-btn:hover,
-.ratepress-stars .stars-input .star-btn:hover ~ .star-btn {
+.ratepress-stars-widget .stars-input .ratepress-star-btn:hover,
+.ratepress-stars-widget .stars-input .ratepress-star-btn:hover ~ .ratepress-star-btn {
     color: var(--stars-bg);
 }
 
-.ratepress-stars .stars-input:hover .star-btn:hover,
-.ratepress-stars .stars-input .star-btn:has(~ .star-btn:hover) {
+.ratepress-stars-widget .stars-input:hover .ratepress-star-btn:hover,
+.ratepress-stars-widget .stars-input .ratepress-star-btn:has(~ .ratepress-star-btn:hover) {
     color: var(--stars-hover);
 }
 
 /* Info section */
-.ratepress-stars .stars-info {
+.ratepress-stars-widget .stars-info {
     display: flex;
     align-items: baseline;
     gap: 4px;
@@ -105,52 +105,52 @@
     line-height: 1;
 }
 
-.ratepress-stars .stars-info .average {
+.ratepress-stars-widget .stars-info .ratepress-average {
     font-weight: 600;
     color: var(--stars-text);
     font-size: 1rem;
 }
 
-.ratepress-stars .stars-info .count {
+.ratepress-stars-widget .stars-info .ratepress-count {
     font-size: 0.875rem;
 }
 
 /* Size variations */
-.ratepress-stars[data-size="small"] {
+.ratepress-stars-widget[data-size="small"] {
     --stars-size-medium: var(--stars-size-small);
     --stars-gap-medium: var(--stars-gap-small);
     --stars-info-size: 0.75rem;
 }
 
-.ratepress-stars[data-size="small"] .stars-info .average {
+.ratepress-stars-widget[data-size="small"] .stars-info .ratepress-average {
     font-size: 0.875rem;
 }
 
-.ratepress-stars[data-size="small"] .stars-info .count {
+.ratepress-stars-widget[data-size="small"] .stars-info .ratepress-count {
     font-size: 0.75rem;
 }
 
-.ratepress-stars[data-size="large"] {
+.ratepress-stars-widget[data-size="large"] {
     --stars-size-medium: var(--stars-size-large);
     --stars-gap-medium: var(--stars-gap-large);
     --stars-info-size: 1rem;
     gap: 12px;
 }
 
-.ratepress-stars[data-size="large"] .stars-info .average {
+.ratepress-stars-widget[data-size="large"] .stars-info .ratepress-average {
     font-size: 1.25rem;
 }
 
-.ratepress-stars[data-size="large"] .stars-info .count {
+.ratepress-stars-widget[data-size="large"] .stars-info .ratepress-count {
     font-size: 1rem;
 }
 
 /* Focus styles */
-.ratepress-stars .star-btn:focus {
+.ratepress-stars-widget .ratepress-star-btn:focus {
     outline: none;
 }
 
-.ratepress-stars .star-btn:focus-visible {
+.ratepress-stars-widget .ratepress-star-btn:focus-visible {
     outline: 2px solid var(--stars-primary);
     outline-offset: 2px;
     border-radius: 4px;
@@ -162,17 +162,17 @@
     50% { transform: scale(1.3); }
 }
 
-.ratepress-stars .star-btn.rating-animation {
+.ratepress-stars-widget .ratepress-star-btn.rating-animation {
     animation: starPulse 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Loading state */
-.ratepress-stars.loading .star-btn {
+.ratepress-stars-widget.loading .ratepress-star-btn {
     opacity: 0.5;
     cursor: wait;
 }
 
 /* JS mode skeleton */
-.ratepress-stars.ratepress-js-mode .stars-input {
+.ratepress-stars-widget.ratepress-js-mode .stars-input {
     opacity: 0.3;
 }
