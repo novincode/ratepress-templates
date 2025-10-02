@@ -4,7 +4,7 @@ return [
     'name' => 'Modern Bookmark',
     'description' => 'Clean bookmark button for saving content',
     'category' => 'binary',
-        'version' => '1.0.1',
+        'version' => '1.0.2',
     'author' => 'RatePress',
     'author_url' => 'https://ratepress.com',
     'tags' => ['bookmark', 'save', 'binary', 'minimal'],

@@ -32,17 +32,22 @@ if ($is_js_mode) {
      data-template="modern/vote-stack"
      data-size="<?php echo esc_attr($size); ?>"
      role="group"
-     aria-label="<?php _e('Vote', 'ratepress'); ?>">
+     aria-label="<?php _e('Vote rating widget'); ?>">
      
     <button class="rp-vote-btn rp-vote-up<?php echo $user_upvoted ? ' active' : ''; ?>" 
             type="button"
             data-value="1"
             aria-pressed="<?php echo $user_upvoted ? 'true' : 'false'; ?>"
-            aria-label="<?php _e('Upvote', 'ratepress'); ?>">
+            aria-label="<?php echo $user_upvoted ? __('Remove upvote') : __('Upvote'); ?>"
+            aria-describedby="vote-score-<?php echo esc_attr($object_id); ?>"
+            title="<?php echo $user_upvoted ? __('Remove upvote') : __('Upvote'); ?>">
         <svg viewBox="0 0 24 24" fill="none"><path d="M7 14l5-5 5 5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </button>
     
-    <div class="rp-vote-score">
+    <div class="rp-vote-score" 
+         data-count="score"
+         id="vote-score-<?php echo esc_attr($object_id); ?>"
+         aria-label="<?php printf(__('Score: %d'), $score); ?>">
         <?php echo number_format($score); ?>
     </div>
     
@@ -50,7 +55,9 @@ if ($is_js_mode) {
             type="button"
             data-value="-1"
             aria-pressed="<?php echo $user_downvoted ? 'true' : 'false'; ?>"
-            aria-label="<?php _e('Downvote', 'ratepress'); ?>">
+            aria-label="<?php echo $user_downvoted ? __('Remove downvote') : __('Downvote'); ?>"
+            aria-describedby="vote-score-<?php echo esc_attr($object_id); ?>"
+            title="<?php echo $user_downvoted ? __('Remove downvote') : __('Downvote'); ?>">
         <svg viewBox="0 0 24 24" fill="none"><path d="M7 10l5 5 5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </button>
 </div>

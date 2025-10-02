@@ -8,7 +8,7 @@ return [
     'slug' => 'modern/like-dislike',
     'name' => 'Modern Like/Dislike',
     'description' => 'Clean like/dislike buttons with modern design - 2026 style',
-        'version' => '1.0.1',
+        'version' => '1.0.2',
     'author' => 'RatePress',
     'category' => 'bipolar',
     'preview' => 'preview.png',

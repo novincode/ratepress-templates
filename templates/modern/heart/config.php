@@ -8,7 +8,7 @@ return [
     'slug' => 'modern/heart',
     'name' => 'Modern Heart',
     'description' => 'Smooth animated heart - clean, modern, 2026 style',
-        'version' => '1.0.1',
+        'version' => '1.0.2',
     'author' => 'RatePress',
     'category' => 'binary',
     'preview' => 'preview.png',
