@@ -1,0 +1,179 @@
+/**
+ * Vote Stack - 2026 Sexy Minimal Design
+ */
+
+:root {
+  /* Size System */
+  --rp-vote-size-sm: 32px;
+  --rp-vote-size-md: 40px;
+  --rp-vote-size-lg: 48px;
+  --rp-vote-gap: 4px;
+  
+  /* Colors - Light Theme */
+  --rp-vote-bg: rgba(0, 0, 0, 0.04);
+  --rp-vote-hover: rgba(0, 0, 0, 0.08);
+  --rp-vote-text: rgba(0, 0, 0, 0.6);
+  --rp-vote-score: rgba(0, 0, 0, 0.85);
+  
+  --rp-vote-up: #10b981;
+  --rp-vote-up-bg: rgba(16, 185, 129, 0.1);
+  --rp-vote-down: #ef4444;
+  --rp-vote-down-bg: rgba(239, 68, 68, 0.1);
+}
+
+/* Dark Theme */
+[data-theme="dark"] .rp-vote-stack,
+.dark .rp-vote-stack {
+  --rp-vote-bg: rgba(255, 255, 255, 0.06);
+  --rp-vote-hover: rgba(255, 255, 255, 0.12);
+  --rp-vote-text: rgba(255, 255, 255, 0.5);
+  --rp-vote-score: rgba(255, 255, 255, 0.9);
+  --rp-vote-up-bg: rgba(16, 185, 129, 0.15);
+  --rp-vote-down-bg: rgba(239, 68, 68, 0.15);
+}
+
+@media (prefers-color-scheme: dark) {
+  .rp-vote-stack {
+    --rp-vote-bg: rgba(255, 255, 255, 0.06);
+    --rp-vote-hover: rgba(255, 255, 255, 0.12);
+    --rp-vote-text: rgba(255, 255, 255, 0.5);
+    --rp-vote-score: rgba(255, 255, 255, 0.9);
+    --rp-vote-up-bg: rgba(16, 185, 129, 0.15);
+    --rp-vote-down-bg: rgba(239, 68, 68, 0.15);
+  }
+}
+
+.rp-vote-stack {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--rp-vote-gap);
+}
+
+.rp-vote-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--rp-vote-size-md);
+  height: var(--rp-vote-size-md);
+  padding: 0;
+  background: var(--rp-vote-bg);
+  border: none;
+  border-radius: 8px;
+  color: var(--rp-vote-text);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.rp-vote-btn svg {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.rp-vote-btn:hover {
+  background: var(--rp-vote-hover);
+  transform: scale(1.1);
+}
+
+.rp-vote-btn:active {
+  transform: scale(0.95);
+}
+
+/* Upvote */
+.rp-vote-up:hover {
+  background: var(--rp-vote-up-bg);
+  color: var(--rp-vote-up);
+}
+
+.rp-vote-up.active {
+  background: var(--rp-vote-up-bg);
+  color: var(--rp-vote-up);
+}
+
+.rp-vote-up.active svg {
+  animation: voteUpPop 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Downvote */
+.rp-vote-down:hover {
+  background: var(--rp-vote-down-bg);
+  color: var(--rp-vote-down);
+}
+
+.rp-vote-down.active {
+  background: var(--rp-vote-down-bg);
+  color: var(--rp-vote-down);
+}
+
+.rp-vote-down.active svg {
+  animation: voteDownPop 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Score */
+.rp-vote-score {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--rp-vote-size-md);
+  padding: 6px 8px;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--rp-vote-score);
+  transition: color 0.2s ease;
+}
+
+/* Animations */
+@keyframes voteUpPop {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+@keyframes voteDownPop {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(4px); }
+}
+
+/* Size Variations */
+.rp-vote-stack[data-size="small"] {
+  --rp-vote-size-md: var(--rp-vote-size-sm);
+  --rp-vote-gap: 2px;
+}
+
+.rp-vote-stack[data-size="small"] .rp-vote-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+.rp-vote-stack[data-size="small"] .rp-vote-score {
+  font-size: 15px;
+  padding: 4px 6px;
+}
+
+.rp-vote-stack[data-size="large"] {
+  --rp-vote-size-md: var(--rp-vote-size-lg);
+  --rp-vote-gap: 6px;
+}
+
+.rp-vote-stack[data-size="large"] .rp-vote-btn svg {
+  width: 28px;
+  height: 28px;
+}
+
+.rp-vote-stack[data-size="large"] .rp-vote-score {
+  font-size: 22px;
+  padding: 8px 10px;
+}
+
+/* Loading */
+.rp-vote-btn.loading {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* Focus */
+.rp-vote-btn:focus-visible {
+  outline: 2px solid var(--rp-vote-up);
+  outline-offset: 2px;
+}

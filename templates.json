@@ -1,22 +1,86 @@
 [
     {
-        "slug": "modern/heart",
-        "name": "Modern Heart",
-        "description": "Glassmorphism heart icon with animations for binary love ratings",
+        "slug": "modern/bookmark",
+        "name": "Modern Bookmark",
+        "description": "Clean bookmark button for saving content",
         "category": "binary",
-        "version": "1.0.4",
+        "version": "1.0.0",
         "author": "RatePress",
         "author_uri": "https://ratepress.com",
         "tags": [
-            "heart",
-            "love",
+            "bookmark",
+            "save",
             "binary",
-            "glassmorphism",
-            "modern",
-            "animated"
+            "minimal"
         ],
+        "preview_image": "https://raw.githubusercontent.com/novincode/ratepress-templates/main/templates/modern/bookmark/preview.png",
+        "download_url": "https://github.com/novincode/ratepress-templates/tree/main/templates/modern/bookmark",
+        "min_ratepress_version": "1.0.0",
+        "requires_core_js": true
+    },
+    {
+        "slug": "modern/heart",
+        "name": "Modern Heart",
+        "description": "Smooth animated heart - clean, modern, 2026 style",
+        "category": "binary",
+        "version": "1.0.0",
+        "author": "RatePress",
+        "author_uri": "",
+        "tags": [],
         "preview_image": "https://raw.githubusercontent.com/novincode/ratepress-templates/main/templates/modern/heart/preview.png",
         "download_url": "https://github.com/novincode/ratepress-templates/tree/main/templates/modern/heart",
+        "min_ratepress_version": "1.0.0",
+        "requires_core_js": false
+    },
+    {
+        "slug": "modern/like-dislike",
+        "name": "Modern Like/Dislike",
+        "description": "Clean like/dislike buttons with modern design - 2026 style",
+        "category": "bipolar",
+        "version": "1.0.0",
+        "author": "RatePress",
+        "author_uri": "",
+        "tags": [],
+        "preview_image": "https://raw.githubusercontent.com/novincode/ratepress-templates/main/templates/modern/like-dislike/preview.png",
+        "download_url": "https://github.com/novincode/ratepress-templates/tree/main/templates/modern/like-dislike",
+        "min_ratepress_version": "1.0.0",
+        "requires_core_js": false
+    },
+    {
+        "slug": "modern/stars",
+        "name": "Modern Stars",
+        "description": "Smooth 5-star rating with hover effects",
+        "category": "scale",
+        "version": "1.0.0",
+        "author": "RatePress",
+        "author_uri": "https://ratepress.com",
+        "tags": [
+            "stars",
+            "rating",
+            "scale",
+            "5-star"
+        ],
+        "preview_image": "https://raw.githubusercontent.com/novincode/ratepress-templates/main/templates/modern/stars/preview.png",
+        "download_url": "https://github.com/novincode/ratepress-templates/tree/main/templates/modern/stars",
+        "min_ratepress_version": "1.0.0",
+        "requires_core_js": true
+    },
+    {
+        "slug": "modern/vote-stack",
+        "name": "Vote Stack",
+        "description": "Clean vertical voting like Stack Overflow",
+        "category": "bipolar",
+        "version": "1.0.0",
+        "author": "RatePress",
+        "author_uri": "https://ratepress.com",
+        "tags": [
+            "vote",
+            "stackoverflow",
+            "bipolar",
+            "minimal"
+        ],
+        "preview_image": "https://raw.githubusercontent.com/novincode/ratepress-templates/main/templates/modern/vote-stack/preview.png",
+        "download_url": "https://github.com/novincode/ratepress-templates/tree/main/templates/modern/vote-stack",
         "min_ratepress_version": "1.0.0",
         "requires_core_js": true
     }

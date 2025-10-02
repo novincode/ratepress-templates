@@ -1,8 +1,4 @@
 <?php
-/**
- * Modern Heart Renderer
- */
-
 namespace RatePress\Templates;
 
 $data = $template_data ?? new TemplateData([]);
@@ -12,8 +8,8 @@ $user_has_rated = $data->user_has_rated ?? false;
 $object_id = $data->object_id ?? 0;
 $object_type = $data->object_type ?? 'post';
 
-$loves = $stats['positive'] ?? 0;
-$is_loved = $user_has_rated && $user_value > 0;
+$bookmarks = $stats['positive'] ?? 0;
+$is_bookmarked = $user_has_rated && $user_value > 0;
 
 $settings = $config['settings'] ?? [];
 $size = $data->size ?? 'medium';
@@ -22,27 +18,27 @@ $is_js_mode = $data->is_js_mode ?? false;
 $theme = $data->theme ?? 'light';
 
 if ($is_js_mode) {
-    $loves = 0;
-    $is_loved = false;
+    $bookmarks = 0;
+    $is_bookmarked = false;
 }
 ?>
 
-<div class="ratepress-widget ratepress-heart<?php echo $is_js_mode ? ' ratepress-js-mode' : ''; ?>"<?php echo $theme === 'dark' ? ' data-theme="dark"' : ''; ?>
+<div class="ratepress-widget ratepress-bookmark<?php echo $is_js_mode ? ' ratepress-js-mode' : ''; ?>"<?php echo $theme === 'dark' ? ' data-theme="dark"' : ''; ?>
      data-object-id="<?php echo esc_attr($object_id); ?>"
      data-object-type="<?php echo esc_attr($object_type); ?>"
      data-category="binary"
-     data-template="modern/heart"
+     data-template="modern/bookmark"
      data-size="<?php echo esc_attr($size); ?>">
      
-    <button class="heart-btn <?php echo $is_loved ? 'active' : ''; ?>" 
+    <button class="bookmark-btn <?php echo $is_bookmarked ? 'active' : ''; ?>" 
             type="button"
             data-value="1"
-            aria-label="<?php echo $is_loved ? __('Unlike', 'ratepress') : __('Love this', 'ratepress'); ?>">
+            aria-label="<?php echo $is_bookmarked ? __('Remove bookmark', 'ratepress') : __('Bookmark', 'ratepress'); ?>">
         <svg viewBox="0 0 24 24" fill="none">
-            <path class="heart-path" d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke="currentColor" stroke-width="2" fill="currentColor"/>
+            <path class="bookmark-path" d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" stroke="currentColor" stroke-width="2" fill="currentColor"/>
         </svg>
         <?php if ($show_counts): ?>
-            <span class="heart-count"><?php echo number_format($loves); ?></span>
+            <span class="bookmark-count"><?php echo number_format($bookmarks); ?></span>
         <?php endif; ?>
     </button>
 </div>

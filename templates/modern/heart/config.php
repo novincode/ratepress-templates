@@ -1,93 +1,45 @@
 <?php
 /**
  * Modern Heart Template Configuration
- *
- * A modern glassmorphism heart template for binary ratings
- * Uses clean binary logic: 0 (no rating) or 1 (love it)
+ * Clean animated heart for binary love ratings
  */
 
 return [
-    // Basic Information
     'slug' => 'modern/heart',
     'name' => 'Modern Heart',
-    'description' => 'Glassmorphism heart icon with animations for binary love ratings',
-    'category' => 'binary', // 'binary', 'bipolar', or 'scale'
-    'version' => '1.0.4',
-
-    // Author & Attribution
+    'description' => 'Smooth animated heart - clean, modern, 2026 style',
+    'version' => '1.0.0',
     'author' => 'RatePress',
-    'author_url' => 'https://ratepress.com',
-
-    // Discovery & Distribution
-    'tags' => [
-        'heart',
-        'love',
-        'binary',
-        'glassmorphism',
-        'modern',
-        'animated'
-    ],
-
-    // Version Requirements
-    'min_ratepress_version' => '1.0.0',
-
-    // Technical Requirements
-    'styles' => ['style.css'],
-    'scripts' => [], // Leave empty if using core JS
-    'requires_core_js' => true, // RatePress core JS handles all interactions
-
-    // Features & Capabilities
-    'supports' => [
-        'objects' => ['post', 'comment'], // Supported object types
-        'responsive' => true,             // Mobile-friendly design
-        'dark_mode' => true               // Supports dark mode
-    ],
-
-    // Demo & Preview Data
-    'demo_data' => [
-        'user_value' => 1,        // User loved it (1 = loved, 0 = not rated)
-        'user_has_rated' => true, // User has submitted a rating
-        'category_stats' => [
-            'positive' => 128     // Number of positive ratings
-        ]
-    ],
-
-    // Preview Settings
-    'preview_background' => '#000000', // Dark background for preview image
-    'preview_zoom' => 3, // 2x zoom for larger preview
-
-    // Customization Settings
+    'category' => 'binary',
+    'preview' => 'preview.png',
+    'preview_theme' => 'dark',
+    'preview_background' => '#0a0a0a',
+    'preview_zoom' => 2.5,
+    
     'settings' => [
-        'icon_size' => [
-            'type' => 'select',
-            'label' => 'Icon Size',
-            'description' => 'Choose the size of the heart icon',
-            'default' => 'medium',
-            'options' => [
-                'small' => 'Small (20px)',
-                'medium' => 'Medium (24px)',
-                'large' => 'Large (28px)'
-            ]
-        ],
-
         'show_counts' => [
-            'type' => 'boolean',
-            'label' => 'Show Rating Counts',
-            'description' => 'Display the number of ratings next to the heart',
+            'type' => 'checkbox',
+            'label' => 'Show love count',
             'default' => true
         ],
-
-        'color_scheme' => [
+        'size' => [
             'type' => 'select',
-            'label' => 'Color Scheme',
-            'description' => 'Choose the color theme for the heart',
-            'default' => 'red',
+            'label' => 'Heart size',
             'options' => [
-                'red' => 'Red (#e11d48)',
-                'pink' => 'Pink (#e91e63)',
-                'purple' => 'Purple (#9b59b6)'
-            ]
+                'small' => 'Small',
+                'medium' => 'Medium',
+                'large' => 'Large'
+            ],
+            'default' => 'medium'
+        ]
+    ],
+    
+    'customization' => [
+        'colors' => [
+            '--heart-primary' => '#ff4757',
+            '--heart-secondary' => '#ff3838',
+            '--heart-bg' => 'rgba(255, 255, 255, 0.08)',
+            '--heart-text' => 'rgba(255, 255, 255, 0.95)',
         ]
     ]
 ];
-# Updated

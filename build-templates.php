@@ -374,9 +374,13 @@ class TemplatesBuilder
         // Get zoom from config or use default 1
         $zoom = $config['preview_zoom'] ?? 1;
 
+        // Get preview theme from config or use default light
+        $previewTheme = $config['preview_theme'] ?? 'light';
+        $themeAttribute = $previewTheme === 'dark' ? ' data-theme="dark"' : '';
+
         // Create a simple HTML preview - just the component on colored background
         $html = '<!DOCTYPE html>
-<html lang="en">
+<html lang="en"' . $themeAttribute . '>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -433,6 +437,7 @@ class TemplatesBuilder
 
         // Create template data from config demo_data
         $demoData = $config['demo_data'] ?? [];
+        $demoData['theme'] = $config['preview_theme'] ?? 'light';
         $template_data = (object) $demoData;
 
         // Add additional required data
@@ -440,6 +445,7 @@ class TemplatesBuilder
         $template_data->object_type = 'post';
         $template_data->size = 'medium';
         $template_data->is_js_mode = false;
+        $template_data->theme = $config['preview_theme'] ?? 'light';
 
         // Extract settings defaults
         $settings = $config['settings'] ?? [];

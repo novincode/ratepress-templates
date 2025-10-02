@@ -1,261 +1,134 @@
 /**
- * Modern Heart Template Styles - 2025 Glassmorphism Design
- * 
- * Enhanced glassmorphism with love-centered interactions
- * Includes heartbeat animations and floating particles
+ * Modern Heart Styles - 2026 Sexy Design
  */
 
-.ratepress-modern-heart {
-    --heart-color: #e11d48;
-    --heart-hover: #be123c;
-    --heart-active: #9f1239;
-    --glass-bg: rgba(255, 255, 255, 0.05);
-    --glass-border: rgba(255, 255, 255, 0.1);
-    --glass-shadow: rgba(0, 0, 0, 0.1);
-    --text-color: rgba(0, 0, 0, 0.8);
-    --text-color-active: rgba(255, 255, 255, 0.9);
-    
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    position: relative;
+:root {
+    --heart-primary: #ef4444;
+    --heart-primary-rgb: 239, 68, 68;
+    --heart-size-sm: 20px;
+    --heart-size-md: 28px;
+    --heart-size-lg: 36px;
+    --heart-padding-sm: 12px 18px;
+    --heart-padding-md: 14px 24px;
+    --heart-padding-lg: 16px 28px;
+    --heart-font-sm: 14px;
+    --heart-font-md: 16px;
+    --heart-font-lg: 18px;
 }
 
-.ratepress-modern-heart .ratepress-heart-btn {
-    position: relative;
+.ratepress-heart {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    padding: 8px 16px;
-    border: 1.5px solid var(--glass-border);
-    border-radius: 24px;
-    background: var(--glass-bg);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    color: var(--text-color);
+}
+
+.heart-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: var(--heart-padding-md);
+    background: rgba(var(--heart-primary-rgb), 0.08);
+    border: 2px solid rgba(var(--heart-primary-rgb), 0.2);
+    border-radius: 16px;
+    color: rgba(var(--heart-primary-rgb), 0.9);
     cursor: pointer;
-    font-size: 14px;
-    font-weight: 500;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    overflow: hidden;
-    box-shadow: 0 4px 16px var(--glass-shadow);
+    font-size: var(--heart-font-md);
+    font-weight: 600;
+    overflow: visible;
 }
 
-.ratepress-modern-heart .ratepress-heart-btn::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
-    opacity: 0;
-    transition: opacity 0.3s;
+.heart-btn:hover {
+    background: rgba(var(--heart-primary-rgb), 0.15);
+    border-color: rgba(var(--heart-primary-rgb), 0.4);
+    transform: scale(1.05);
 }
 
-.ratepress-modern-heart .ratepress-heart-btn::after {
-    content: '';
-    position: absolute;
-    inset: -50%;
-    background: radial-gradient(circle, rgba(225, 29, 72, 0.2), transparent 70%);
-    opacity: 0;
-    transition: opacity 0.3s;
+.heart-btn:active {
+    transform: scale(0.95);
 }
 
-.ratepress-modern-heart .ratepress-heart-btn:hover::after {
-    opacity: 1;
-    animation: pulse 1.5s infinite;
+.heart-btn.active {
+    background: rgba(var(--heart-primary-rgb), 0.2);
+    border-color: var(--heart-primary);
+    color: var(--heart-primary);
 }
 
-.ratepress-modern-heart .ratepress-heart-btn:active::after {
-    opacity: 1;
+.heart-btn svg {
+    width: var(--heart-size-md);
+    height: var(--heart-size-md);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.ratepress-modern-heart .ratepress-heart-btn:hover {
-    transform: translateY(-2px) scale(1.02);
-    border-color: var(--heart-color);
-    box-shadow: 0 8px 24px rgba(225, 29, 72, 0.3);
-}
-
-.ratepress-modern-heart .ratepress-heart-btn:active {
-    transform: translateY(0) scale(0.98);
-}
-
-.ratepress-modern-heart .ratepress-heart-btn.active {
-    background: linear-gradient(135deg, var(--heart-color), var(--heart-active));
-    border-color: var(--heart-color);
-    color: var(--text-color-active);
-    box-shadow: 0 8px 32px rgba(225, 29, 72, 0.4);
-}
-
-.ratepress-modern-heart .ratepress-heart-btn.active:hover {
-    background: linear-gradient(135deg, var(--heart-hover), var(--heart-color));
-    transform: translateY(-2px) scale(1.05);
-    box-shadow: 0 12px 40px rgba(225, 29, 72, 0.5);
-}
-
-.ratepress-modern-heart .ratepress-heart-icon {
-    width: 24px;
-    height: 24px;
-    flex-shrink: 0;
-    position: relative;
-    z-index: 1;
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.ratepress-modern-heart .ratepress-heart-btn .heart-fill {
-    opacity: 0;
-    transform: scale(0.5);
-    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
-
-.ratepress-modern-heart .ratepress-heart-btn.active .heart-fill {
-    opacity: 1;
-    transform: scale(1);
-    animation: heartFill 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
-
-.ratepress-modern-heart .ratepress-heart-btn.active .heart-outline {
-    opacity: 0;
-}
-
-.ratepress-modern-heart .ratepress-heart-btn:hover .ratepress-heart-icon {
+.heart-btn:hover svg {
     transform: scale(1.1);
 }
 
-.ratepress-modern-heart .ratepress-heart-btn.active:hover .ratepress-heart-icon {
-    animation: heartbeat 0.8s ease-in-out infinite;
+.heart-path {
+    fill: none;
+    stroke-width: 2;
+    transition: all 0.3s ease;
 }
 
-.ratepress-modern-heart .ratepress-heart-count {
-    font-size: 14px;
-    font-weight: 600;
-    color: inherit;
-    position: relative;
-    z-index: 1;
-    min-width: 24px;
-    text-align: center;
+.heart-btn.active .heart-path {
+    fill: currentColor;
+    animation: heartBeat 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Size variants */
-.ratepress-modern-heart[data-size="small"] {
-    --icon-size: 20px;
+@keyframes heartBeat {
+    0%, 100% { transform: scale(1); }
+    25% { transform: scale(1.3); }
+    50% { transform: scale(0.9); }
+    75% { transform: scale(1.1); }
 }
 
-.ratepress-modern-heart[data-size="medium"] {
-    --icon-size: 24px;
+.heart-count {
+    font-weight: 700;
+    min-width: 30px;
 }
 
-.ratepress-modern-heart[data-size="large"] {
-    --icon-size: 28px;
+/* Sizes */
+.ratepress-heart[data-size="small"] .heart-btn {
+    padding: var(--heart-padding-sm);
+    font-size: var(--heart-font-sm);
+    gap: 8px;
 }
 
-.ratepress-modern-heart[data-size="small"] .ratepress-heart-btn {
-    padding: 6px 12px;
-    font-size: 12px;
-    border-radius: 20px;
+.ratepress-heart[data-size="small"] .heart-btn svg {
+    width: var(--heart-size-sm);
+    height: var(--heart-size-sm);
 }
 
-.ratepress-modern-heart[data-size="medium"] .ratepress-heart-btn {
-    padding: 8px 16px;
-    font-size: 14px;
-    border-radius: 24px;
+.ratepress-heart[data-size="large"] .heart-btn {
+    padding: var(--heart-padding-lg);
+    font-size: var(--heart-font-lg);
+    gap: 14px;
 }
 
-.ratepress-modern-heart[data-size="large"] .ratepress-heart-btn {
-    padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 28px;
+.ratepress-heart[data-size="large"] .heart-btn svg {
+    width: var(--heart-size-lg);
+    height: var(--heart-size-lg);
 }
 
-/* Loading state */
-.ratepress-modern-heart.loading {
+/* Dark Theme */
+[data-theme="dark"] .heart-btn,
+.dark .heart-btn {
+    background: rgba(var(--heart-primary-rgb), 0.12);
+    border-color: rgba(var(--heart-primary-rgb), 0.3);
+}
+
+[data-theme="dark"] .heart-btn:hover,
+.dark .heart-btn:hover {
+    background: rgba(var(--heart-primary-rgb), 0.2);
+}
+
+/* Loading */
+.heart-btn.loading {
     pointer-events: none;
-}
-
-.ratepress-modern-heart.loading .ratepress-heart-btn {
     opacity: 0.6;
 }
 
-.ratepress-modern-heart.loading .ratepress-heart-icon {
-    animation: spin 1s linear infinite;
-}
-
-/* Error state */
-.ratepress-modern-heart.error .ratepress-heart-btn {
-    border-color: #ef4444;
-    background: rgba(239, 68, 68, 0.1);
-    color: #ef4444;
-    animation: errorShake 0.5s;
-}
-
-/* Animations */
-@keyframes heartFill {
-    0% {
-        opacity: 0;
-        transform: scale(0.5);
-    }
-    50% {
-        opacity: 1;
-        transform: scale(1.2);
-    }
-    100% {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-@keyframes heartbeat {
-    0%, 100% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.15);
-    }
-}
-
-@keyframes pulse {
-    0%, 100% {
-        transform: scale(1);
-        opacity: 0.3;
-    }
-    50% {
-        transform: scale(1.5);
-        opacity: 0;
-    }
-}
-
-@keyframes errorShake {
-    0%, 100% { transform: translateX(0); }
-    25% { transform: translateX(-5px); }
-    75% { transform: translateX(5px); }
-}
-
-@keyframes spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-
-/* Focus accessibility */
-.ratepress-modern-heart .ratepress-heart-btn:focus-visible {
-    outline: 2px solid var(--heart-color);
-    outline-offset: 2px;
-}
-
-/* Mobile optimizations */
-@media (max-width: 768px) {
-    .ratepress-modern-heart .ratepress-heart-btn {
-        padding: 10px 18px;
-        min-height: 44px;
-        font-size: 15px;
-    }
-}
-
-/* Reduced motion */
-@media (prefers-reduced-motion: reduce) {
-    .ratepress-modern-heart .ratepress-heart-btn,
-    .ratepress-modern-heart .ratepress-heart-icon,
-    .ratepress-modern-heart .heart-fill {
-        animation: none !important;
-        transition-duration: 0.01ms !important;
-    }
+/* Accessibility */
+.heart-btn:focus-visible {
+    outline: 3px solid rgba(var(--heart-primary-rgb), 0.5);
+    outline-offset: 3px;
 }
