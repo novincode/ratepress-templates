@@ -101,15 +101,15 @@ The `templates.json` manifest is **automatically generated** from template `conf
 php build-templates.php
 ```
 
-**GitHub Actions will automatically:**
-- Build `templates.json` when config.php files change
-- Comment on pull requests when the manifest needs to be committed
-- Validate that templates are properly configured
+**GitHub Actions Setup:**
+1. Create a [Personal Access Token](https://github.com/settings/tokens) with `repo` permissions
+2. Add it as `TEMPLATES_BUILD_TOKEN` in repository Settings → Secrets and variables → Actions
+3. The workflow will automatically build and commit `templates.json` when config.php files change
 
-**When contributing:**
-1. Update your template's `config.php`
-2. Run `php build-templates.php` locally to test
-3. Commit both the `config.php` changes AND the updated `templates.json`
+**What the workflow does:**
+- Builds `templates.json` from all `config.php` files
+- Commits changes back to the repository automatically
+- Comments on PRs when manifests are updated
 
 ### render.php Structure
 
@@ -249,7 +249,7 @@ Before submitting, ensure:
 - [ ] JavaScript uses RatePress.submitRating() API
 - [ ] Tested in latest WordPress version
 - [ ] `tags` array included in config.php for search functionality
-- [ ] Run `php build-templates.php` and commit the updated `templates.json`
+- [ ] Repository has `TEMPLATES_BUILD_TOKEN` secret configured (one-time setup)
 
 ## 🎯 Design Guidelines
 
