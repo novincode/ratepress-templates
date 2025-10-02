@@ -37,39 +37,74 @@ namespace/template-name/
 ```php
 <?php
 return [
+    // Basic Information
     'slug' => 'namespace/template-name', // REQUIRED: Must match folder structure
     'name' => 'Your Template Name',
     'description' => 'A brief description of your template',
+    'category' => 'binary', // 'binary', 'bipolar', or 'scale'
     'version' => '1.0.0',
+
+    // Author & Attribution
     'author' => 'Your Name',
     'author_url' => 'https://yourwebsite.com',
-    'category' => 'binary', // 'binary', 'bipolar', or 'scale'
+
+    // Discovery & Distribution
+    'tags' => ['tag1', 'tag2', 'tag3'], // For search and filtering
+    'preview' => 'https://...', // Preview image URL
+    'download_url' => 'https://...', // Download URL
+
+    // Version Requirements
+    'min_ratepress_version' => '1.0.0',
+
+    // Technical Requirements
     'styles' => ['style.css'],
     'scripts' => [], // Leave empty if using core JS
     'requires_core_js' => true, // RatePress core JS handles interactions
+
+    // Features & Capabilities
     'supports' => [
-        'objects' => ['post', 'comment'],
-        'responsive' => true,
-        'dark_mode' => true
+        'objects' => ['post', 'comment'], // Supported object types
+        'responsive' => true,             // Mobile-friendly design
+        'dark_mode' => true               // Supports dark mode
     ],
-    'settings' => [
-        'icon_size' => [
-            'type' => 'select',
-            'default' => 'medium',
-            'options' => [
-                'small' => '20px',
-                'medium' => '24px',
-                'large' => '28px'
-            ]
-        ],
-        'show_counts' => [
-            'type' => 'boolean',
-            'default' => true
+
+    // Demo & Preview Data
+    'demo_data' => [
+        'user_value' => 1,        // Sample user rating value
+        'user_has_rated' => true, // Sample rating state
+        'category_stats' => [
+            'positive' => 128     // Sample rating counts
         ]
     ],
-    'min_ratepress_version' => '1.0.0'
+
+    // Customization Settings
+    'settings' => [
+        'setting_name' => [
+            'type' => 'select', // 'select', 'boolean', 'text', etc.
+            'label' => 'Display Label',
+            'description' => 'Help text for users',
+            'default' => 'default_value',
+            'options' => [ // For select types
+                'value' => 'Display Label'
+            ]
+        ]
+    ]
 ];
 ```
+
+### Automated Build Process
+
+The `templates.json` manifest is **automatically generated** from template `config.php` files. You never need to edit `templates.json` manually!
+
+**To regenerate templates.json locally:**
+```bash
+php build-templates.php
+```
+
+**GitHub Actions will automatically:**
+- Build `templates.json` when config.php files change
+- Commit the updated manifest back to the repository
+- Keep everything in sync
 
 ### render.php Structure
 
@@ -192,25 +227,7 @@ Create a `preview.png` file (800x600px recommended) showing your template in act
 
 ### Updating templates.json
 
-Add your template to the `templates.json` manifest:
-
-```json
-{
-    "slug": "your-template-slug",
-    "name": "Your Template Name",
-    "description": "Brief description",
-    "version": "1.0.0",
-    "author": "Your Name",
-    "author_uri": "https://yourwebsite.com",
-    "category": "scale",
-    "supports": ["ajax", "animation"],
-    "pro": false,
-    "preview_url": "https://raw.githubusercontent.com/novincode/ratepress-templates/main/templates/your-template-slug/preview.png",
-    "download_url": "https://github.com/novincode/ratepress-templates/archive/refs/heads/main/templates/your-template-slug.zip",
-    "min_ratepress_version": "1.0.0",
-    "tags": ["modern", "minimalist", "animated"]
-}
-```
+**No longer needed!** The `templates.json` file is automatically generated from `config.php` files via GitHub Actions. Simply update your template's `config.php` and the manifest will be updated automatically.
 
 ## ✅ Template Checklist
 
@@ -226,7 +243,7 @@ Before submitting, ensure:
 - [ ] Proper escaping of output (esc_attr, esc_html, etc.)
 - [ ] JavaScript uses RatePress.submitRating() API
 - [ ] Tested in latest WordPress version
-- [ ] templates.json updated with your template
+- [ ] `tags` array included in config.php for search functionality
 
 ## 🎯 Design Guidelines
 

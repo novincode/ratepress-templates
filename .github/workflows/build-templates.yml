@@ -1,0 +1,47 @@
+name: Build Templates Manifest
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'templates/**/config.php'
+      - 'build-templates.php'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'templates/**/config.php'
+      - 'build-templates.php'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.1'
+
+    - name: Build templates.json
+      run: php build-templates.php
+
+    - name: Check for changes
+      id: verify-changed-files
+      run: |
+        if [ -n "$(git status --porcelain)" ]; then
+          echo "changed=true" >> $GITHUB_OUTPUT
+        else
+          echo "changed=false" >> $GITHUB_OUTPUT
+        fi
+
+    - name: Commit changes
+      if: steps.verify-changed-files.outputs.changed == 'true' && github.event_name == 'push'
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add templates.json
+        git commit -m "🔄 Update templates.json [automated]" || echo "No changes to commit"
+        git push
