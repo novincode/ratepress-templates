@@ -11,7 +11,7 @@ return [
     'name' => 'Modern Heart',
     'description' => 'Glassmorphism heart icon with animations for binary love ratings',
     'category' => 'binary',
-    'version' => '1.0.0',
+    'version' => '1.0.1',
     'author' => 'RatePress',
     'author_url' => 'https://ratepress.com',
     'styles' => ['style.css'],

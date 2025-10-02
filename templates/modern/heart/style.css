@@ -12,6 +12,8 @@
     --glass-bg: rgba(255, 255, 255, 0.05);
     --glass-border: rgba(255, 255, 255, 0.1);
     --glass-shadow: rgba(0, 0, 0, 0.1);
+    --text-color: rgba(0, 0, 0, 0.8);
+    --text-color-active: rgba(255, 255, 255, 0.9);
     
     display: inline-flex;
     align-items: center;
@@ -31,7 +33,7 @@
     background: var(--glass-bg);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--text-color);
     cursor: pointer;
     font-size: 14px;
     font-weight: 500;
@@ -81,7 +83,7 @@
 .ratepress-modern-heart .ratepress-heart-btn.active {
     background: linear-gradient(135deg, var(--heart-color), var(--heart-active));
     border-color: var(--heart-color);
-    color: white;
+    color: var(--text-color-active);
     box-shadow: 0 8px 32px rgba(225, 29, 72, 0.4);
 }
 
