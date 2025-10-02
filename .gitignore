@@ -15,5 +15,7 @@ Thumbs.db
 node_modules/
 package-lock.json
 
-# Note: templates.json is now auto-generated and should be committed
+# Auto-generated files (handled by GitHub Actions)
+templates.json
+
 # Note: preview.png files should be committed
