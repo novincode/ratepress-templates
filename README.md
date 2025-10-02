@@ -4,22 +4,32 @@ Welcome to the RatePress Community Templates repository! This is a collection of
 
 ## 🎨 Available Templates
 
-Browse and install templates directly from your RatePress admin panel under **Settings → Templates**.
+Browse and install templates directly from your RatePress admin panel under **RatePress → Templates**.
+
+Current templates:
+- **modern/heart** - Glassmorphism heart icon with animations for binary love ratings
 
 ## 🚀 Creating a Template
+
+### Template Naming
+
+Templates use a slug-based naming system with namespaces:
+- `simple/heart` - Simple heart template
+- `modern/heart` - Modern glassmorphism heart  
+- `minimal/stars` - Minimal star rating
+- `your-namespace/template-name`
 
 ### Required Files
 
 Each template must be in its own folder with the following structure:
 
 ```
-your-template-slug/
+namespace/template-name/
 ├── config.php      # Template configuration (required)
 ├── render.php      # PHP render function (required)
 ├── style.css       # Stylesheet (required)
-├── script.js       # JavaScript (optional)
-├── preview.png     # Preview image 800x600px (recommended)
-└── readme.md       # Template documentation (optional)
+├── script.js       # JavaScript (leave empty if using core JS)
+└── preview.png     # Preview image 800x600px (optional)
 ```
 
 ### config.php Structure
@@ -27,85 +37,97 @@ your-template-slug/
 ```php
 <?php
 return [
-    'label' => 'Your Template Name',
+    'slug' => 'namespace/template-name', // REQUIRED: Must match folder structure
+    'name' => 'Your Template Name',
     'description' => 'A brief description of your template',
     'version' => '1.0.0',
     'author' => 'Your Name',
-    'author_uri' => 'https://yourwebsite.com',
-    'category' => 'scale', // 'binary', 'bipolar', or 'scale'
-    'supports' => ['ajax', 'animation'], // Optional features
-    'pro' => false, // true if requires RatePress Pro
+    'author_url' => 'https://yourwebsite.com',
+    'category' => 'binary', // 'binary', 'bipolar', or 'scale'
+    'styles' => ['style.css'],
+    'scripts' => [], // Leave empty if using core JS
+    'requires_core_js' => true, // RatePress core JS handles interactions
+    'supports' => [
+        'objects' => ['post', 'comment'],
+        'responsive' => true,
+        'dark_mode' => true
+    ],
+    'settings' => [
+        'icon_size' => [
+            'type' => 'select',
+            'default' => 'medium',
+            'options' => [
+                'small' => '20px',
+                'medium' => '24px',
+                'large' => '28px'
+            ]
+        ],
+        'show_counts' => [
+            'type' => 'boolean',
+            'default' => true
+        ]
+    ],
     'min_ratepress_version' => '1.0.0'
 ];
 ```
 
 ### render.php Structure
 
+Study the core templates in `core/templates/simple/` for real working examples.
+
 ```php
 <?php
-/**
- * Render callback for your template
- * 
- * @param array $data Template data
- *  - object_id: Post/object ID
- *  - object_type: 'post', 'comment', etc.
- *  - category: 'binary', 'bipolar', 'scale'
- *  - stats: Array of rating statistics
- *  - user_rating: Current user's rating (if any)
- *  - config: Template configuration
- */
-function render_your_template($data) {
-    $object_id = $data['object_id'];
-    $category = $data['category'];
-    $stats = $data['stats'][$category] ?? [];
-    $user_rating = $data['user_rating'];
-    
-    ?>
-    <div class="ratepress-template your-template-slug"
-         data-object-id="<?php echo esc_attr($object_id); ?>"
-         data-object-type="<?php echo esc_attr($data['object_type']); ?>"
-         data-category="<?php echo esc_attr($category); ?>">
-        
+namespace RatePress\Templates;
+
+// Get template data
+$data = $template_data ?? new TemplateData([]);
+$stats = $data->category_stats ?? [];
+$user_value = $data->user_value ?? 0;
+$user_has_rated = $data->user_has_rated ?? false;
+$object_id = $data->object_id ?? ($data->post_id ?? 0);
+$object_type = $data->object_type ?? 'post';
+
+// For binary: $is_active = $user_has_rated && $user_value > 0;
+// For bipolar: $user_liked = $user_value > 0; $user_disliked = $user_value < 0;
+// For scale: $display_average = $average * 5; (0.0-1.0 to 1-5 stars)
+?>
+
+<div class="ratepress-widget ratepress-your-template"
+     data-object-id="<?php echo esc_attr($object_id); ?>"
+     data-object-type="<?php echo esc_attr($object_type); ?>"
+     data-category="binary"
+     data-template="namespace/template-name"
+     role="group">
+     
+    <button class="ratepress-btn" 
+            type="button"
+            data-value="1"
+            aria-pressed="false">
         <!-- Your template HTML here -->
-        
-    </div>
-    <?php
-}
+    </button>
+</div>
 ```
 
 ### Data Attributes (Required)
 
-Your template's root element must include these data attributes for JavaScript interaction:
+Your template's root element must include these data attributes for RatePress core JS:
 
 - `data-object-id`: The post/object ID being rated
 - `data-object-type`: Type of object ('post', 'comment', etc.)
 - `data-category`: Rating category ('binary', 'bipolar', 'scale')
+- `data-template`: Template slug matching your folder structure
+- Buttons must have `data-value` attribute (1 for binary, 1/-1 for bipolar, 0.2-1.0 for scale)
 
-### JavaScript Integration
+### JavaScript
 
-Use the RatePress core JavaScript API for rating submission:
+**DO NOT write custom JavaScript** unless absolutely necessary. RatePress core JS automatically handles:
+- Click events on elements with `data-value` attributes
+- AJAX rating submission
+- Real-time count updates
+- Error handling
+- Loading states
 
-```javascript
-// Available in ratepress-core.js (automatically loaded)
-
-// Submit a rating
-RatePress.submitRating(objectId, objectType, category, value)
-    .then(response => {
-        // Handle success
-        console.log('Rating submitted:', response.data);
-    })
-    .catch(error => {
-        // Handle error
-        console.error('Rating failed:', error);
-    });
-
-// Get rating stats
-RatePress.getStats(objectId, objectType)
-    .then(response => {
-        // Handle stats
-        console.log('Stats:', response.data.stats);
-    });
-```
+Leave `script.js` empty or add only template-specific animations/effects.
 
 ### Rating Categories & Values
 

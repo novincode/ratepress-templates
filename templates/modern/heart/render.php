@@ -1,48 +1,74 @@
 <?php
 /**
- * Modern Heart Template Render
+ * Modern Heart Template Renderer - Binary Category
  */
 
-function render_modern_heart($data) {
-    $object_id = $data['object_id'];
-    $object_type = $data['object_type'];
-    $category = $data['category'];
-    $stats = $data['stats'][$category] ?? [];
-    $user_rating = $data['user_rating'];
-    
-    $total = $stats['total'] ?? 0;
-    $positive = $stats['positive'] ?? 0;
-    $is_active = $user_rating && (float)$user_rating['value'] === 1.0;
-    
-    ?>
-    <div class="ratepress-template modern-heart"
-         data-object-id="<?php echo esc_attr($object_id); ?>"
-         data-object-type="<?php echo esc_attr($object_type); ?>"
-         data-category="<?php echo esc_attr($category); ?>"
-         data-user-rating="<?php echo $is_active ? '1' : '0'; ?>">
-        
-        <button class="modern-heart__button <?php echo $is_active ? 'active' : ''; ?>"
-                type="button"
-                aria-label="<?php echo $is_active ? esc_attr__('Unlike', 'ratepress') : esc_attr__('Like', 'ratepress'); ?>"
-                aria-pressed="<?php echo $is_active ? 'true' : 'false'; ?>">
+namespace RatePress\Templates;
+
+// Get template data
+$data = $template_data ?? new TemplateData([]);
+$stats = $data->category_stats ?? [];
+$user_value = $data->user_value ?? 0;
+$user_has_rated = $data->user_has_rated ?? false;
+$object_id = $data->object_id ?? ($data->post_id ?? 0);
+$object_type = $data->object_type ?? 'post';
+
+// Calculate heart state
+$hearts_count = $stats['positive'] ?? 0;
+$is_loved = $user_has_rated && $user_value > 0;
+
+// Template settings
+$settings = $config['settings'] ?? [];
+$size = $data->size ?? 'medium';
+$show_counts = $data->show_counts ?? $settings['show_counts']['default'] ?? true;
+$is_js_mode = $data->is_js_mode ?? false;
+
+// In JS mode, show placeholders for better caching
+if ($is_js_mode) {
+    $hearts_count = 0; // Placeholder
+    $is_loved = false; // Placeholder
+}
+?>
+
+<div class="ratepress-widget ratepress-heart-widget ratepress-modern-heart<?php echo $is_js_mode ? ' ratepress-js-mode' : ''; ?>"
+     data-object-id="<?php echo esc_attr($object_id); ?>"
+     data-object-type="<?php echo esc_attr($object_type); ?>"
+     data-category="binary"
+     data-template="modern/heart"
+     data-size="<?php echo esc_attr($size); ?>"
+     role="group"
+     aria-label="<?php _e('Heart rating widget', 'ratepress'); ?>">
+     
+    <button class="ratepress-heart-btn <?php echo $is_loved ? 'active' : ''; ?>" 
+            type="button"
+            data-value="1"
+            aria-pressed="<?php echo $is_loved ? 'true' : 'false'; ?>"
+            aria-label="<?php echo $is_loved ? __('Remove love', 'ratepress') : __('Love this', 'ratepress'); ?>"
+            aria-describedby="heart-count-<?php echo esc_attr($object_id); ?>"
+            title="<?php echo $is_loved ? __('Remove love', 'ratepress') : __('Love this', 'ratepress'); ?>">
             
-            <svg class="modern-heart__icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-            </svg>
-            
-            <span class="modern-heart__particles">
-                <?php for ($i = 0; $i < 6; $i++): ?>
-                    <span class="particle particle-<?php echo $i + 1; ?>"></span>
-                <?php endfor; ?>
-            </span>
-        </button>
+        <svg class="ratepress-heart-icon" 
+             viewBox="0 0 24 24" 
+             fill="none" 
+             xmlns="http://www.w3.org/2000/svg"
+             aria-hidden="true">
+            <path class="heart-outline" 
+                  d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" 
+                  stroke="currentColor" 
+                  stroke-width="1.5" 
+                  stroke-linejoin="round"/>
+            <path class="heart-fill" 
+                  d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" 
+                  fill="currentColor"/>
+        </svg>
         
-        <?php if ($positive > 0): ?>
-            <span class="modern-heart__count" aria-label="<?php echo esc_attr(sprintf(__('%d likes', 'ratepress'), $positive)); ?>">
-                <?php echo number_format_i18n($positive); ?>
+        <?php if ($show_counts): ?>
+            <span class="ratepress-heart-count" 
+                  data-count="positive"
+                  id="heart-count-<?php echo esc_attr($object_id); ?>"
+                  aria-label="<?php printf(_n('%d person loves this', '%d people love this', $hearts_count, 'ratepress'), $hearts_count); ?>">
+                <?php echo number_format($hearts_count); ?>
             </span>
         <?php endif; ?>
-        
-    </div>
-    <?php
-}
+    </button>
+</div>

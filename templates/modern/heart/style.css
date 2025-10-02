@@ -1,219 +1,259 @@
 /**
- * Modern Heart Template Styles
- * Beautiful glassmorphism heart with smooth animations
+ * Modern Heart Template Styles - 2025 Glassmorphism Design
+ * 
+ * Enhanced glassmorphism with love-centered interactions
+ * Includes heartbeat animations and floating particles
  */
 
-.ratepress-template.modern-heart {
+.ratepress-modern-heart {
+    --heart-color: #e11d48;
+    --heart-hover: #be123c;
+    --heart-active: #9f1239;
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-shadow: rgba(0, 0, 0, 0.1);
+    
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-}
-
-/* Button Container */
-.modern-heart__button {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     position: relative;
-    display: flex;
+}
+
+.ratepress-modern-heart .ratepress-heart-btn {
+    position: relative;
+    display: inline-flex;
     align-items: center;
-    justify-content: center;
-    width: 48px;
-    height: 48px;
-    padding: 0;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
+    gap: 8px;
+    padding: 8px 16px;
+    border: 1.5px solid var(--glass-border);
+    border-radius: 24px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    color: rgba(255, 255, 255, 0.7);
     cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    overflow: visible;
+    overflow: hidden;
+    box-shadow: 0 4px 16px var(--glass-shadow);
 }
 
-.modern-heart__button:hover {
-    background: rgba(255, 255, 255, 0.15);
-    transform: scale(1.05);
-    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.2);
+.ratepress-modern-heart .ratepress-heart-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    opacity: 0;
+    transition: opacity 0.3s;
 }
 
-.modern-heart__button:active {
-    transform: scale(0.95);
+.ratepress-modern-heart .ratepress-heart-btn::after {
+    content: '';
+    position: absolute;
+    inset: -50%;
+    background: radial-gradient(circle, rgba(225, 29, 72, 0.2), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s;
 }
 
-.modern-heart__button:focus-visible {
-    outline: 2px solid #ef4444;
-    outline-offset: 2px;
+.ratepress-modern-heart .ratepress-heart-btn:hover::after {
+    opacity: 1;
+    animation: pulse 1.5s infinite;
 }
 
-/* Heart Icon */
-.modern-heart__icon {
+.ratepress-modern-heart .ratepress-heart-btn:active::after {
+    opacity: 1;
+}
+
+.ratepress-modern-heart .ratepress-heart-btn:hover {
+    transform: translateY(-2px) scale(1.02);
+    border-color: var(--heart-color);
+    box-shadow: 0 8px 24px rgba(225, 29, 72, 0.3);
+}
+
+.ratepress-modern-heart .ratepress-heart-btn:active {
+    transform: translateY(0) scale(0.98);
+}
+
+.ratepress-modern-heart .ratepress-heart-btn.active {
+    background: linear-gradient(135deg, var(--heart-color), var(--heart-active));
+    border-color: var(--heart-color);
+    color: white;
+    box-shadow: 0 8px 32px rgba(225, 29, 72, 0.4);
+}
+
+.ratepress-modern-heart .ratepress-heart-btn.active:hover {
+    background: linear-gradient(135deg, var(--heart-hover), var(--heart-color));
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 12px 40px rgba(225, 29, 72, 0.5);
+}
+
+.ratepress-modern-heart .ratepress-heart-icon {
     width: 24px;
     height: 24px;
-    fill: #94a3b8;
-    stroke: none;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    flex-shrink: 0;
     position: relative;
-    z-index: 2;
+    z-index: 1;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.modern-heart__button:hover .modern-heart__icon {
-    fill: #ef4444;
+.ratepress-modern-heart .ratepress-heart-btn .heart-fill {
+    opacity: 0;
+    transform: scale(0.5);
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
-/* Active State */
-.modern-heart__button.active {
-    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
-    border-color: #dc2626;
-    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+.ratepress-modern-heart .ratepress-heart-btn.active .heart-fill {
+    opacity: 1;
+    transform: scale(1);
+    animation: heartFill 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
-.modern-heart__button.active .modern-heart__icon {
-    fill: #ffffff;
-    animation: heartbeat 0.6s ease-in-out;
+.ratepress-modern-heart .ratepress-heart-btn.active .heart-outline {
+    opacity: 0;
 }
 
-/* Heartbeat Animation */
+.ratepress-modern-heart .ratepress-heart-btn:hover .ratepress-heart-icon {
+    transform: scale(1.1);
+}
+
+.ratepress-modern-heart .ratepress-heart-btn.active:hover .ratepress-heart-icon {
+    animation: heartbeat 0.8s ease-in-out infinite;
+}
+
+.ratepress-modern-heart .ratepress-heart-count {
+    font-size: 14px;
+    font-weight: 600;
+    color: inherit;
+    position: relative;
+    z-index: 1;
+    min-width: 24px;
+    text-align: center;
+}
+
+/* Size variants */
+.ratepress-modern-heart[data-size="small"] {
+    --icon-size: 20px;
+}
+
+.ratepress-modern-heart[data-size="medium"] {
+    --icon-size: 24px;
+}
+
+.ratepress-modern-heart[data-size="large"] {
+    --icon-size: 28px;
+}
+
+.ratepress-modern-heart[data-size="small"] .ratepress-heart-btn {
+    padding: 6px 12px;
+    font-size: 12px;
+    border-radius: 20px;
+}
+
+.ratepress-modern-heart[data-size="medium"] .ratepress-heart-btn {
+    padding: 8px 16px;
+    font-size: 14px;
+    border-radius: 24px;
+}
+
+.ratepress-modern-heart[data-size="large"] .ratepress-heart-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 28px;
+}
+
+/* Loading state */
+.ratepress-modern-heart.loading {
+    pointer-events: none;
+}
+
+.ratepress-modern-heart.loading .ratepress-heart-btn {
+    opacity: 0.6;
+}
+
+.ratepress-modern-heart.loading .ratepress-heart-icon {
+    animation: spin 1s linear infinite;
+}
+
+/* Error state */
+.ratepress-modern-heart.error .ratepress-heart-btn {
+    border-color: #ef4444;
+    background: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+    animation: errorShake 0.5s;
+}
+
+/* Animations */
+@keyframes heartFill {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
 @keyframes heartbeat {
     0%, 100% {
         transform: scale(1);
     }
-    10%, 30% {
-        transform: scale(0.9);
-    }
-    20%, 40%, 60%, 80% {
-        transform: scale(1.1);
-    }
-    50%, 70% {
-        transform: scale(1.05);
+    50% {
+        transform: scale(1.15);
     }
 }
 
-/* Particles */
-.modern-heart__particles {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    opacity: 0;
-}
-
-.modern-heart__button.active .modern-heart__particles {
-    opacity: 1;
-}
-
-.particle {
-    position: absolute;
-    width: 4px;
-    height: 4px;
-    background: #ef4444;
-    border-radius: 50%;
-    top: 50%;
-    left: 50%;
-    opacity: 0;
-}
-
-.modern-heart__button.active .particle {
-    animation: particle-burst 0.6s ease-out forwards;
-}
-
-/* Particle Burst Animation */
-@keyframes particle-burst {
-    0% {
-        transform: translate(-50%, -50%) scale(0);
-        opacity: 1;
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.3;
     }
-    100% {
-        transform: translate(var(--tx), var(--ty)) scale(0);
+    50% {
+        transform: scale(1.5);
         opacity: 0;
     }
 }
 
-/* Unique particle trajectories */
-.particle-1 { --tx: 0; --ty: -30px; animation-delay: 0s; }
-.particle-2 { --tx: 25px; --ty: -15px; animation-delay: 0.05s; }
-.particle-3 { --tx: 25px; --ty: 15px; animation-delay: 0.1s; }
-.particle-4 { --tx: 0; --ty: 30px; animation-delay: 0.15s; }
-.particle-5 { --tx: -25px; --ty: 15px; animation-delay: 0.2s; }
-.particle-6 { --tx: -25px; --ty: -15px; animation-delay: 0.25s; }
-
-/* Count Display */
-.modern-heart__count {
-    font-size: 14px;
-    font-weight: 600;
-    color: #64748b;
-    min-width: 20px;
-    text-align: left;
-    transition: color 0.3s ease;
+@keyframes errorShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
 }
 
-.modern-heart__button.active ~ .modern-heart__count {
-    color: #ef4444;
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
 
-/* Dark Mode Support */
-@media (prefers-color-scheme: dark) {
-    .modern-heart__button {
-        background: rgba(0, 0, 0, 0.2);
-        border-color: rgba(255, 255, 255, 0.1);
-    }
-
-    .modern-heart__button:hover {
-        background: rgba(0, 0, 0, 0.3);
-    }
-
-    .modern-heart__icon {
-        fill: #94a3b8;
-    }
-
-    .modern-heart__count {
-        color: #94a3b8;
-    }
-
-    .modern-heart__button.active ~ .modern-heart__count {
-        color: #f87171;
-    }
+/* Focus accessibility */
+.ratepress-modern-heart .ratepress-heart-btn:focus-visible {
+    outline: 2px solid var(--heart-color);
+    outline-offset: 2px;
 }
 
-/* Mobile Responsive */
+/* Mobile optimizations */
 @media (max-width: 768px) {
-    .modern-heart__button {
-        width: 44px;
-        height: 44px;
-    }
-
-    .modern-heart__icon {
-        width: 22px;
-        height: 22px;
-    }
-
-    .modern-heart__count {
-        font-size: 13px;
+    .ratepress-modern-heart .ratepress-heart-btn {
+        padding: 10px 18px;
+        min-height: 44px;
+        font-size: 15px;
     }
 }
 
-/* Reduced Motion */
+/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
-    .modern-heart__button,
-    .modern-heart__icon,
-    .modern-heart__count {
-        transition: none;
+    .ratepress-modern-heart .ratepress-heart-btn,
+    .ratepress-modern-heart .ratepress-heart-icon,
+    .ratepress-modern-heart .heart-fill {
+        animation: none !important;
+        transition-duration: 0.01ms !important;
     }
-
-    .modern-heart__button.active .modern-heart__icon {
-        animation: none;
-    }
-
-    .particle {
-        animation: none;
-    }
-}
-
-/* RTL Support */
-[dir="rtl"] .modern-heart {
-    flex-direction: row-reverse;
-}
-
-[dir="rtl"] .modern-heart__count {
-    text-align: right;
 }
