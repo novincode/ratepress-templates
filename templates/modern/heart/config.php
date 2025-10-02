@@ -54,7 +54,7 @@ return [
 
     // Preview Settings
     'preview_background' => '#000000', // Dark background for preview image
-    'preview_zoom' => 2, // 2x zoom for larger preview
+    'preview_zoom' => 3, // 2x zoom for larger preview
 
     // Customization Settings
     'settings' => [
