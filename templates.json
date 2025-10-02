@@ -1,0 +1,17 @@
+[
+    {
+        "slug": "modern-heart",
+        "name": "Modern Heart",
+        "description": "Animated heart button with smooth bounce effects and glassmorphism design",
+        "version": "1.0.0",
+        "author": "RatePress Team",
+        "author_uri": "https://ratepress.com",
+        "category": "binary",
+        "supports": ["ajax", "animation"],
+        "pro": false,
+        "preview_url": "https://raw.githubusercontent.com/novincode/ratepress-templates/main/templates/modern/heart/preview.png",
+        "download_url": "https://github.com/novincode/ratepress-templates/archive/refs/heads/main.tar.gz",
+        "min_ratepress_version": "1.0.0",
+        "tags": ["modern", "animated", "glassmorphism", "heart"]
+    }
+]
