@@ -103,8 +103,13 @@ php build-templates.php
 
 **GitHub Actions will automatically:**
 - Build `templates.json` when config.php files change
-- Commit the updated manifest back to the repository
-- Keep everything in sync
+- Comment on pull requests when the manifest needs to be committed
+- Validate that templates are properly configured
+
+**When contributing:**
+1. Update your template's `config.php`
+2. Run `php build-templates.php` locally to test
+3. Commit both the `config.php` changes AND the updated `templates.json`
 
 ### render.php Structure
 
@@ -244,6 +249,7 @@ Before submitting, ensure:
 - [ ] JavaScript uses RatePress.submitRating() API
 - [ ] Tested in latest WordPress version
 - [ ] `tags` array included in config.php for search functionality
+- [ ] Run `php build-templates.php` and commit the updated `templates.json`
 
 ## 🎯 Design Guidelines
 

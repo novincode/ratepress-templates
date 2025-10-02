@@ -37,11 +37,14 @@ jobs:
           echo "changed=false" >> $GITHUB_OUTPUT
         fi
 
-    - name: Commit changes
-      if: steps.verify-changed-files.outputs.changed == 'true' && github.event_name == 'push'
-      run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git add templates.json
-        git commit -m "🔄 Update templates.json [automated]" || echo "No changes to commit"
-        git push
+    - name: Comment on PR
+      if: steps.verify-changed-files.outputs.changed == 'true' && github.event_name == 'pull_request'
+      uses: actions/github-script@v7
+      with:
+        script: |
+          github.rest.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: '🤖 **Template Manifest Updated**\n\nThe `templates.json` has been automatically regenerated from the template `config.php` files. Please commit the updated manifest file.'
+          })
