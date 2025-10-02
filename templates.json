@@ -6,7 +6,7 @@
         "category": "binary",
         "version": "1.0.4",
         "author": "RatePress",
-        "author_url": "https://ratepress.com",
+        "author_uri": "https://ratepress.com",
         "tags": [
             "heart",
             "love",
@@ -15,8 +15,8 @@
             "modern",
             "animated"
         ],
-        "preview": "https://raw.githubusercontent.com/novincode/ratepress-templates/main/templates/modern/heart/preview.png",
-        "download_url": "https://github.com/novincode/ratepress-templates/archive/refs/heads/main.zip",
+        "preview_image": "https://raw.githubusercontent.com/novincode/ratepress-templates/main/templates/modern/heart/preview.png",
+        "download_url": "https://github.com/novincode/ratepress-templates/tree/main/templates/modern/heart",
         "min_ratepress_version": "1.0.0",
         "requires_core_js": true
     }

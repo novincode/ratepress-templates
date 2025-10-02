@@ -219,7 +219,11 @@ Leave `script.js` empty or add only template-specific animations/effects.
 
 ### Preview Image
 
-Create a `preview.png` file (800x600px recommended) showing your template in action. This will be displayed in the Templates marketplace.
+**Auto-generated!** The build script automatically creates preview images from your template's actual `render.php` and `style.css`.
+
+- Just add `preview_background` to your `config.php` to customize the background color
+- Or create a manual `preview.png` (640x400px) in your template folder
+- See [PREVIEW_GENERATION.md](PREVIEW_GENERATION.md) for details
 
 ## 📤 Contributing
 

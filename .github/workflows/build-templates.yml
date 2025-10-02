@@ -5,11 +5,13 @@ on:
     branches: [ main ]
     paths:
       - 'templates/**/config.php'
+      - 'templates/**/preview.png'
       - 'build-templates.php'
   pull_request:
     branches: [ main ]
     paths:
       - 'templates/**/config.php'
+      - 'templates/**/preview.png'
       - 'build-templates.php'
 
 jobs:
@@ -26,6 +28,25 @@ jobs:
       uses: shivammathur/setup-php@v2
       with:
         php-version: '8.1'
+
+    - name: Setup Node.js (only if needed)
+      id: check-previews
+      run: |
+        # Check if any templates are missing preview.png
+        missing_previews=0
+        for dir in templates/*/*; do
+          if [ -d "$dir" ] && [ ! -f "$dir/preview.png" ]; then
+            missing_previews=1
+            break
+          fi
+        done
+        echo "needs_node=$missing_previews" >> $GITHUB_OUTPUT
+
+    - name: Setup Node.js
+      if: steps.check-previews.outputs.needs_node == '1'
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
 
     - name: Build templates.json
       run: php build-templates.php
@@ -44,8 +65,8 @@ jobs:
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git add templates.json
-        git commit -m "🔄 Update templates.json [automated]" || echo "No changes to commit"
+        git add templates.json templates/**/preview.png
+        git commit -m "🔄 Update templates.json and previews [automated]" || echo "No changes to commit"
         git push
 
     - name: Comment on PR
@@ -57,5 +78,5 @@ jobs:
             issue_number: context.issue.number,
             owner: context.repo.owner,
             repo: context.repo.repo,
-            body: '🤖 **Template Manifest Updated**\n\nThe `templates.json` has been automatically regenerated from the template `config.php` files. The updated file is ready to be committed.'
+            body: '🤖 **Template Manifest Updated**\n\nThe `templates.json` has been automatically regenerated from the template `config.php` files. Preview images have been generated where needed. The updated files are ready to be committed.'
           })

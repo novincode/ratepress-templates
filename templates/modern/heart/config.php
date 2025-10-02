@@ -27,8 +27,6 @@ return [
         'modern',
         'animated'
     ],
-    'preview' => 'https://raw.githubusercontent.com/novincode/ratepress-templates/main/templates/modern/heart/preview.png',
-    'download_url' => 'https://github.com/novincode/ratepress-templates/archive/refs/heads/main.zip',
 
     // Version Requirements
     'min_ratepress_version' => '1.0.0',
@@ -53,6 +51,10 @@ return [
             'positive' => 128     // Number of positive ratings
         ]
     ],
+
+    // Preview Settings
+    'preview_background' => '#000000', // Dark background for preview image
+    'preview_zoom' => 2, // 2x zoom for larger preview
 
     // Customization Settings
     'settings' => [

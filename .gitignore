@@ -11,4 +11,9 @@
 # OS files
 Thumbs.db
 
+# Node.js dependencies (only needed for preview generation)
+node_modules/
+package-lock.json
+
 # Note: templates.json is now auto-generated and should be committed
+# Note: preview.png files should be committed

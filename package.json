@@ -1,0 +1,12 @@
+{
+  "name": "ratepress-templates-builder",
+  "version": "1.0.0",
+  "description": "Preview generator for RatePress templates",
+  "private": true,
+  "dependencies": {
+    "@playwright/test": "^1.55.1"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}
