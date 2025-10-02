@@ -14,8 +14,3 @@ Thumbs.db
 # Node.js dependencies (only needed for preview generation)
 node_modules/
 package-lock.json
-
-# Auto-generated files (handled by GitHub Actions)
-templates.json
-
-# Note: preview.png files should be committed
