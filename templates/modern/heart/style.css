@@ -109,7 +109,7 @@
     height: var(--heart-size-lg);
 }
 
-/* Dark Theme */
+/* Dark Theme - only when explicitly set */
 [data-theme="dark"] .heart-btn,
 .dark .heart-btn {
     background: rgba(var(--heart-primary-rgb), 0.12);

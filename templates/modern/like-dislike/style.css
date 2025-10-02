@@ -28,10 +28,9 @@
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 }
 
-/* Dark theme */
-.ratepress-likedislike[data-theme="dark"],
-.dark .ratepress-likedislike,
-[data-theme="dark"] .ratepress-likedislike {
+/* Dark theme - only when explicitly set */
+[data-theme="dark"] .ratepress-likedislike,
+.dark .ratepress-likedislike {
     --likedislike-bg: rgba(255, 255, 255, 0.08);
     --likedislike-bg-hover: rgba(255, 255, 255, 0.12);
     --likedislike-text: rgba(255, 255, 255, 0.95);

@@ -4,7 +4,7 @@ return [
     'name' => 'Modern Stars',
     'description' => 'Smooth 5-star rating with hover effects',
     'category' => 'scale',
-    'version' => '1.0.0',
+        'version' => '1.0.1',
     'author' => 'RatePress',
     'author_url' => 'https://ratepress.com',
     'tags' => ['stars', 'rating', 'scale', '5-star'],

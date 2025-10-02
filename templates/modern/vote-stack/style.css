@@ -32,17 +32,6 @@
   --rp-vote-down-bg: rgba(239, 68, 68, 0.15);
 }
 
-@media (prefers-color-scheme: dark) {
-  .rp-vote-stack {
-    --rp-vote-bg: rgba(255, 255, 255, 0.06);
-    --rp-vote-hover: rgba(255, 255, 255, 0.12);
-    --rp-vote-text: rgba(255, 255, 255, 0.5);
-    --rp-vote-score: rgba(255, 255, 255, 0.9);
-    --rp-vote-up-bg: rgba(16, 185, 129, 0.15);
-    --rp-vote-down-bg: rgba(239, 68, 68, 0.15);
-  }
-}
-
 .rp-vote-stack {
   display: inline-flex;
   flex-direction: column;

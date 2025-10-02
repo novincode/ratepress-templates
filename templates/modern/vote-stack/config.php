@@ -10,7 +10,7 @@ return [
     'name' => 'Vote Stack',
     'description' => 'Clean vertical voting like Stack Overflow',
     'category' => 'bipolar',
-    'version' => '1.0.0',
+        'version' => '1.0.1',
     'author' => 'RatePress',
     'author_url' => 'https://ratepress.com',
     'tags' => ['vote', 'stackoverflow', 'bipolar', 'minimal'],

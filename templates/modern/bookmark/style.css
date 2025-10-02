@@ -92,6 +92,7 @@
     height: var(--bookmark-size-lg);
 }
 
+/* Dark theme - only when explicitly set */
 [data-theme="dark"] .bookmark-btn,
 .dark .bookmark-btn {
     background: rgba(var(--bookmark-primary-rgb), 0.12);
