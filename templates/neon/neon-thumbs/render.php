@@ -53,6 +53,7 @@ if ($is_js_mode) {
         </svg>
         <?php if ($show_counts): ?>
             <span class="thumbs-count" 
+                  data-count="positive"
                   id="thumbs-count-<?php echo esc_attr($object_id); ?>">
                 <?php echo htmlspecialchars($likes); ?>
             </span>

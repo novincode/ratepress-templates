@@ -51,6 +51,7 @@ if ($is_js_mode) {
         </svg>
         <?php if ($show_counts): ?>
             <span class="heart-count" 
+                  data-count="positive"
                   id="heart-count-<?php echo esc_attr($object_id); ?>">
                 <?php echo htmlspecialchars($loves); ?>
             </span>

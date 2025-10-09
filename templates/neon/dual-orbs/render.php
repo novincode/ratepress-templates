@@ -56,6 +56,7 @@ if ($is_js_mode) {
         </svg>
         <?php if ($show_counts): ?>
             <span class="orb-count" 
+                  data-count="positive"
                   id="orb-up-count-<?php echo esc_attr($object_id); ?>">
                 <?php echo htmlspecialchars($ups); ?>
             </span>
@@ -78,6 +79,7 @@ if ($is_js_mode) {
         </svg>
         <?php if ($show_counts): ?>
             <span class="orb-count" 
+                  data-count="negative"
                   id="orb-down-count-<?php echo esc_attr($object_id); ?>">
                 <?php echo htmlspecialchars($downs); ?>
             </span>

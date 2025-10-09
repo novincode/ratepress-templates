@@ -13,7 +13,8 @@ $object_id = $data->object_id ?? 0;
 $object_type = $data->object_type ?? 'post';
 
 $average = $stats['average'] ?? 0;
-$count = $stats['count'] ?? 0;
+$total = $stats['total'] ?? 0;
+$display_average = $average * 10; // For 1-10 scale
 $user_rating = $user_has_rated ? round($user_value * 10) : 0; // Convert to 1-10 scale
 
 $settings = $config['settings'] ?? [];
@@ -24,7 +25,8 @@ $theme = $data->theme ?? 'light';
 
 if ($is_js_mode) {
     $average = 0;
-    $count = 0;
+    $total = 0;
+    $display_average = 0;
     $user_rating = 0;
 }
 ?>
@@ -35,15 +37,22 @@ if ($is_js_mode) {
      data-category="scale"
      data-template="neon/neon-dots-10"
      data-size="<?php echo esc_attr($size); ?>"
+     data-user-rating="<?php echo esc_attr($user_value); ?>"
      role="group"
      aria-label="<?php _e('Neon Dots 10 rating widget'); ?>">
      
-    <div class="dots-10-input">
-        <?php for ($i = 1; $i <= 10; $i++): ?>
-            <button class="dot-10-btn <?php echo $user_rating >= $i ? 'active' : ''; ?>" 
+        <div class="dots-10-input" 
+             role="radiogroup" 
+             aria-label="<?php _e('Rate from 1 to 10 dots'); ?>"
+             aria-describedby="stars-info-<?php echo esc_attr($object_id); ?>">
+        <?php for ($i = 1; $i <= 10; $i++): 
+            $value = $i / 10;
+            $isSelected = $user_has_rated && ($user_value * 10) >= $i;
+        ?>
+            <button class="dot-10-btn <?php echo $isSelected ? 'active' : ''; ?>" 
                     type="button"
-                    data-value="<?php echo $i / 10; ?>"
-                    aria-pressed="<?php echo $user_rating >= $i ? 'true' : 'false'; ?>"
+                    data-value="<?php echo esc_attr($value); ?>"
+                    aria-pressed="<?php echo $isSelected ? 'true' : 'false'; ?>"
                     aria-label="<?php echo sprintf(__('Rate %d dot%s'), $i, $i > 1 ? 's' : ''); ?>"
                     title="<?php echo sprintf(__('Rate %d dot%s'), $i, $i > 1 ? 's' : ''); ?>">
             </button>
@@ -51,9 +60,9 @@ if ($is_js_mode) {
     </div>
     
     <?php if ($show_average): ?>
-        <div class="stars-info">
-            <span class="stars-average"><?php echo number_format($average, 1); ?></span>
-            <span class="stars-count">(<?php echo htmlspecialchars($count); ?> ratings)</span>
+        <div class="stars-info" id="stars-info-<?php echo esc_attr($object_id); ?>">
+            <span class="stars-average"><?php echo number_format($display_average, 1); ?></span>
+            <span class="stars-count">(<?php echo htmlspecialchars($total); ?> ratings)</span>
         </div>
     <?php endif; ?>
 </div>

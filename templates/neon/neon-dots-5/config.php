@@ -23,8 +23,8 @@ return [
         'user_value' => 0.6, // 3 dots
         'user_has_rated' => true,
         'category_stats' => [
-            'average' => 3.8,
-            'count' => 92
+            'average' => 0.76,
+            'total' => 92
         ]
     ],
     'preview' => 'preview.png',

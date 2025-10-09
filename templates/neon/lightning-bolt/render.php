@@ -52,6 +52,7 @@ if ($is_js_mode) {
         </svg>
         <?php if ($show_counts): ?>
             <span class="lightning-count" 
+                  data-count="positive"
                   id="lightning-count-<?php echo esc_attr($object_id); ?>">
                 <?php echo htmlspecialchars($energized); ?>
             </span>

@@ -13,7 +13,8 @@ $object_id = $data->object_id ?? 0;
 $object_type = $data->object_type ?? 'post';
 
 $average = $stats['average'] ?? 0;
-$count = $stats['count'] ?? 0;
+$total = $stats['total'] ?? 0;
+$display_average = $average * 10; // For 0-10 scale
 $user_rating = $user_has_rated ? $user_value * 10 : 7.5; // Default to 7.5
 
 $settings = $config['settings'] ?? [];
@@ -26,7 +27,8 @@ $theme = $data->theme ?? 'light';
 
 if ($is_js_mode) {
     $average = 0;
-    $count = 0;
+    $total = 0;
+    $display_average = 0;
     $user_rating = 7.5;
 }
 ?>
@@ -36,6 +38,8 @@ if ($is_js_mode) {
      data-object-type="<?php echo esc_attr($object_type); ?>"
      data-category="scale"
      data-template="neon/neon-range"
+     data-size="<?php echo esc_attr($size); ?>"
+     data-user-rating="<?php echo esc_attr($user_value); ?>"
      role="group"
      aria-label="<?php _e('Neon Range rating widget'); ?>">
      

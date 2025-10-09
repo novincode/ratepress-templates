@@ -6,6 +6,8 @@
  * Run with: php build-templates.php
  */
 
+require_once 'version-bumper.php';
+
 class TemplatesBuilder
 {
     private $templatesDir;
@@ -19,7 +21,15 @@ class TemplatesBuilder
 
     public function build()
     {
-        echo "🔍 Scanning templates directory...\n";
+        echo "� Running version bumper...\n";
+        $bumper = new VersionBumper($this->templatesDir);
+        if ($bumper->isGitRepository()) {
+            $bumper->bumpVersions();
+        } else {
+            echo "⚠️  Not a git repository, skipping version bumping\n";
+        }
+
+        echo "�🔍 Scanning templates directory...\n";
 
         $templates = [];
         $templateDirs = glob($this->templatesDir . '/*/*', GLOB_ONLYDIR);
