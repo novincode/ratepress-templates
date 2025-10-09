@@ -1,7 +1,4 @@
-<?php
-/**
- * Neon Thumbs Renderer
- */
+// Test change for version bumping
 
 namespace RatePress\Templates;
 

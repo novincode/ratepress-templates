@@ -8,7 +8,7 @@ return [
     'slug' => 'neon/neon-thumbs',
     'name' => 'Neon Thumbs',
     'description' => 'Futuristic glowing thumbs up - simple like with glow',
-    'version' => '1.0.0',
+    'version' => '1.0.2',
     'author' => 'RatePress',
     'category' => 'binary',
     'styles' => ['style.css'],

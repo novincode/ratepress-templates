@@ -22,6 +22,10 @@ class VersionBumper
     {
         echo "🔄 Checking for template changes to bump versions...\n";
 
+        // Find the last commit that changed versions
+        $lastVersionCommit = $this->getLastVersionCommit();
+        $compareCommit = $lastVersionCommit ?: 'HEAD~1';
+
         $templateDirs = glob($this->templatesDir . '/*/*', GLOB_ONLYDIR);
         $bumpedCount = 0;
 
@@ -32,36 +36,78 @@ class VersionBumper
                 continue;
             }
 
-            $slug = basename(dirname($templateDir)) . '/' . basename($templateDir);
+            $templateSlug = basename(dirname($templateDir)) . '/' . basename($templateDir);
 
-            // Check if template files have changes
-            $changedFiles = $this->getChangedFiles($templateDir);
+            // Check if template files have changes since last version bump
+            $changedFiles = $this->getChangedFilesSinceCommit($templateDir, $compareCommit);
 
             if (empty($changedFiles)) {
-                echo "⏭️  No changes in {$slug}\n";
+                echo "⏭️  No changes in {$templateSlug} since last version bump\n";
                 continue;
             }
 
-            // Determine change type
             $changeType = $this->determineChangeType($changedFiles);
 
-            // Bump version
-            $newVersion = $this->bumpVersion($configFile, $changeType);
-
-            if ($newVersion) {
-                echo "⬆️  Bumped {$slug} to {$newVersion} ({$changeType} change)\n";
+            if ($this->bumpVersion($configFile, $changeType)) {
+                $newVersion = $this->getVersionFromConfig($configFile);
+                echo "⬆️  Bumped {$templateSlug} to {$newVersion} ({$changeType} change)\n";
                 $bumpedCount++;
             }
         }
 
-        echo "\n✅ Bumped versions for {$bumpedCount} template(s)\n";
-        return $bumpedCount;
+        if ($bumpedCount > 0) {
+            echo "\n✅ Bumped versions for {$bumpedCount} template(s)\n";
+            return $bumpedCount;
+        } else {
+            echo "\n✅ No version bumps needed\n";
+            return 0;
+        }
     }
 
     /**
-     * Get list of changed files in a template directory
+     * Get the last commit that changed version numbers
      */
-    private function getChangedFiles($templateDir)
+    private function getLastVersionCommit()
+    {
+        // Find commits that changed config.php files
+        $output = [];
+        exec('git log --oneline --follow -- templates/*/config.php | head -20', $output);
+
+        foreach ($output as $line) {
+            if (preg_match('/^([a-f0-9]+)\s+(.+)$/', $line, $matches)) {
+                $commit = $matches[1];
+                $message = $matches[2];
+
+                // Skip automated commits and version bumper commits
+                if (strpos($message, 'automated') !== false ||
+                    strpos($message, 'version bumper') !== false ||
+                    strpos($message, 'Version bumper') !== false) {
+                    continue;
+                }
+
+                // Check if this commit actually changed version numbers
+                $versionChanged = false;
+                exec("git show {$commit} -- templates/*/config.php | grep -A2 -B2 \"'version'\"", $versionGrep);
+                if (!empty($versionGrep)) {
+                    $versionChanged = true;
+                }
+
+                if ($versionChanged) {
+                    echo "📅 Last version change commit: " . substr($commit, 0, 7) . " - {$message}\n";
+                    return $commit;
+                }
+            }
+        }
+
+        // Fallback: use the first commit if no version changes found
+        echo "📅 No previous version changes found, using initial commit\n";
+        return '';
+    }
+
+    /**
+     * Get changed files in a template directory since a specific commit
+     */
+    private function getChangedFilesSinceCommit($templateDir, $sinceCommit)
     {
         $changedFiles = [];
 
@@ -75,17 +121,51 @@ class VersionBumper
                 continue;
             }
 
-            // Use git diff to check if file has changes
-            $output = [];
-            $returnCode = 0;
-            exec("git diff HEAD -- \"{$filePath}\"", $output, $returnCode);
+            // Check if file was modified since the commit OR has uncommitted changes
+            $committedChanged = false;
+            $uncommittedChanged = false;
 
-            if ($returnCode === 0 && !empty($output)) {
-                $changedFiles[$file] = $output;
+            // Check committed changes
+            $output = [];
+            exec("git diff --name-only {$sinceCommit}..HEAD -- \"{$filePath}\"", $output);
+            if (!empty($output)) {
+                $committedChanged = true;
+            }
+
+            // Check uncommitted changes
+            $output = [];
+            exec("git diff HEAD -- \"{$filePath}\"", $output);
+            if (!empty($output)) {
+                $uncommittedChanged = true;
+            }
+
+            if ($committedChanged || $uncommittedChanged) {
+                // Get the actual diff for this file
+                $diffOutput = [];
+                if ($committedChanged) {
+                    exec("git diff {$sinceCommit}..HEAD -- \"{$filePath}\" | grep '^[+-]' | grep -v '^+++' | grep -v '^---' | head -100", $diffOutput);
+                }
+                if ($uncommittedChanged) {
+                    $uncommittedDiff = [];
+                    exec("git diff HEAD -- \"{$filePath}\" | grep '^[+-]' | grep -v '^+++' | grep -v '^---' | head -100", $uncommittedDiff);
+                    $diffOutput = array_merge($diffOutput, $uncommittedDiff);
+                }
+                if (!empty($diffOutput)) {
+                    $changedFiles[$file] = $diffOutput;
+                }
             }
         }
 
         return $changedFiles;
+    }
+
+    /**
+     * Get version from config file
+     */
+    private function getVersionFromConfig($configFile)
+    {
+        $config = include $configFile;
+        return $config['version'] ?? '0.0.0';
     }
 
     /**

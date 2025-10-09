@@ -21,15 +21,21 @@ class TemplatesBuilder
 
     public function build()
     {
-        echo "� Running version bumper...\n";
+        echo "🔄 Running version bumper...\n";
         $bumper = new VersionBumper($this->templatesDir);
         if ($bumper->isGitRepository()) {
-            $bumper->bumpVersions();
+            $bumpedCount = $bumper->bumpVersions();
+            if ($bumpedCount > 0) {
+                // Commit version changes
+                echo "💾 Committing version changes...\n";
+                exec("git add templates/*/config.php");
+                exec("git commit -m \"Bump template versions based on recent changes\"");
+            }
         } else {
             echo "⚠️  Not a git repository, skipping version bumping\n";
         }
 
-        echo "�🔍 Scanning templates directory...\n";
+        echo "🔍 Scanning templates directory...\n";
 
         $templates = [];
         $templateDirs = glob($this->templatesDir . '/*/*', GLOB_ONLYDIR);
@@ -137,62 +143,6 @@ class TemplatesBuilder
             return 'https://via.placeholder.com/320x200/6366f1/ffffff?text=' . urlencode($config['name']);
         }
 
-        // Check if pnpm is available, if not try to install it
-        $pnpmAvailable = shell_exec('which pnpm') !== null;
-        if (!$pnpmAvailable) {
-            echo "📦 pnpm not found, attempting to install...\n";
-            // Try to install pnpm globally using npm
-            $installPnpmCmd = "npm install -g pnpm --silent 2>&1";
-            exec($installPnpmCmd, $installPnpmOutput, $installPnpmCode);
-            
-            if ($installPnpmCode !== 0) {
-                echo "⚠️  Failed to install pnpm via npm, trying alternative method...\n";
-                // Try alternative installation method (curl)
-                $altInstallCmd = "curl -fsSL https://get.pnpm.io/install.sh | sh - 2>&1";
-                exec($altInstallCmd, $altInstallOutput, $altInstallCode);
-                
-                if ($altInstallCode !== 0) {
-                    echo "⚠️  Failed to install pnpm, falling back to npm for Puppeteer installation\n";
-                    $useNpmFallback = true;
-                } else {
-                    // Reload PATH to include newly installed pnpm
-                    $newPath = shell_exec('source ~/.bashrc 2>/dev/null; source ~/.zshrc 2>/dev/null; echo $PATH');
-                    if ($newPath) {
-                        putenv("PATH=$newPath");
-                    }
-                    $pnpmAvailable = shell_exec('which pnpm') !== null;
-                }
-            } else {
-                $pnpmAvailable = shell_exec('which pnpm') !== null;
-            }
-        }
-
-        // Check if Playwright is installed, if not install it
-        $playwrightPath = __DIR__ . '/node_modules/@playwright';
-        if (!file_exists($playwrightPath)) {
-            echo "📦 Installing Playwright (one-time setup)...\n";
-            $packageManager = $pnpmAvailable ? 'pnpm' : 'npm';
-            $installCmd = "cd " . escapeshellarg(__DIR__) . " && $packageManager install --silent 2>&1";
-            exec($installCmd, $installOutput, $installCode);
-            
-            if ($installCode !== 0 || !file_exists($playwrightPath)) {
-                echo "⚠️  Failed to install Playwright, skipping preview generation\n";
-                unlink($tempHtml);
-                return 'https://via.placeholder.com/320x200/6366f1/ffffff?text=' . urlencode($config['name']);
-            }
-
-            // Install Playwright browsers
-            echo "📦 Installing Playwright browsers...\n";
-            $installBrowsersCmd = "cd " . escapeshellarg(__DIR__) . " && npx playwright install chromium --silent 2>&1";
-            exec($installBrowsersCmd, $browsersOutput, $browsersCode);
-            
-            if ($browsersCode !== 0) {
-                echo "⚠️  Failed to install Playwright browsers, skipping preview generation\n";
-                unlink($tempHtml);
-                return 'https://via.placeholder.com/320x200/6366f1/ffffff?text=' . urlencode($config['name']);
-            }
-        }
-
         // Run Node.js script to generate preview
         $nodeScript = __DIR__ . '/generate-preview.js';
         $command = "node \"$nodeScript\" \"$tempHtml\" \"$previewPath\" 2>&1";
@@ -209,161 +159,6 @@ class TemplatesBuilder
             echo "❌ Failed to generate preview: " . implode("\n", $output) . "\n";
             return 'https://via.placeholder.com/320x200/6366f1/ffffff?text=' . urlencode($config['name']);
         }
-    }
-
-    private function createPreviewImage($templateDir, $config, $outputPath)
-    {
-        // Check if GD library is available
-        if (!extension_loaded('gd')) {
-            echo "⚠️  GD library not available, skipping image generation\n";
-            return false;
-        }
-
-        // Create image
-        $width = 640;
-        $height = 400;
-        $image = imagecreatetruecolor($width, $height);
-
-        // Enable alpha blending
-        imagealphablending($image, true);
-        imagesavealpha($image, true);
-
-        // Create gradient background (purple to blue)
-        for ($y = 0; $y < $height; $y++) {
-            $ratio = $y / $height;
-            $r = (int)(102 + (118 - 102) * $ratio);
-            $g = (int)(126 + (74 - 126) * $ratio);
-            $b = (int)(234 + (162 - 234) * $ratio);
-            $color = imagecolorallocate($image, $r, $g, $b);
-            imagefilledrectangle($image, 0, $y, $width, $y + 1, $color);
-        }
-
-        // Create semi-transparent white card
-        $cardX = 120;
-        $cardY = 80;
-        $cardWidth = 400;
-        $cardHeight = 240;
-        
-        // Draw card shadow
-        $shadowColor = imagecolorallocatealpha($image, 0, 0, 0, 90);
-        imagefilledrectangle($image, $cardX + 5, $cardY + 5, $cardX + $cardWidth + 5, $cardY + $cardHeight + 5, $shadowColor);
-        
-        // Draw card background
-        $cardBg = imagecolorallocatealpha($image, 255, 255, 255, 10);
-        imagefilledrectangle($image, $cardX, $cardY, $cardX + $cardWidth, $cardY + $cardHeight, $cardBg);
-
-        // Add template name
-        $textColor = imagecolorallocate($image, 31, 41, 55);
-        $name = $this->wrapText($config['name'], 30);
-        $this->imageTextCenter($image, $name, $width / 2, 120, $textColor, 5);
-
-        // Add description
-        $descColor = imagecolorallocate($image, 107, 114, 128);
-        $desc = $this->wrapText($config['description'], 40);
-        $this->imageTextCenter($image, $desc, $width / 2, 160, $descColor, 3);
-
-        // Add category badge
-        $badgeColor = imagecolorallocate($image, 99, 102, 241);
-        $badgeText = strtoupper($config['category']);
-        $this->imageTextCenter($image, $badgeText, $width / 2, 220, $badgeColor, 4);
-
-        // Add template icon based on category
-        $this->drawTemplateIcon($image, $config['category'], $width / 2, 270);
-
-        // Add version at bottom
-        $versionText = 'v' . $config['version'];
-        $versionColor = imagecolorallocate($image, 156, 163, 175);
-        $this->imageTextCenter($image, $versionText, $width / 2, 340, $versionColor, 2);
-
-        // Save image
-        $result = imagepng($image, $outputPath, 9);
-        imagedestroy($image);
-
-        return $result;
-    }
-
-    private function drawTemplateIcon($image, $category, $x, $y)
-    {
-        $color = imagecolorallocate($image, 99, 102, 241);
-        
-        switch ($category) {
-            case 'binary':
-                // Draw heart
-                $this->drawHeart($image, $x, $y, 30, $color);
-                break;
-            case 'bipolar':
-                // Draw thumbs up/down
-                $this->drawThumbsUpDown($image, $x, $y, 30, $color);
-                break;
-            case 'scale':
-            default:
-                // Draw stars
-                $this->drawStars($image, $x, $y, 20, $color);
-                break;
-        }
-    }
-
-    private function drawHeart($image, $x, $y, $size, $color)
-    {
-        // Simple heart shape using circles and triangle
-        imagefilledellipse($image, $x - $size/3, $y - $size/4, $size/2, $size/2, $color);
-        imagefilledellipse($image, $x + $size/3, $y - $size/4, $size/2, $size/2, $color);
-        
-        $points = [
-            $x - $size/2, $y - $size/6,
-            $x, $y + $size/2,
-            $x + $size/2, $y - $size/6
-        ];
-        imagefilledpolygon($image, $points, 3, $color);
-    }
-
-    private function drawStars($image, $x, $y, $size, $color)
-    {
-        // Draw 5 small stars
-        for ($i = 0; $i < 5; $i++) {
-            $starX = $x - 50 + ($i * 25);
-            $this->drawStar($image, $starX, $y, $size/2, $color);
-        }
-    }
-
-    private function drawStar($image, $x, $y, $size, $color)
-    {
-        $points = [];
-        for ($i = 0; $i < 10; $i++) {
-            $angle = ($i * 36 - 90) * M_PI / 180;
-            $r = ($i % 2 == 0) ? $size : $size / 2;
-            $points[] = $x + $r * cos($angle);
-            $points[] = $y + $r * sin($angle);
-        }
-        imagefilledpolygon($image, $points, 5, $color);
-    }
-
-    private function drawThumbsUpDown($image, $x, $y, $size, $color)
-    {
-        // Draw simple thumbs up
-        imagefilledrectangle($image, $x - 15, $y - 10, $x - 5, $y + 20, $color);
-        imagefilledrectangle($image, $x - 20, $y - 20, $x, $y - 10, $color);
-        
-        // Draw thumbs down
-        imagefilledrectangle($image, $x + 5, $y - 10, $x + 15, $y + 20, $color);
-        imagefilledrectangle($image, $x, $y + 10, $x + 20, $y + 20, $color);
-    }
-
-    private function wrapText($text, $maxLength)
-    {
-        if (strlen($text) <= $maxLength) {
-            return $text;
-        }
-        return substr($text, 0, $maxLength - 3) . '...';
-    }
-
-    private function imageTextCenter($image, $text, $x, $y, $color, $fontSize)
-    {
-        // Calculate text width (rough estimation)
-        $textWidth = strlen($text) * $fontSize * 1.5;
-        $startX = $x - ($textWidth / 2);
-        
-        imagestring($image, $fontSize, (int)$startX, $y, $text, $color);
     }
 
     private function createPreviewHtml($templateDir, $config)
@@ -401,7 +196,7 @@ class TemplatesBuilder
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             margin: 0;
             padding: 0;
@@ -557,4 +352,3 @@ $outputFile = $argc > 2 ? $argv[2] : 'templates.json';
 
 $builder = new TemplatesBuilder($templatesDir, $outputFile);
 $builder->build();
-?>

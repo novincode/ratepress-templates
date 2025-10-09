@@ -8,7 +8,7 @@ return [
     'slug' => 'neon/neon-heart',
     'name' => 'Neon Heart',
     'description' => 'Futuristic glowing heart - love it with a glowing heart',
-    'version' => '1.0.0',
+    'version' => '1.0.1',
     'author' => 'RatePress',
     'category' => 'binary',
     'styles' => ['style.css'],

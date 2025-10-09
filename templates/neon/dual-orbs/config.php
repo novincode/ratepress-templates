@@ -8,7 +8,7 @@ return [
     'slug' => 'neon/dual-orbs',
     'name' => 'Neon Dual Orbs',
     'description' => 'Futuristic glowing dual orbs - up or down energy',
-    'version' => '1.0.0',
+    'version' => '1.0.1',
     'author' => 'RatePress',
     'category' => 'bipolar',
     'styles' => ['style.css'],
