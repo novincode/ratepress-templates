@@ -1,0 +1,144 @@
+/**
+ * Neon Pulse Dots 5 Styles
+ */
+
+:root {
+    --dots-5-primary: #00f5ff;
+    --dots-5-primary-rgb: 0, 245, 255;
+    --dots-5-size-sm: 32px;
+    --dots-5-size-md: 40px;
+    --dots-5-size-lg: 48px;
+}
+
+.ratepress-neon-dots-5 {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.dots-5-input {
+    display: flex;
+    gap: 10px;
+    padding: 12px 16px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 2px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+}
+
+.dot-5-btn {
+    width: var(--dots-5-size-md);
+    height: var(--dots-5-size-md);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(var(--dots-5-primary-rgb), 0.2);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.dot-5-btn::after {
+    content: '';
+    position: absolute;
+    inset: 4px;
+    border-radius: 50%;
+    background: var(--dots-5-primary);
+    opacity: 0;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px rgba(var(--dots-5-primary-rgb), 0.6);
+}
+
+.dot-5-btn:hover {
+    transform: scale(1.15);
+    border-color: rgba(var(--dots-5-primary-rgb), 0.5);
+}
+
+.dot-5-btn.active {
+    border-color: var(--dots-5-primary);
+    box-shadow: 0 0 20px rgba(var(--dots-5-primary-rgb), 0.5);
+}
+
+.dot-5-btn.active::after {
+    opacity: 1;
+    animation: dot-pulse 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes dot-pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.4); }
+}
+
+.stars-info {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.stars-average {
+    font-size: 28px;
+    font-weight: 800;
+    background: linear-gradient(135deg, #00f5ff 0%, #a855f7 50%, #f472b6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.stars-count {
+    font-size: 14px;
+    font-weight: 600;
+    opacity: 0.6;
+}
+
+/* Sizes */
+.ratepress-neon-dots-5[data-size="small"] .dot-5-btn {
+    width: var(--dots-5-size-sm);
+    height: var(--dots-5-size-sm);
+}
+
+.ratepress-neon-dots-5[data-size="large"] .dot-5-btn {
+    width: var(--dots-5-size-lg);
+    height: var(--dots-5-size-lg);
+}
+
+/* Dark Theme - only when explicitly set */
+[data-theme="dark"] .dots-5-input,
+.dark .dots-5-input {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.12);
+}
+
+/* Loading */
+.dot-5-btn.loading {
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+/* Accessibility */
+.dot-5-btn:focus-visible {
+    outline: 3px solid rgba(var(--dots-5-primary-rgb), 0.6);
+    outline-offset: 4px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .dots-5-input {
+        gap: 8px;
+        padding: 10px 12px;
+    }
+    
+    .ratepress-neon-dots-5[data-size="large"] .dot-5-btn {
+        width: var(--dots-5-size-md);
+        height: var(--dots-5-size-md);
+    }
+    
+    .stars-info {
+        gap: 12px;
+        font-size: 14px;
+    }
+    
+    .stars-average {
+        font-size: 24px;
+    }
+}

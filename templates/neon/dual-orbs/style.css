@@ -1,0 +1,174 @@
+/**
+ * Neon Pulse Dual Orbs Styles
+ */
+
+:root {
+    --orb-up-primary: #a855f7;
+    --orb-up-primary-rgb: 168, 85, 247;
+    --orb-down-primary: #f472b6;
+    --orb-down-primary-rgb: 244, 114, 182;
+    --orb-size-sm: 18px;
+    --orb-size-md: 20px;
+    --orb-size-lg: 24px;
+    --orb-padding-sm: 12px 24px;
+    --orb-padding-md: 14px 28px;
+    --orb-padding-lg: 16px 32px;
+    --orb-font-sm: 14px;
+    --orb-font-md: 16px;
+    --orb-font-lg: 18px;
+}
+
+.ratepress-dual-orbs {
+    display: inline-flex;
+    gap: 8px;
+}
+
+.orb-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: var(--orb-padding-md);
+    background: rgba(255, 255, 255, 0.03);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 14px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    font-size: var(--orb-font-md);
+    font-weight: 700;
+}
+
+.orb-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, currentColor 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.orb-btn:hover::before {
+    opacity: 0.15;
+}
+
+.orb-up {
+    color: rgba(var(--orb-up-primary-rgb), 0.9);
+    border-color: rgba(var(--orb-up-primary-rgb), 0.2);
+}
+
+.orb-up:hover {
+    background: rgba(var(--orb-up-primary-rgb), 0.1);
+    border-color: rgba(var(--orb-up-primary-rgb), 0.5);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(var(--orb-up-primary-rgb), 0.3);
+}
+
+.orb-up.active {
+    background: rgba(var(--orb-up-primary-rgb), 0.2);
+    border-color: var(--orb-up-primary);
+    color: var(--orb-up-primary);
+    box-shadow: 0 0 30px rgba(var(--orb-up-primary-rgb), 0.5),
+                inset 0 0 20px rgba(var(--orb-up-primary-rgb), 0.1);
+}
+
+.orb-down {
+    color: rgba(var(--orb-down-primary-rgb), 0.9);
+    border-color: rgba(var(--orb-down-primary-rgb), 0.2);
+}
+
+.orb-down:hover {
+    background: rgba(var(--orb-down-primary-rgb), 0.1);
+    border-color: rgba(var(--orb-down-primary-rgb), 0.5);
+    transform: translateY(3px);
+    box-shadow: 0 8px 30px rgba(var(--orb-down-primary-rgb), 0.3);
+}
+
+.orb-down.active {
+    background: rgba(var(--orb-down-primary-rgb), 0.2);
+    border-color: var(--orb-down-primary);
+    color: var(--orb-down-primary);
+    box-shadow: 0 0 30px rgba(var(--orb-down-primary-rgb), 0.5),
+                inset 0 0 20px rgba(var(--orb-down-primary-rgb), 0.1);
+}
+
+.orb-icon {
+    width: var(--orb-size-md);
+    height: var(--orb-size-md);
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    filter: drop-shadow(0 0 6px currentColor);
+}
+
+.orb-btn:hover .orb-icon {
+    transform: scale(1.2);
+}
+
+.orb-btn.active .orb-icon {
+    animation: orb-pulse 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes orb-pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.5); }
+}
+
+.orb-count {
+    font-weight: 800;
+    min-width: 32px;
+    text-align: center;
+}
+
+/* Sizes */
+.ratepress-dual-orbs[data-size="small"] .orb-btn {
+    padding: var(--orb-padding-sm);
+    font-size: var(--orb-font-sm);
+    gap: 8px;
+}
+
+.ratepress-dual-orbs[data-size="small"] .orb-btn .orb-icon {
+    width: var(--orb-size-sm);
+    height: var(--orb-size-sm);
+}
+
+.ratepress-dual-orbs[data-size="large"] .orb-btn {
+    padding: var(--orb-padding-lg);
+    font-size: var(--orb-font-lg);
+    gap: 14px;
+}
+
+.ratepress-dual-orbs[data-size="large"] .orb-btn .orb-icon {
+    width: var(--orb-size-lg);
+    height: var(--orb-size-lg);
+}
+
+/* Dark Theme - only when explicitly set */
+[data-theme="dark"] .orb-btn,
+.dark .orb-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Loading */
+.orb-btn.loading {
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+/* Accessibility */
+.orb-btn:focus-visible {
+    outline: 3px solid rgba(0, 245, 255, 0.6);
+    outline-offset: 4px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .ratepress-dual-orbs {
+        gap: 4px;
+    }
+    
+    .ratepress-dual-orbs[data-size="large"] .orb-btn {
+        padding: var(--orb-padding-md);
+        font-size: var(--orb-font-md);
+    }
+}

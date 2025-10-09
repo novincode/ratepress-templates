@@ -1,0 +1,157 @@
+/**
+ * Neon Pulse Lightning Bolt Styles
+ */
+
+:root {
+    --lightning-primary: #00f5ff;
+    --lightning-primary-rgb: 0, 245, 255;
+    --lightning-size-sm: 20px;
+    --lightning-size-md: 24px;
+    --lightning-size-lg: 28px;
+    --lightning-padding-sm: 12px 18px;
+    --lightning-padding-md: 16px 32px;
+    --lightning-padding-lg: 18px 36px;
+    --lightning-font-sm: 14px;
+    --lightning-font-md: 18px;
+    --lightning-font-lg: 20px;
+}
+
+.ratepress-lightning-bolt {
+    display: inline-flex;
+    position: relative;
+}
+
+.lightning-btn {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: var(--lightning-padding-md);
+    background: rgba(var(--lightning-primary-rgb), 0.05);
+    border: 2px solid rgba(var(--lightning-primary-rgb), 0.2);
+    border-radius: 16px;
+    color: rgba(var(--lightning-primary-rgb), 0.9);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: var(--lightning-font-md);
+    font-weight: 700;
+    position: relative;
+    overflow: hidden;
+}
+
+.lightning-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(var(--lightning-primary-rgb), 0.3) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lightning-btn:hover::before {
+    opacity: 1;
+}
+
+.lightning-btn:hover {
+    background: rgba(var(--lightning-primary-rgb), 0.1);
+    border-color: rgba(var(--lightning-primary-rgb), 0.5);
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(var(--lightning-primary-rgb), 0.3),
+                0 0 60px rgba(var(--lightning-primary-rgb), 0.1);
+}
+
+.lightning-btn:active {
+    transform: scale(0.97);
+}
+
+.lightning-btn.active {
+    background: rgba(var(--lightning-primary-rgb), 0.15);
+    border-color: var(--lightning-primary);
+    color: var(--lightning-primary);
+    box-shadow: 0 0 40px rgba(var(--lightning-primary-rgb), 0.4),
+                0 0 80px rgba(var(--lightning-primary-rgb), 0.2),
+                inset 0 0 20px rgba(var(--lightning-primary-rgb), 0.1);
+}
+
+.lightning-icon {
+    width: var(--lightning-size-md);
+    height: var(--lightning-size-md);
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    filter: drop-shadow(0 0 8px currentColor);
+}
+
+.lightning-btn:hover .lightning-icon {
+    transform: scale(1.15) rotate(-5deg);
+}
+
+.lightning-btn.active .lightning-icon {
+    animation: lightning-strike 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes lightning-strike {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    25% { transform: scale(1.4) rotate(-10deg); }
+    50% { transform: scale(0.9) rotate(5deg); }
+    75% { transform: scale(1.2) rotate(-5deg); }
+}
+
+.lightning-count {
+    font-weight: 800;
+    min-width: 40px;
+    text-align: center;
+    letter-spacing: -0.02em;
+}
+
+/* Sizes */
+.ratepress-lightning-bolt[data-size="small"] .lightning-btn {
+    padding: var(--lightning-padding-sm);
+    font-size: var(--lightning-font-sm);
+    gap: 10px;
+}
+
+.ratepress-lightning-bolt[data-size="small"] .lightning-btn .lightning-icon {
+    width: var(--lightning-size-sm);
+    height: var(--lightning-size-sm);
+}
+
+.ratepress-lightning-bolt[data-size="large"] .lightning-btn {
+    padding: var(--lightning-padding-lg);
+    font-size: var(--lightning-font-lg);
+    gap: 16px;
+}
+
+.ratepress-lightning-bolt[data-size="large"] .lightning-btn .lightning-icon {
+    width: var(--lightning-size-lg);
+    height: var(--lightning-size-lg);
+}
+
+/* Dark Theme - only when explicitly set */
+[data-theme="dark"] .lightning-btn,
+.dark .lightning-btn {
+    background: rgba(var(--lightning-primary-rgb), 0.12);
+    border-color: rgba(var(--lightning-primary-rgb), 0.3);
+}
+
+[data-theme="dark"] .lightning-btn:hover,
+.dark .lightning-btn:hover {
+    background: rgba(var(--lightning-primary-rgb), 0.2);
+}
+
+/* Loading */
+.lightning-btn.loading {
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+/* Accessibility */
+.lightning-btn:focus-visible {
+    outline: 3px solid rgba(var(--lightning-primary-rgb), 0.6);
+    outline-offset: 3px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .ratepress-lightning-bolt[data-size="large"] .lightning-btn {
+        padding: var(--lightning-padding-md);
+        font-size: var(--lightning-font-md);
+    }
+}

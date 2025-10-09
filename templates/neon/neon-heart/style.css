@@ -1,0 +1,149 @@
+/**
+ * Neon Pulse Heart Styles
+ */
+
+:root {
+    --heart-primary: #ef4444;
+    --heart-primary-rgb: 239, 68, 68;
+    --heart-size-sm: 20px;
+    --heart-size-md: 24px;
+    --heart-size-lg: 28px;
+    --heart-padding-sm: 12px 18px;
+    --heart-padding-md: 16px 32px;
+    --heart-padding-lg: 18px 36px;
+    --heart-font-sm: 14px;
+    --heart-font-md: 18px;
+    --heart-font-lg: 20px;
+}
+
+.ratepress-neon-heart {
+    display: inline-flex;
+}
+
+.heart-btn {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: var(--heart-padding-md);
+    background: rgba(var(--heart-primary-rgb), 0.05);
+    border: 2px solid rgba(var(--heart-primary-rgb), 0.2);
+    border-radius: 16px;
+    color: rgba(var(--heart-primary-rgb), 0.9);
+    cursor: pointer;
+    font-size: var(--heart-font-md);
+    font-weight: 700;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.heart-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(var(--heart-primary-rgb), 0.3) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.heart-btn:hover::before {
+    opacity: 1;
+}
+
+.heart-btn:hover {
+    background: rgba(var(--heart-primary-rgb), 0.1);
+    border-color: rgba(var(--heart-primary-rgb), 0.5);
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(var(--heart-primary-rgb), 0.3);
+}
+
+.heart-btn.active {
+    background: rgba(var(--heart-primary-rgb), 0.15);
+    border-color: var(--heart-primary);
+    color: var(--heart-primary);
+    box-shadow: 0 0 40px rgba(var(--heart-primary-rgb), 0.5),
+                inset 0 0 20px rgba(var(--heart-primary-rgb), 0.1);
+}
+
+.heart-icon {
+    width: var(--heart-size-md);
+    height: var(--heart-size-md);
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    filter: drop-shadow(0 0 8px currentColor);
+}
+
+.heart-btn:hover .heart-icon {
+    transform: scale(1.15);
+}
+
+.heart-btn.active .heart-icon {
+    animation: heart-beat 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes heart-beat {
+    0%, 100% { transform: scale(1); }
+    25% { transform: scale(1.4); }
+    50% { transform: scale(0.9); }
+    75% { transform: scale(1.2); }
+}
+
+.heart-count {
+    font-weight: 800;
+    min-width: 40px;
+    text-align: center;
+}
+
+/* Sizes */
+.ratepress-neon-heart[data-size="small"] .heart-btn {
+    padding: var(--heart-padding-sm);
+    font-size: var(--heart-font-sm);
+    gap: 10px;
+}
+
+.ratepress-neon-heart[data-size="small"] .heart-btn .heart-icon {
+    width: var(--heart-size-sm);
+    height: var(--heart-size-sm);
+}
+
+.ratepress-neon-heart[data-size="large"] .heart-btn {
+    padding: var(--heart-padding-lg);
+    font-size: var(--heart-font-lg);
+    gap: 16px;
+}
+
+.ratepress-neon-heart[data-size="large"] .heart-btn .heart-icon {
+    width: var(--heart-size-lg);
+    height: var(--heart-size-lg);
+}
+
+/* Dark Theme - only when explicitly set */
+[data-theme="dark"] .heart-btn,
+.dark .heart-btn {
+    background: rgba(var(--heart-primary-rgb), 0.12);
+    border-color: rgba(var(--heart-primary-rgb), 0.3);
+}
+
+[data-theme="dark"] .heart-btn:hover,
+.dark .heart-btn:hover {
+    background: rgba(var(--heart-primary-rgb), 0.2);
+}
+
+/* Loading */
+.heart-btn.loading {
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+/* Accessibility */
+.heart-btn:focus-visible {
+    outline: 3px solid rgba(var(--heart-primary-rgb), 0.6);
+    outline-offset: 3px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .ratepress-neon-heart[data-size="large"] .heart-btn {
+        padding: var(--heart-padding-md);
+        font-size: var(--heart-font-md);
+    }
+}

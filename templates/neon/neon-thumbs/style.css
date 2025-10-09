@@ -1,0 +1,149 @@
+/**
+ * Neon Pulse Thumbs Styles
+ */
+
+:root {
+    --thumbs-primary: #22c55e;
+    --thumbs-primary-rgb: 34, 197, 94;
+    --thumbs-size-sm: 20px;
+    --thumbs-size-md: 24px;
+    --thumbs-size-lg: 28px;
+    --thumbs-padding-sm: 12px 18px;
+    --thumbs-padding-md: 16px 32px;
+    --thumbs-padding-lg: 18px 36px;
+    --thumbs-font-sm: 14px;
+    --thumbs-font-md: 18px;
+    --thumbs-font-lg: 20px;
+}
+
+.ratepress-neon-thumbs {
+    display: inline-flex;
+}
+
+.thumbs-btn {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: var(--thumbs-padding-md);
+    background: rgba(var(--thumbs-primary-rgb), 0.05);
+    border: 2px solid rgba(var(--thumbs-primary-rgb), 0.2);
+    border-radius: 16px;
+    color: rgba(var(--thumbs-primary-rgb), 0.9);
+    cursor: pointer;
+    font-size: var(--thumbs-font-md);
+    font-weight: 700;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.thumbs-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(var(--thumbs-primary-rgb), 0.3) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.thumbs-btn:hover::before {
+    opacity: 1;
+}
+
+.thumbs-btn:hover {
+    background: rgba(var(--thumbs-primary-rgb), 0.1);
+    border-color: rgba(var(--thumbs-primary-rgb), 0.5);
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(var(--thumbs-primary-rgb), 0.3);
+}
+
+.thumbs-btn.active {
+    background: rgba(var(--thumbs-primary-rgb), 0.15);
+    border-color: var(--thumbs-primary);
+    color: var(--thumbs-primary);
+    box-shadow: 0 0 40px rgba(var(--thumbs-primary-rgb), 0.5),
+                inset 0 0 20px rgba(var(--thumbs-primary-rgb), 0.1);
+}
+
+.thumbs-icon {
+    width: var(--thumbs-size-md);
+    height: var(--thumbs-size-md);
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    filter: drop-shadow(0 0 8px currentColor);
+}
+
+.thumbs-btn:hover .thumbs-icon {
+    transform: scale(1.15) rotate(10deg);
+}
+
+.thumbs-btn.active .thumbs-icon {
+    animation: thumbs-bounce 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes thumbs-bounce {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    25% { transform: scale(1.4) rotate(15deg); }
+    50% { transform: scale(0.9) rotate(-5deg); }
+    75% { transform: scale(1.2) rotate(10deg); }
+}
+
+.thumbs-count {
+    font-weight: 800;
+    min-width: 40px;
+    text-align: center;
+}
+
+/* Sizes */
+.ratepress-neon-thumbs[data-size="small"] .thumbs-btn {
+    padding: var(--thumbs-padding-sm);
+    font-size: var(--thumbs-font-sm);
+    gap: 10px;
+}
+
+.ratepress-neon-thumbs[data-size="small"] .thumbs-btn .thumbs-icon {
+    width: var(--thumbs-size-sm);
+    height: var(--thumbs-size-sm);
+}
+
+.ratepress-neon-thumbs[data-size="large"] .thumbs-btn {
+    padding: var(--thumbs-padding-lg);
+    font-size: var(--thumbs-font-lg);
+    gap: 16px;
+}
+
+.ratepress-neon-thumbs[data-size="large"] .thumbs-btn .thumbs-icon {
+    width: var(--thumbs-size-lg);
+    height: var(--thumbs-size-lg);
+}
+
+/* Dark Theme - only when explicitly set */
+[data-theme="dark"] .thumbs-btn,
+.dark .thumbs-btn {
+    background: rgba(var(--thumbs-primary-rgb), 0.12);
+    border-color: rgba(var(--thumbs-primary-rgb), 0.3);
+}
+
+[data-theme="dark"] .thumbs-btn:hover,
+.dark .thumbs-btn:hover {
+    background: rgba(var(--thumbs-primary-rgb), 0.2);
+}
+
+/* Loading */
+.thumbs-btn.loading {
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+/* Accessibility */
+.thumbs-btn:focus-visible {
+    outline: 3px solid rgba(var(--thumbs-primary-rgb), 0.6);
+    outline-offset: 3px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .ratepress-neon-thumbs[data-size="large"] .thumbs-btn {
+        padding: var(--thumbs-padding-md);
+        font-size: var(--thumbs-font-md);
+    }
+}
