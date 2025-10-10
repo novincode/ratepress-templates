@@ -2,6 +2,32 @@
  * Neon Pulse Range Styles
  */
 
+:root {
+    /* Theme-aware colors */
+    --range-bg: hsl(0, 0%, 100%);
+    --range-bg-opacity-low: hsla(0, 0%, 100%, 0.08);
+    --range-bg-opacity-medium: hsla(0, 0%, 100%, 0.12);
+    --range-border: hsla(0, 0%, 100%, 0.15);
+    --range-border-dark: hsla(0, 0%, 100%, 0.25);
+    --range-text: hsla(0, 0%, 0%, 0.7);
+    --range-text-secondary: hsla(0, 0%, 0%, 0.4);
+    --range-text-muted: hsla(0, 0%, 0%, 0.6);
+    --range-track: hsla(0, 0%, 100%, 0.2);
+}
+
+/* Dark theme variable overrides */
+[data-theme="dark"] {
+    --range-bg: hsl(0, 0%, 10%);
+    --range-bg-opacity-low: hsla(0, 0%, 10%, 0.15);
+    --range-bg-opacity-medium: hsla(0, 0%, 10%, 0.25);
+    --range-border: hsla(0, 0%, 10%, 0.25);
+    --range-border-dark: hsla(0, 0%, 10%, 0.35);
+    --range-text: hsla(0, 0%, 100%, 0.7);
+    --range-text-secondary: hsla(0, 0%, 100%, 0.4);
+    --range-text-muted: hsla(0, 0%, 100%, 0.6);
+    --range-track: hsla(0, 0%, 10%, 0.3);
+}
+
 .ratepress-neon-range {
     display: inline-flex;
     flex-direction: column;
@@ -14,8 +40,8 @@
 .range-container {
     width: 100%;
     padding: 32px 24px;
-    background: rgba(255, 255, 255, 0.03);
-    border: 2px solid rgba(255, 255, 255, 0.08);
+    background: var(--range-bg-opacity-low);
+    border: 2px solid var(--range-border);
     border-radius: 20px;
     position: relative;
 }
@@ -25,7 +51,7 @@
     height: 8px;
     -webkit-appearance: none;
     appearance: none;
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--range-track);
     border-radius: 10px;
     outline: none;
     position: relative;
@@ -35,7 +61,7 @@
 .range-input::-webkit-slider-track {
     width: 100%;
     height: 8px;
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--range-track);
     border-radius: 10px;
 }
 
@@ -61,7 +87,7 @@
 .range-input::-moz-range-track {
     width: 100%;
     height: 8px;
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--range-track);
     border-radius: 10px;
 }
 
@@ -91,7 +117,7 @@
     display: flex;
     justify-content: space-between;
     font-size: 13px;
-    color: rgba(255, 255, 255, 0.4);
+    color: var(--range-text-secondary);
     font-weight: 600;
     margin-top: 12px;
 }
@@ -99,8 +125,8 @@
 /* Dark Theme - only when explicitly set */
 [data-theme="dark"] .range-container,
 .dark .range-container {
-    background: rgba(255, 255, 255, 0.05);
-    border-color: rgba(255, 255, 255, 0.12);
+    background: var(--range-bg-opacity-medium);
+    border-color: var(--range-border-dark);
 }
 
 /* Loading */

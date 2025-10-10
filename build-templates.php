@@ -11,11 +11,13 @@ class TemplatesBuilder
 {
     private $templatesDir;
     private $outputFile;
+    private $overridePreviews;
 
-    public function __construct($templatesDir = 'templates', $outputFile = 'templates.json')
+    public function __construct($templatesDir = 'templates', $outputFile = 'templates.json', $overridePreviews = false)
     {
         $this->templatesDir = $templatesDir;
         $this->outputFile = $outputFile;
+        $this->overridePreviews = $overridePreviews;
     }
 
     public function build()
@@ -59,11 +61,15 @@ class TemplatesBuilder
 
                 // Check for preview image or generate one
                 $previewPath = $templateDir . '/preview.png';
-                if (file_exists($previewPath)) {
+                if (file_exists($previewPath) && !$this->overridePreviews) {
                     $previewUrl = $baseUrl . '/preview.png';
                     echo "📸 Using existing preview for {$config['slug']}\n";
                 } else {
-                    echo "🎨 Generating preview for {$config['slug']}...\n";
+                    if ($this->overridePreviews && file_exists($previewPath)) {
+                        echo "🔄 Overriding existing preview for {$config['slug']}...\n";
+                    } else {
+                        echo "🎨 Generating preview for {$config['slug']}...\n";
+                    }
                     $previewUrl = $this->generatePreview($templateDir, $config);
                 }
 
@@ -322,20 +328,57 @@ class TemplatesBuilder
 }
 
 // Run the build
-if ($argc > 1 && $argv[1] === '--help') {
+if ($argc > 1 && ($argv[1] === '--help' || $argv[1] === '-h')) {
     echo "RatePress Templates Builder\n\n";
-    echo "Usage: php build-templates.php [templates-dir] [output-file]\n\n";
+    echo "Usage: php build-templates.php [options] [templates-dir] [output-file]\n\n";
+    echo "Options:\n";
+    echo "  --override-previews    Regenerate all preview images, even if they exist\n";
+    echo "  --help, -h            Show this help message\n\n";
     echo "Arguments:\n";
-    echo "  templates-dir  Directory containing templates (default: templates)\n";
-    echo "  output-file    Output JSON file (default: templates.json)\n\n";
+    echo "  templates-dir         Directory containing templates (default: templates)\n";
+    echo "  output-file           Output JSON file (default: templates.json)\n\n";
     echo "Examples:\n";
     echo "  php build-templates.php\n";
+    echo "  php build-templates.php --override-previews\n";
     echo "  php build-templates.php templates templates.json\n";
+    echo "  php build-templates.php --override-previews templates custom.json\n";
     exit(0);
 }
 
-$templatesDir = $argc > 1 ? $argv[1] : 'templates';
-$outputFile = $argc > 2 ? $argv[2] : 'templates.json';
+// Run the build
+if ($argc > 1 && ($argv[1] === '--help' || $argv[1] === '-h')) {
+    echo "RatePress Templates Builder\n\n";
+    echo "Usage: php build-templates.php [options] [templates-dir] [output-file]\n\n";
+    echo "Options:\n";
+    echo "  --override-previews    Regenerate all preview images, even if they exist\n";
+    echo "  --help, -h            Show this help message\n\n";
+    echo "Arguments:\n";
+    echo "  templates-dir         Directory containing templates (default: templates)\n";
+    echo "  output-file           Output JSON file (default: templates.json)\n\n";
+    echo "Examples:\n";
+    echo "  php build-templates.php\n";
+    echo "  php build-templates.php --override-previews\n";
+    echo "  php build-templates.php templates templates.json\n";
+    echo "  php build-templates.php --override-previews templates custom.json\n";
+    exit(0);
+}
 
-$builder = new TemplatesBuilder($templatesDir, $outputFile);
+// Parse command line arguments
+$overridePreviews = false;
+$templatesDir = 'templates';
+$outputFile = 'templates.json';
+
+for ($i = 1; $i < $argc; $i++) {
+    $arg = $argv[$i];
+    
+    if ($arg === '--override-previews') {
+        $overridePreviews = true;
+    } elseif (!str_starts_with($arg, '--') && $templatesDir === 'templates') {
+        $templatesDir = $arg;
+    } elseif (!str_starts_with($arg, '--') && $outputFile === 'templates.json') {
+        $outputFile = $arg;
+    }
+}
+
+$builder = new TemplatesBuilder($templatesDir, $outputFile, $overridePreviews);
 $builder->build();

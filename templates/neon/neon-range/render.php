@@ -24,6 +24,7 @@ $max_value = $settings['max_value']['default'] ?? 10;
 $step = $settings['step']['default'] ?? 0.1;
 $is_js_mode = $data->is_js_mode ?? false;
 $theme = $data->theme ?? 'light';
+$size = $data->size ?? 'medium';
 
 if ($is_js_mode) {
     $average = 0;
@@ -45,7 +46,7 @@ if ($is_js_mode) {
      
     <div class="range-container">
         <?php if ($show_value): ?>
-            <div class="range-value"><?php echo number_format($user_rating, 1); ?></div>
+            <div class="range-value" data-display="value"><?php echo number_format($user_rating, 1); ?></div>
         <?php endif; ?>
         <input type="range" 
                class="range-input" 

@@ -8,6 +8,28 @@
     --dots-5-size-sm: 32px;
     --dots-5-size-md: 40px;
     --dots-5-size-lg: 48px;
+    
+    /* Theme-aware colors */
+    --dots-5-bg: hsl(0, 0%, 100%);
+    --dots-5-bg-opacity-low: hsla(0, 0%, 100%, 0.03);
+    --dots-5-bg-opacity-medium: hsla(0, 0%, 100%, 0.05);
+    --dots-5-border: hsla(0, 0%, 100%, 0.08);
+    --dots-5-border-dark: hsla(0, 0%, 100%, 0.12);
+    --dots-5-text: hsla(0, 0%, 0%, 0.7);
+    --dots-5-text-secondary: hsla(0, 0%, 0%, 0.4);
+    --dots-5-text-muted: hsla(0, 0%, 0%, 0.6);
+}
+
+/* Dark theme variable overrides */
+[data-theme="dark"] {
+    --dots-5-bg: hsl(0, 0%, 10%);
+    --dots-5-bg-opacity-low: hsla(0, 0%, 10%, 0.03);
+    --dots-5-bg-opacity-medium: hsla(0, 0%, 10%, 0.05);
+    --dots-5-border: hsla(0, 0%, 10%, 0.08);
+    --dots-5-border-dark: hsla(0, 0%, 10%, 0.12);
+    --dots-5-text: hsla(0, 0%, 100%, 0.7);
+    --dots-5-text-secondary: hsla(0, 0%, 100%, 0.4);
+    --dots-5-text-muted: hsla(0, 0%, 100%, 0.6);
 }
 
 .ratepress-neon-dots-5 {
@@ -21,8 +43,8 @@
     display: flex;
     gap: 10px;
     padding: 12px 16px;
-    background: rgba(255, 255, 255, 0.03);
-    border: 2px solid rgba(255, 255, 255, 0.08);
+    background: var(--dots-5-bg-opacity-low);
+    border: 2px solid var(--dots-5-border);
     border-radius: 20px;
 }
 
@@ -30,7 +52,7 @@
     width: var(--dots-5-size-md);
     height: var(--dots-5-size-md);
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--dots-5-bg-opacity-medium);
     border: 2px solid rgba(var(--dots-5-primary-rgb), 0.2);
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -73,7 +95,7 @@
     align-items: center;
     gap: 16px;
     font-size: 16px;
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--dots-5-text);
 }
 
 .ratepress-average {
@@ -91,22 +113,11 @@
     opacity: 0.6;
 }
 
-/* Sizes */
-.ratepress-neon-dots-5[data-size="small"] .dot-5-btn {
-    width: var(--dots-5-size-sm);
-    height: var(--dots-5-size-sm);
-}
-
-.ratepress-neon-dots-5[data-size="large"] .dot-5-btn {
-    width: var(--dots-5-size-lg);
-    height: var(--dots-5-size-lg);
-}
-
-/* Dark Theme - only when explicitly set */
+/* Dark theme - only when explicitly set */
 [data-theme="dark"] .dots-5-input,
 .dark .dots-5-input {
-    background: rgba(255, 255, 255, 0.05);
-    border-color: rgba(255, 255, 255, 0.12);
+    background: var(--dots-5-bg-opacity-medium);
+    border-color: var(--dots-5-border-dark);
 }
 
 /* Loading */

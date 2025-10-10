@@ -16,6 +16,28 @@
     --orb-font-sm: 14px;
     --orb-font-md: 16px;
     --orb-font-lg: 18px;
+    
+    /* Theme-aware colors */
+    --orb-bg: hsl(0, 0%, 100%);
+    --orb-bg-opacity-low: hsla(0, 0%, 100%, 0.03);
+    --orb-bg-opacity-medium: hsla(0, 0%, 100%, 0.05);
+    --orb-border: hsla(0, 0%, 100%, 0.08);
+    --orb-border-dark: hsla(0, 0%, 100%, 0.12);
+    --orb-text: hsla(0, 0%, 0%, 0.7);
+    --orb-text-secondary: hsla(0, 0%, 0%, 0.4);
+    --orb-text-muted: hsla(0, 0%, 0%, 0.6);
+}
+
+/* Dark theme variable overrides */
+[data-theme="dark"] {
+    --orb-bg: hsl(0, 0%, 10%);
+    --orb-bg-opacity-low: hsla(0, 0%, 10%, 0.03);
+    --orb-bg-opacity-medium: hsla(0, 0%, 10%, 0.05);
+    --orb-border: hsla(0, 0%, 10%, 0.08);
+    --orb-border-dark: hsla(0, 0%, 10%, 0.12);
+    --orb-text: hsla(0, 0%, 100%, 0.7);
+    --orb-text-secondary: hsla(0, 0%, 100%, 0.4);
+    --orb-text-muted: hsla(0, 0%, 100%, 0.6);
 }
 
 .ratepress-dual-orbs {
@@ -29,8 +51,8 @@
     justify-content: center;
     gap: 12px;
     padding: var(--orb-padding-md);
-    background: rgba(255, 255, 255, 0.03);
-    border: 2px solid rgba(255, 255, 255, 0.1);
+    background: var(--orb-bg-opacity-low);
+    border: 2px solid var(--orb-border);
     border-radius: 14px;
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -145,8 +167,8 @@
 /* Dark Theme - only when explicitly set */
 [data-theme="dark"] .orb-btn,
 .dark .orb-btn {
-    background: rgba(255, 255, 255, 0.05);
-    border-color: rgba(255, 255, 255, 0.15);
+    background: var(--orb-bg-opacity-medium);
+    border-color: var(--orb-border-dark);
 }
 
 /* Loading */
