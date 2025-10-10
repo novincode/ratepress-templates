@@ -61,8 +61,8 @@ if ($is_js_mode) {
     
     <?php if ($show_average): ?>
         <div class="stars-info" id="stars-info-<?php echo esc_attr($object_id); ?>">
-            <span class="stars-average"><?php echo number_format($display_average, 1); ?></span>
-            <span class="stars-count">(<?php echo htmlspecialchars($total); ?> ratings)</span>
+            <span class="ratepress-average"><?php echo number_format($display_average, 1); ?></span>
+            <span class="ratepress-count">(<?php echo htmlspecialchars($total); ?> ratings)</span>
         </div>
     <?php endif; ?>
 </div>

@@ -73,7 +73,7 @@
     color: rgba(255, 255, 255, 0.7);
 }
 
-.stars-average {
+.ratepress-average {
     font-size: 28px;
     font-weight: 800;
     background: linear-gradient(135deg, #a855f7 0%, #f472b6 100%);
@@ -82,7 +82,7 @@
     background-clip: text;
 }
 
-.stars-count {
+.ratepress-count {
     font-size: 14px;
     font-weight: 600;
     opacity: 0.6;
@@ -135,7 +135,7 @@
         font-size: 14px;
     }
     
-    .stars-average {
+    .ratepress-average {
         font-size: 24px;
     }
 }
