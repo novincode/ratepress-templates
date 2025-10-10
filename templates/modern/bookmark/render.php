@@ -32,7 +32,7 @@ if ($is_js_mode) {
      role="group"
      aria-label="<?php _e('Bookmark rating widget'); ?>">
      
-    <button class="bookmark-btn <?php echo $is_bookmarked ? 'active' : ''; ?>" 
+    <button class="bookmark-btn"
             type="button"
             data-value="1"
             aria-pressed="<?php echo $is_bookmarked ? 'true' : 'false'; ?>"

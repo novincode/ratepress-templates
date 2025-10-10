@@ -40,16 +40,16 @@ if ($is_js_mode) {
      data-user-rating="<?php echo esc_attr($user_value); ?>"
      role="group"
      aria-label="<?php _e('Neon Dots 10 rating widget'); ?>">
-     
-        <div class="dots-10-input" 
-             role="radiogroup" 
+
+        <div class="dots-10-input"
+             role="radiogroup"
              aria-label="<?php _e('Rate from 1 to 10 dots'); ?>"
              aria-describedby="stars-info-<?php echo esc_attr($object_id); ?>">
-        <?php for ($i = 1; $i <= 10; $i++): 
+        <?php for ($i = 1; $i <= 10; $i++):
             $value = $i / 10;
             $isSelected = $user_has_rated && ($user_value * 10) >= $i;
         ?>
-            <button class="dot-10-btn <?php echo $isSelected ? 'active' : ''; ?>" 
+            <button class="dot-10-btn"
                     type="button"
                     data-value="<?php echo esc_attr($value); ?>"
                     aria-pressed="<?php echo $isSelected ? 'true' : 'false'; ?>"
@@ -58,11 +58,11 @@ if ($is_js_mode) {
             </button>
         <?php endfor; ?>
     </div>
-    
+
     <?php if ($show_average): ?>
         <div class="stars-info" id="stars-info-<?php echo esc_attr($object_id); ?>">
-            <span class="ratepress-average"><?php echo number_format($display_average, 1); ?></span>
-            <span class="ratepress-count">(<?php echo htmlspecialchars($total); ?> ratings)</span>
+            <span data-stat="average" data-scale="10"><?php echo number_format($display_average, 1); ?></span>
+            <span data-stat="total">(<?php echo htmlspecialchars($total); ?> ratings)</span>
         </div>
     <?php endif; ?>
 </div>

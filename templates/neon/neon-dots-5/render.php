@@ -49,7 +49,7 @@ if ($is_js_mode) {
             $value = $i / 5;
             $isSelected = $user_has_rated && ($user_value * 5) >= $i;
         ?>
-            <button class="dot-5-btn <?php echo $isSelected ? 'active' : ''; ?>" 
+            <button class="dot-5-btn"
                     type="button"
                     data-value="<?php echo esc_attr($value); ?>"
                     aria-pressed="<?php echo $isSelected ? 'true' : 'false'; ?>"
@@ -61,8 +61,8 @@ if ($is_js_mode) {
     
     <?php if ($show_average): ?>
         <div class="stars-info" id="stars-info-<?php echo esc_attr($object_id); ?>">
-            <span class="ratepress-average"><?php echo number_format($display_average, 1); ?></span>
-            <span class="ratepress-count">(<?php echo htmlspecialchars($total); ?> ratings)</span>
+            <span data-stat="average" data-scale="5"><?php echo number_format($display_average, 1); ?></span>
+            <span data-stat="total">(<?php echo htmlspecialchars($total); ?> ratings)</span>
         </div>
     <?php endif; ?>
 </div>
