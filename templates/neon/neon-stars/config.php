@@ -8,7 +8,7 @@ return [
     'slug' => 'neon/neon-stars',
     'name' => 'Neon Stars',
     'description' => 'Futuristic glowing 5-star rating - classic star rating',
-    'version' => '1.1.0',
+    'version' => '1.1.1',
     'author' => 'RatePress',
     'category' => 'scale',
     'styles' => ['style.css'],
