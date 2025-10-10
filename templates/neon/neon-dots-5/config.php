@@ -8,7 +8,7 @@ return [
     'slug' => 'neon/neon-dots-5',
     'name' => 'Neon Dots (1-5)',
     'description' => 'Futuristic glowing 5-dot rating - precision dots',
-    'version' => '1.1.1',
+    'version' => '1.1.2',
     'author' => 'RatePress',
     'category' => 'scale',
     'styles' => ['style.css'],
