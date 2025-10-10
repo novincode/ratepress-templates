@@ -8,7 +8,7 @@ return [
     'slug' => 'neon/lightning-bolt',
     'name' => 'Neon Lightning Bolt',
     'description' => 'Futuristic glowing lightning bolt - energize with a single strike',
-    'version' => '1.0.1',
+    'version' => '1.1.0',
     'author' => 'RatePress',
     'category' => 'binary',
     'styles' => ['style.css'],
