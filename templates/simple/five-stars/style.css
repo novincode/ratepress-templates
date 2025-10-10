@@ -1,0 +1,362 @@
+/**
+ * Five-Stars Template Styles - 2025 Modern Design
+ * 
+ * Glassmorphism aesthetics with smooth interactions
+ * Theme-adaptive colors and micro-animations
+ */
+
+.ratepress-stars-widget {
+    --star-color: #f59e0b;
+    --star-size: 20px; /* Default medium size */
+    --button-padding: 4px; /* Default padding */
+    --star-gap: 2px; /* Default gap */
+    --star-inactive: rgba(0, 0, 0, 0.5);
+    --star-hover: rgba(0, 0, 0, 0.7);
+    --star-active: var(--star-color);
+    --glass-bg: rgba(0, 0, 0, 0.06);
+    --glass-border: rgba(0, 0, 0, 0.12);
+    --shadow-light: 0 8px 32px rgba(0, 0, 0, 0.1);
+    --shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.15);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    
+    display: inline-flex;
+    flex-direction: column;
+    gap: 8px;
+    font-family: system-ui, -apple-system, sans-serif;
+    font-feature-settings: 'tnum' on;
+    position: relative;
+    user-select: none;
+}
+
+/* Dark theme - only when explicitly set */
+[data-theme="dark"] .ratepress-stars-widget,
+.dark .ratepress-stars-widget {
+    --star-inactive: rgba(255, 255, 255, 0.5);
+    --star-hover: rgba(255, 255, 255, 0.7);
+    --glass-bg: rgba(255, 255, 255, 0.08);
+    --glass-border: rgba(255, 255, 255, 0.12);
+    --shadow-light: 0 8px 32px rgba(255, 255, 255, 0.1);
+    --shadow-hover: 0 12px 40px rgba(255, 255, 255, 0.15);
+}
+
+.ratepress-stars-container {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.ratepress-stars-input {
+    display: flex;
+    gap: var(--star-gap);
+    padding: 4px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    backdrop-filter: blur(20px) saturate(180%);
+    box-shadow: var(--shadow-light);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.ratepress-stars-input::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, 
+        color-mix(in srgb, white 5%, transparent) 0%, 
+        color-mix(in srgb, white 1%, transparent) 100%);
+    border-radius: inherit;
+    pointer-events: none;
+}
+
+.ratepress-stars-input:hover {
+    box-shadow: var(--shadow-hover);
+    border-color: rgba(0, 0, 0, 0.18);
+    transform: translateY(-2px);
+}
+
+.ratepress-star-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(var(--star-size) + (var(--button-padding) * 2));
+    height: calc(var(--star-size) + (var(--button-padding) * 2));
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: var(--transition);
+    color: var(--star-inactive);
+    outline: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.ratepress-star-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: currentColor;
+    opacity: 0;
+    border-radius: inherit;
+    transition: opacity 0.2s ease;
+}
+
+.ratepress-star-btn:hover::before {
+    opacity: 0.06;
+}
+
+.ratepress-star-btn:active::before {
+    opacity: 0.12;
+}
+
+.ratepress-star-btn:hover {
+    color: var(--star-hover);
+    transform: scale(1.05);
+}
+
+.ratepress-star-btn:active {
+    transform: scale(1.02);
+    transition: transform 0.1s ease;
+}
+
+.ratepress-star-btn.active {
+    color: var(--star-active);
+    animation: starActivate 0.5s var(--bounce);
+}
+
+/* Demo mode - disable interactions */
+.ratepress-demo .ratepress-star-btn {
+    cursor: default;
+    pointer-events: none;
+}
+
+.ratepress-demo .ratepress-star-btn:hover {
+    transform: none;
+}
+
+.ratepress-demo .ratepress-stars-input:hover {
+    transform: none;
+    box-shadow: var(--shadow-light);
+}
+
+.ratepress-star-icon {
+    width: var(--star-size);
+    height: var(--star-size);
+    transition: var(--transition);
+    flex-shrink: 0;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
+}
+
+.ratepress-star-btn .star-fill {
+    opacity: 0;
+    transition: var(--transition);
+    transform-origin: center;
+}
+
+.ratepress-star-btn.active .star-fill {
+    opacity: 1;
+    animation: starFill 0.4s var(--bounce);
+}
+
+.ratepress-star-btn.active .star-outline {
+    opacity: 0;
+}
+
+.ratepress-stars-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    color: var(--star-inactive);
+}
+
+.ratepress-average {
+    color: var(--star-color);
+    font-weight: 700;
+    font-size: 16px;
+    font-feature-settings: 'tnum' on;
+    text-shadow: 0 1px 2px rgba(245, 158, 11, 0.2);
+}
+
+.ratepress-count {
+    font-size: 13px;
+    opacity: 0.7;
+    font-weight: 400;
+}
+
+.ratepress-count::before {
+    content: '(';
+}
+
+.ratepress-count::after {
+    content: ')';
+}
+
+/* Size variants - Optimized for realistic proportions */
+.ratepress-stars-widget[data-size="small"] {
+    --star-size: 16px;
+    --button-padding: 4px;
+    --star-gap: 1px;
+}
+
+.ratepress-stars-widget[data-size="medium"] {
+    --star-size: 20px;
+    --button-padding: 4px;
+    --star-gap: 2px;
+}
+
+.ratepress-stars-widget[data-size="large"] {
+    --star-size: 24px;
+    --button-padding: 4px;
+    --star-gap: 3px;
+}
+
+.ratepress-stars-widget[data-size="small"] .ratepress-stars-input {
+    gap: var(--star-gap);
+}
+
+.ratepress-stars-widget[data-size="medium"] .ratepress-stars-input {
+    gap: var(--star-gap);
+}
+
+.ratepress-stars-widget[data-size="large"] .ratepress-stars-input {
+    gap: var(--star-gap);
+}
+
+.ratepress-stars-widget[data-size="small"] .ratepress-star-btn {
+    width: calc(var(--star-size) + (var(--button-padding) * 2));
+    height: calc(var(--star-size) + (var(--button-padding) * 2));
+}
+
+.ratepress-stars-widget[data-size="medium"] .ratepress-star-btn {
+    width: calc(var(--star-size) + (var(--button-padding) * 2));
+    height: calc(var(--star-size) + (var(--button-padding) * 2));
+}
+
+.ratepress-stars-widget[data-size="large"] .ratepress-star-btn {
+    width: calc(var(--star-size) + (var(--button-padding) * 2));
+    height: calc(var(--star-size) + (var(--button-padding) * 2));
+}
+
+/* Size-specific font adjustments */
+.ratepress-stars-widget[data-size="small"] .ratepress-average {
+    font-size: 14px;
+}
+
+.ratepress-stars-widget[data-size="medium"] .ratepress-average {
+    font-size: 16px;
+}
+
+.ratepress-stars-widget[data-size="large"] .ratepress-average {
+    font-size: 18px;
+}
+
+.ratepress-stars-widget[data-size="small"] .ratepress-stars-info {
+    font-size: 12px;
+}
+
+.ratepress-stars-widget[data-size="medium"] .ratepress-stars-info {
+    font-size: 14px;
+}
+
+.ratepress-stars-widget[data-size="large"] .ratepress-stars-info {
+    font-size: 16px;
+}
+
+/* Loading state */
+.ratepress-stars-widget.loading {
+    pointer-events: none;
+}
+
+.ratepress-stars-widget.loading .ratepress-star-btn {
+    opacity: 0.5;
+}
+
+.ratepress-stars-widget.loading .ratepress-star-icon {
+    animation: starPulse 1.5s infinite ease-in-out;
+}
+
+/* Error state */
+.ratepress-stars-widget.error .ratepress-stars-input {
+    background: color-mix(in srgb, #ef4444 8%, transparent);
+    border-color: color-mix(in srgb, #ef4444 20%, transparent);
+    animation: errorShake 0.5s ease-in-out;
+}
+
+/* Animations */
+@keyframes starActivate {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+    100% { transform: scale(1.1); }
+}
+
+@keyframes starFill {
+    0% { 
+        opacity: 0;
+        transform: scale(0.5) rotate(-180deg);
+    }
+    60% { 
+        opacity: 1;
+        transform: scale(1.1) rotate(0deg);
+    }
+    100% { 
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+@keyframes starPulse {
+    0%, 100% { 
+        opacity: 0.5;
+        transform: scale(1);
+    }
+    50% { 
+        opacity: 0.8;
+        transform: scale(1.05);
+    }
+}
+
+@keyframes errorShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-4px); }
+    75% { transform: translateX(4px); }
+}
+
+/* Focus accessibility */
+.ratepress-star-btn:focus-visible {
+    outline: 2px solid var(--star-color);
+    outline-offset: 3px;
+    border-radius: 8px;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+    .ratepress-star-btn {
+        min-width: calc(var(--star-size) + (var(--button-padding) * 2));
+        min-height: calc(var(--star-size) + (var(--button-padding) * 2));
+    }
+    
+    .ratepress-stars-input {
+        gap: var(--star-gap);
+        padding: 6px;
+    }
+    
+    .ratepress-stars-container {
+        gap: 12px;
+    }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .ratepress-stars-widget * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

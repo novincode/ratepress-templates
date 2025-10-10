@@ -195,5 +195,64 @@
         "download_url": "https://github.com/novincode/ratepress-templates/tree/main/templates/neon/neon-thumbs",
         "min_ratepress_version": "1.0.0",
         "requires_core_js": true
+    },
+    {
+        "slug": "simple/five-stars",
+        "name": "Five Stars",
+        "description": "Modern star rating for scale ratings (1-5 stars)",
+        "category": "scale",
+        "version": "1.0.0",
+        "author": "RatePress",
+        "author_uri": "https://ratepress.com",
+        "tags": [
+            "stars",
+            "rating",
+            "scale",
+            "5-star",
+            "simple"
+        ],
+        "preview_image": "https://raw.githubusercontent.com/novincode/ratepress-templates/main/templates/simple/five-stars/preview.png",
+        "download_url": "https://github.com/novincode/ratepress-templates/tree/main/templates/simple/five-stars",
+        "min_ratepress_version": "1.0.0",
+        "requires_core_js": true
+    },
+    {
+        "slug": "simple/heart",
+        "name": "Heart",
+        "description": "Modern heart icon for binary love ratings",
+        "category": "binary",
+        "version": "1.0.0",
+        "author": "RatePress",
+        "author_uri": "https://ratepress.com",
+        "tags": [
+            "heart",
+            "love",
+            "binary",
+            "simple"
+        ],
+        "preview_image": "https://raw.githubusercontent.com/novincode/ratepress-templates/main/templates/simple/heart/preview.png",
+        "download_url": "https://github.com/novincode/ratepress-templates/tree/main/templates/simple/heart",
+        "min_ratepress_version": "1.0.0",
+        "requires_core_js": true
+    },
+    {
+        "slug": "simple/like-dislike",
+        "name": "Like-Dislike",
+        "description": "Modern thumbs up/down for bipolar ratings",
+        "category": "bipolar",
+        "version": "1.0.0",
+        "author": "RatePress",
+        "author_uri": "https://ratepress.com",
+        "tags": [
+            "thumbs",
+            "like",
+            "dislike",
+            "bipolar",
+            "simple"
+        ],
+        "preview_image": "https://raw.githubusercontent.com/novincode/ratepress-templates/main/templates/simple/like-dislike/preview.png",
+        "download_url": "https://github.com/novincode/ratepress-templates/tree/main/templates/simple/like-dislike",
+        "min_ratepress_version": "1.0.0",
+        "requires_core_js": true
     }
 ]

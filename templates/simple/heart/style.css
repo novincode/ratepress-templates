@@ -1,0 +1,290 @@
+/**
+ * Heart Template Styles - 2025 Modern Design
+ * 
+ * Glassmorphism with love-centered interactions
+ * Smooth animations and theme-adaptive styling
+ */
+
+.ratepress-heart-widget {
+    --heart-color: #e11d48;
+    --heart-size: 24px;
+    --heart-inactive: rgba(0, 0, 0, 0.6);
+    --heart-hover: rgba(0, 0, 0, 0.8);
+    --heart-active: var(--heart-color);
+    --glass-bg: rgba(0, 0, 0, 0.06);
+    --glass-border: rgba(0, 0, 0, 0.12);
+    --shadow-light: 0 8px 32px rgba(0, 0, 0, 0.1);
+    --shadow-hover: 0 12px 40px rgba(239, 68, 68, 0.2);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    
+    display: inline-flex;
+    align-items: center;
+    font-family: system-ui, -apple-system, sans-serif;
+    font-feature-settings: 'tnum' on;
+    position: relative;
+    user-select: none;
+}
+
+/* Dark theme - only when explicitly set */
+[data-theme="dark"] .ratepress-heart-widget,
+.dark .ratepress-heart-widget {
+    --heart-inactive: rgba(255, 255, 255, 0.6);
+    --heart-hover: rgba(255, 255, 255, 0.8);
+    --glass-bg: rgba(255, 255, 255, 0.08);
+    --glass-border: rgba(255, 255, 255, 0.12);
+    --shadow-light: 0 8px 32px rgba(255, 255, 255, 0.1);
+    --shadow-hover: 0 12px 40px rgba(239, 68, 68, 0.2);
+}
+
+.ratepress-heart-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 50px;
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--heart-inactive);
+    outline: none;
+    backdrop-filter: blur(20px) saturate(180%);
+    box-shadow: var(--shadow-light);
+    position: relative;
+    overflow: hidden;
+    min-height: 44px;
+}
+
+.ratepress-heart-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, 
+        color-mix(in srgb, white 8%, transparent) 0%, 
+        color-mix(in srgb, white 2%, transparent) 100%);
+    border-radius: inherit;
+    pointer-events: none;
+}
+
+.ratepress-heart-btn::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: currentColor;
+    opacity: 0;
+    border-radius: inherit;
+    transition: opacity 0.2s ease;
+}
+
+.ratepress-heart-btn:hover::after {
+    opacity: 0.06;
+}
+
+.ratepress-heart-btn:active::after {
+    opacity: 0.12;
+}
+
+.ratepress-heart-btn:hover {
+    color: var(--heart-hover);
+    border-color: rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: var(--shadow-hover);
+}
+
+.ratepress-heart-btn:active {
+    transform: translateY(-1px) scale(1.01);
+    transition: transform 0.1s ease;
+}
+
+.ratepress-heart-btn.active {
+    color: var(--heart-active);
+    background: color-mix(in srgb, var(--heart-color) 8%, transparent);
+    border-color: color-mix(in srgb, var(--heart-color) 20%, transparent);
+    box-shadow: 0 8px 32px color-mix(in srgb, var(--heart-color) 25%, transparent);
+}
+
+.ratepress-heart-btn.active:hover {
+    background: color-mix(in srgb, var(--heart-color) 12%, transparent);
+    border-color: color-mix(in srgb, var(--heart-color) 30%, transparent);
+    box-shadow: 0 12px 40px color-mix(in srgb, var(--heart-color) 35%, transparent);
+}
+
+.ratepress-heart-icon {
+    width: var(--heart-size);
+    height: var(--heart-size);
+    transition: var(--transition);
+    flex-shrink: 0;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
+    overflow:visible;
+}
+
+.ratepress-heart-btn .heart-fill {
+    opacity: 0;
+    transition: var(--transition);
+    transform-origin: center;
+}
+
+.ratepress-heart-btn.active .heart-fill {
+    opacity: 1;
+    animation: heartFill 0.6s var(--bounce);
+}
+
+.ratepress-heart-btn.active .heart-outline {
+    opacity: 0;
+}
+
+.ratepress-heart-btn:hover .ratepress-heart-icon {
+    transform: scale(1.1);
+}
+
+.ratepress-heart-btn.active:hover .ratepress-heart-icon {
+    transform: scale(1.15) rotate(5deg);
+    animation: heartbeat 1s infinite;
+}
+
+.ratepress-heart-count {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    min-width: 24px;
+    text-align: center;
+    font-feature-settings: 'tnum' on;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Size variants */
+.ratepress-heart-widget[data-size="small"] {
+    --heart-size: 20px;
+}
+
+.ratepress-heart-widget[data-size="medium"] {
+    --heart-size: 24px;
+}
+
+.ratepress-heart-widget[data-size="large"] {
+    --heart-size: 28px;
+}
+
+.ratepress-heart-widget[data-size="small"] .ratepress-heart-btn {
+    padding: 8px 12px;
+    font-size: 12px;
+    min-height: 40px;
+}
+
+.ratepress-heart-widget[data-size="medium"] .ratepress-heart-btn {
+    padding: 10px 16px;
+    font-size: 14px;
+    min-height: 44px;
+}
+
+.ratepress-heart-widget[data-size="large"] .ratepress-heart-btn {
+    padding: 12px 20px;
+    font-size: 16px;
+    min-height: 48px;
+}
+
+/* Loading state */
+.ratepress-heart-widget.loading {
+    pointer-events: none;
+}
+
+.ratepress-heart-widget.loading .ratepress-heart-btn {
+    opacity: 0.6;
+}
+
+.ratepress-heart-widget.loading .ratepress-heart-icon {
+    animation: heartPulse 1.5s infinite ease-in-out;
+}
+
+/* Error state */
+.ratepress-heart-widget.error .ratepress-heart-btn {
+    background: color-mix(in srgb, #ef4444 8%, transparent);
+    border-color: color-mix(in srgb, #ef4444 20%, transparent);
+    color: #ef4444;
+    animation: errorShake 0.5s ease-in-out;
+}
+
+/* Animations */
+@keyframes heartFill {
+    0% { 
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    50% { 
+        opacity: 1;
+        transform: scale(1.3);
+    }
+    100% { 
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1.15) rotate(5deg); }
+    50% { transform: scale(1.25) rotate(5deg); }
+}
+
+@keyframes heartPulse {
+    0%, 100% { 
+        opacity: 0.6;
+        transform: scale(1);
+    }
+    50% { 
+        opacity: 1;
+        transform: scale(1.1);
+    }
+}
+
+@keyframes errorShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-4px); }
+    75% { transform: translateX(4px); }
+}
+
+/* Focus accessibility */
+.ratepress-heart-btn:focus-visible {
+    outline: 2px solid var(--heart-color);
+    outline-offset: 3px;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+    .ratepress-heart-btn {
+        padding: 12px 16px;
+        font-size: 14px;
+        gap: 10px;
+    }
+}
+
+/* Floating hearts animation on click */
+@keyframes floatingHeart {
+    0% {
+        opacity: 1;
+        transform: translateY(0) scale(1) rotate(0deg);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-50px) scale(0.3) rotate(180deg);
+    }
+}
+
+.floating-heart {
+    position: absolute;
+    pointer-events: none;
+    color: var(--heart-color);
+    animation: floatingHeart 1s ease-out forwards;
+    z-index: 1000;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .ratepress-heart-widget * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
