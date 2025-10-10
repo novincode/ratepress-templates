@@ -6,7 +6,6 @@
  * Run with: php build-templates.php
  */
 
-require_once 'version-bumper.php';
 
 class TemplatesBuilder
 {
@@ -21,19 +20,7 @@ class TemplatesBuilder
 
     public function build()
     {
-        echo "🔄 Running version bumper...\n";
-        $bumper = new VersionBumper($this->templatesDir);
-        if ($bumper->isGitRepository()) {
-            $bumpedCount = $bumper->bumpVersions();
-            if ($bumpedCount > 0) {
-                // Commit version changes
-                echo "💾 Committing version changes...\n";
-                exec("git add templates/*/config.php");
-                exec("git commit -m \"Bump template versions based on recent changes\"");
-            }
-        } else {
-            echo "⚠️  Not a git repository, skipping version bumping\n";
-        }
+    
 
         echo "🔍 Scanning templates directory...\n";
 

@@ -45,7 +45,7 @@ if ($is_js_mode) {
             $value = $i / 5;
             $isSelected = $user_has_rated && ($user_value * 5) >= $i;
         ?>
-            <button class="ratepress-star-btn"
+            <button class="ratepress-star-btn <?php echo $isSelected ? 'active' : ''; ?>"
                     type="button"
                     data-value="<?php echo esc_attr($value); ?>"
                     data-star="<?php echo $i; ?>"

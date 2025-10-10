@@ -43,7 +43,7 @@ $user_disliked = $user_has_rated && $user_value < 0;
      aria-label="<?php _e('Like or dislike rating widget'); ?>">
      
     <div class="likedislike-buttons">
-        <button class="like-btn"
+        <button class="like-btn <?php echo $user_liked ? 'active' : ''; ?>"
                 type="button"
                 data-value="1"
                 aria-pressed="<?php echo $user_liked ? 'true' : 'false'; ?>"
@@ -63,7 +63,7 @@ $user_disliked = $user_has_rated && $user_value < 0;
             <?php endif; ?>
         </button>
         
-        <button class="dislike-btn"
+        <button class="dislike-btn <?php echo $user_disliked ? 'active' : ''; ?>"
                 type="button"
                 data-value="-1"
                 aria-pressed="<?php echo $user_disliked ? 'true' : 'false'; ?>"

@@ -34,7 +34,7 @@ if ($is_js_mode) {
      role="group"
      aria-label="<?php _e('Vote rating widget'); ?>">
      
-    <button class="rp-vote-btn rp-vote-up"
+    <button class="rp-vote-btn rp-vote-up <?php echo $user_upvoted ? 'active' : ''; ?>"
             type="button"
             data-value="1"
             aria-pressed="<?php echo $user_upvoted ? 'true' : 'false'; ?>"
@@ -51,7 +51,7 @@ if ($is_js_mode) {
         <?php echo number_format($score); ?>
     </div>
     
-    <button class="rp-vote-btn rp-vote-down"
+    <button class="rp-vote-btn rp-vote-down <?php echo $user_downvoted ? 'active' : ''; ?>"
             type="button"
             data-value="-1"
             aria-pressed="<?php echo $user_downvoted ? 'true' : 'false'; ?>"

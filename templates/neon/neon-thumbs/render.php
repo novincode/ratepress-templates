@@ -1,5 +1,5 @@
+<?php
 // Test change for version bumping
-
 namespace RatePress\Templates;
 
 $data = $template_data ?? new TemplateData([]);

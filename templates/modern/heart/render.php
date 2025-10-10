@@ -36,7 +36,7 @@ if ($is_js_mode) {
      role="group"
      aria-label="<?php _e('Heart rating widget'); ?>">
      
-    <button class="heart-btn"
+    <button class="heart-btn <?php echo $is_loved ? 'active' : ''; ?>"
             type="button"
             data-value="1"
             aria-pressed="<?php echo $is_loved ? 'true' : 'false'; ?>"

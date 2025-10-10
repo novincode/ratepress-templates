@@ -49,7 +49,7 @@ if ($is_js_mode) {
             $value = $i / 10;
             $isSelected = $user_has_rated && ($user_value * 10) >= $i;
         ?>
-            <button class="dot-10-btn"
+            <button class="dot-10-btn <?php echo $isSelected ? 'active' : ''; ?>"
                     type="button"
                     data-value="<?php echo esc_attr($value); ?>"
                     aria-pressed="<?php echo $isSelected ? 'true' : 'false'; ?>"
