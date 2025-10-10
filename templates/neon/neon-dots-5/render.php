@@ -19,7 +19,7 @@ $user_rating = $user_has_rated ? round($user_value * 5) : 0; // Convert to 1-5 s
 
 $settings = $config['settings'] ?? [];
 $size = $data->size ?? 'medium';
-$show_average = $data->show_average ?? $settings['show_average']['default'] ?? true;
+$show_counts = $data->show_counts ?? $settings['show_counts']['default'] ?? true;
 $is_js_mode = $data->is_js_mode ?? false;
 $theme = $data->theme ?? 'light';
 
@@ -59,7 +59,7 @@ if ($is_js_mode) {
         <?php endfor; ?>
     </div>
     
-    <?php if ($show_average): ?>
+    <?php if ($show_counts): ?>
         <div class="stars-info" id="stars-info-<?php echo esc_attr($object_id); ?>">
             <span data-stat="average" data-scale="5"><?php echo number_format($display_average, 1); ?></span>
             <span data-stat="total">(<?php echo htmlspecialchars($total); ?> ratings)</span>

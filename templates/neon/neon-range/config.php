@@ -12,7 +12,7 @@ return [
     'author' => 'RatePress',
     'category' => 'scale',
     'styles' => ['style.css'],
-    'scripts' => [], // Core JS handles all interactions
+    'scripts' => ['script.js'], // Custom script for live value updates
     'requires_core_js' => true,
     'supports' => [
         'objects' => ['post', 'comment'],
@@ -34,6 +34,10 @@ return [
     
     'settings' => [
         'show_value' => [
+            'type' => 'boolean',
+            'default' => true
+        ],
+        'show_counts' => [
             'type' => 'boolean',
             'default' => true
         ],

@@ -19,6 +19,7 @@ $user_rating = $user_has_rated ? $user_value * 10 : 7.5; // Default to 7.5
 
 $settings = $config['settings'] ?? [];
 $show_value = $data->show_value ?? $settings['show_value']['default'] ?? true;
+$show_counts = $data->show_counts ?? $settings['show_counts']['default'] ?? true;
 $min_value = $settings['min_value']['default'] ?? 0;
 $max_value = $settings['max_value']['default'] ?? 10;
 $step = $settings['step']['default'] ?? 0.1;
@@ -62,4 +63,11 @@ if ($is_js_mode) {
             <span><?php echo htmlspecialchars($max_value); ?></span>
         </div>
     </div>
+
+    <?php if ($show_counts && !$is_js_mode): ?>
+    <div class="range-stats">
+        <span data-stat="average" data-scale="10"><?php echo number_format($display_average, 1); ?>/10</span>
+        <span data-stat="total">(<?php echo htmlspecialchars($total); ?> ratings)</span>
+    </div>
+    <?php endif; ?>
 </div>

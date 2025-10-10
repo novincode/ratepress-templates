@@ -14,6 +14,28 @@
     --thumbs-font-sm: 14px;
     --thumbs-font-md: 18px;
     --thumbs-font-lg: 20px;
+    
+    /* Theme-aware colors */
+    --thumbs-bg: hsl(0, 0%, 100%);
+    --thumbs-bg-opacity-low: hsla(0, 0%, 100%, 0.03);
+    --thumbs-bg-opacity-medium: hsla(0, 0%, 100%, 0.05);
+    --thumbs-border: hsla(0, 0%, 100%, 0.08);
+    --thumbs-border-dark: hsla(0, 0%, 100%, 0.12);
+    --thumbs-text: hsla(0, 0%, 0%, 0.7);
+    --thumbs-text-secondary: hsla(0, 0%, 0%, 0.4);
+    --thumbs-text-muted: hsla(0, 0%, 0%, 0.6);
+}
+
+/* Dark theme variable overrides */
+[data-theme="dark"] {
+    --thumbs-bg: hsl(0, 0%, 10%);
+    --thumbs-bg-opacity-low: hsla(0, 0%, 10%, 0.03);
+    --thumbs-bg-opacity-medium: hsla(0, 0%, 10%, 0.05);
+    --thumbs-border: hsla(0, 0%, 10%, 0.08);
+    --thumbs-border-dark: hsla(0, 0%, 10%, 0.12);
+    --thumbs-text: hsla(0, 0%, 100%, 0.7);
+    --thumbs-text-secondary: hsla(0, 0%, 100%, 0.4);
+    --thumbs-text-muted: hsla(0, 0%, 100%, 0.6);
 }
 
 .ratepress-neon-thumbs {

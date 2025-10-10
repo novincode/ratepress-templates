@@ -42,7 +42,7 @@ return [
                 'large' => '36px'
             ]
         ],
-        'show_average' => [
+        'show_counts' => [
             'type' => 'boolean',
             'default' => true
         ],

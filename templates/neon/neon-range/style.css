@@ -18,10 +18,23 @@
 /* Dark theme variable overrides */
 [data-theme="dark"] {
     --range-bg: hsl(0, 0%, 10%);
-    --range-bg-opacity-low: hsla(0, 0%, 10%, 0.15);
-    --range-bg-opacity-medium: hsla(0, 0%, 10%, 0.25);
-    --range-border: hsla(0, 0%, 10%, 0.25);
-    --range-border-dark: hsla(0, 0%, 10%, 0.35);
+    --range-bg-opacity-low: hsla(0, 0%, 10%, 0.08);
+    --range-bg-opacity-medium: hsla(0, 0%, 10%, 0.12);
+    --range-border: hsla(0, 0%, 10%, 0.15);
+    --range-border-dark: hsla(0, 0%, 10%, 0.25);
+    --range-text: hsla(0, 0%, 100%, 0.7);
+    --range-text-secondary: hsla(0, 0%, 100%, 0.4);
+    --range-text-muted: hsla(0, 0%, 100%, 0.6);
+    --range-track: hsla(0, 0%, 10%, 0.2);
+}
+
+/* Dark theme variable overrides */
+[data-theme="dark"] {
+    --range-bg: hsl(0, 0%, 10%);
+    --range-bg-opacity-low: hsla(0, 0%, 10%, 0.25);
+    --range-bg-opacity-medium: hsla(0, 0%, 10%, 0.35);
+    --range-border: hsla(0, 0%, 10%, 0.35);
+    --range-border-dark: hsla(0, 0%, 10%, 0.45);
     --range-text: hsla(0, 0%, 100%, 0.7);
     --range-text-secondary: hsla(0, 0%, 100%, 0.4);
     --range-text-muted: hsla(0, 0%, 100%, 0.6);
@@ -156,4 +169,23 @@
         font-size: 12px;
         margin-top: 8px;
     }
+}
+
+.range-stats {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 16px;
+    font-size: 14px;
+    color: var(--range-text);
+}
+
+.range-stats [data-stat="average"] {
+    font-size: 18px;
+    font-weight: 700;
+    background: linear-gradient(135deg, #00f5ff 0%, #a855f7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
