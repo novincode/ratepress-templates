@@ -57,11 +57,11 @@ if ($is_js_mode) {
                 <button class="ratepress-star-btn <?php echo $isSelected ? 'active' : ''; ?>" 
                         type="button"
                         data-value="<?php echo esc_attr($value); ?>"
-                        data-star="<?php echo $i; ?>"
+                        data-star="<?php echo esc_attr($i); ?>"
                         role="radio"
                         aria-checked="<?php echo $isSelected ? 'true' : 'false'; ?>"
-                        aria-label="Rate <?php echo $i; ?> out of 5 stars"
-                        title="<?php echo $i; ?> star<?php echo $i !== 1 ? 's' : ''; ?>">
+                        aria-label="Rate <?php echo esc_attr($i); ?> out of 5 stars"
+                        title="<?php echo esc_attr($i); ?> star<?php echo $i !== 1 ? 's' : ''; ?>">
                         
                     <svg class="ratepress-star-icon" 
                          viewBox="0 0 24 24" 
@@ -93,8 +93,8 @@ if ($is_js_mode) {
                 
                 <span class="ratepress-count" 
                       data-stat="total"
-                      aria-label="<?php echo $total_ratings; ?> rating<?php echo $total_ratings !== 1 ? 's' : ''; ?>">
-                    <?php echo number_format($total_ratings); ?>
+                      aria-label="<?php echo esc_attr($total_ratings); ?> rating<?php echo $total_ratings !== 1 ? 's' : ''; ?>">
+                    <?php echo esc_html(number_format($total_ratings)); ?>
                 </span>
             </div>
         <?php endif; ?>

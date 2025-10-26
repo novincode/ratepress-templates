@@ -39,11 +39,11 @@ if ($is_js_mode) {
      data-size="<?php echo esc_attr($size); ?>"
      data-user-rating="<?php echo esc_attr($user_value); ?>"
      role="group"
-     aria-label="<?php _e('Neon Stars rating widget'); ?>">
+     aria-label="<?php esc_attr_e('Neon Stars rating widget', 'ratepress'); ?>">
      
         <div class="stars-input" 
          role="radiogroup" 
-         aria-label="<?php _e('Rate from 1 to 5 stars'); ?>"
+         aria-label="<?php esc_attr_e('Rate from 1 to 5 stars', 'ratepress'); ?>"
          aria-describedby="stars-info-<?php echo esc_attr($object_id); ?>">
         <?php for ($i = 1; $i <= 5; $i++): 
             $value = $i / 5;
@@ -52,11 +52,11 @@ if ($is_js_mode) {
                         <button class="star-btn <?php echo $isSelected ? 'active' : ''; ?>"
                     type="button"
                     data-value="<?php echo esc_attr($value); ?>"
-                    data-star="<?php echo $i; ?>"
+                    data-star="<?php echo esc_attr($i); ?>"
                     role="radio"
                     aria-checked="<?php echo $isSelected ? 'true' : 'false'; ?>"
-                    aria-label="<?php echo sprintf(__('Rate %d star%s'), $i, $i > 1 ? 's' : ''); ?>"
-                    title="<?php echo sprintf(__('Rate %d star%s'), $i, $i > 1 ? 's' : ''); ?>">
+                    aria-label="<?php esc_attr(sprintf(__('Rate %d star%s', 'ratepress'), $i, $i > 1 ? 's' : '')); ?>"
+                    title="<?php esc_attr(sprintf(__('Rate %d star%s', 'ratepress'), $i, $i > 1 ? 's' : '')); ?>">
                 <svg class="star-icon" viewBox="0 0 24 24" fill="none">
                     <path class="star-outline" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" 
                           stroke="currentColor" stroke-width="2"/>
@@ -69,8 +69,8 @@ if ($is_js_mode) {
     
     <?php if ($show_counts): ?>
         <div class="stars-info" id="stars-info-<?php echo esc_attr($object_id); ?>">
-            <span data-stat="average" data-scale="5"><?php echo number_format($display_average, 1); ?></span>
-            <span data-stat="total">(<?php echo htmlspecialchars($total); ?> ratings)</span>
+            <span data-stat="average" data-scale="5"><?php echo esc_html(number_format($display_average, 1)); ?></span>
+            <span data-stat="total">(<?php echo esc_html($total); ?> <?php esc_e('ratings', 'ratepress'); ?>)</span>
         </div>
     <?php endif; ?>
 </div>

@@ -34,15 +34,15 @@ if ($is_js_mode) {
      data-template="neon/lightning-bolt"
      data-size="<?php echo esc_attr($size); ?>"
      role="group"
-     aria-label="<?php _e('Lightning Bolt rating widget'); ?>">
+     aria-label="<?php esc_attr_e('Lightning Bolt rating widget', 'ratepress'); ?>">
      
     <button class="lightning-btn <?php echo $is_energized ? 'active' : ''; ?>" 
             type="button"
             data-value="1"
             aria-pressed="<?php echo $is_energized ? 'true' : 'false'; ?>"
-            aria-label="<?php echo $is_energized ? __('Unenergize') : __('Energize this'); ?>"
+            aria-label="<?php echo esc_attr($is_energized ? __('Unenergize', 'ratepress') : __('Energize this', 'ratepress')); ?>"
             aria-describedby="lightning-count-<?php echo esc_attr($object_id); ?>"
-            title="<?php echo $is_energized ? __('Unenergize') : __('Energize this'); ?>">
+            title="<?php echo esc_attr($is_energized ? __('Unenergize', 'ratepress') : __('Energize this', 'ratepress')); ?>">
         <svg class="lightning-icon" viewBox="0 0 24 24" fill="none">
             <path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z" 
                   fill="currentColor" 
@@ -54,7 +54,7 @@ if ($is_js_mode) {
             <span class="lightning-count" 
                   data-count="positive"
                   id="lightning-count-<?php echo esc_attr($object_id); ?>">
-                <?php echo htmlspecialchars($energized); ?>
+                <?php echo esc_html($energized); ?>
             </span>
         <?php endif; ?>
     </button>

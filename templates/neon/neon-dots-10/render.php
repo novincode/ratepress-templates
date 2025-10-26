@@ -39,11 +39,11 @@ if ($is_js_mode) {
      data-size="<?php echo esc_attr($size); ?>"
      data-user-rating="<?php echo esc_attr($user_value); ?>"
      role="group"
-     aria-label="<?php _e('Neon Dots 10 rating widget'); ?>">
+     aria-label="<?php esc_attr_e('Neon Dots 10 rating widget', 'ratepress'); ?>">
 
         <div class="dots-10-input"
              role="radiogroup"
-             aria-label="<?php _e('Rate from 1 to 10 dots'); ?>"
+             aria-label="<?php esc_attr_e('Rate from 1 to 10 dots', 'ratepress'); ?>"
              aria-describedby="stars-info-<?php echo esc_attr($object_id); ?>">
         <?php for ($i = 1; $i <= 10; $i++):
             $value = $i / 10;
@@ -53,16 +53,16 @@ if ($is_js_mode) {
                     type="button"
                     data-value="<?php echo esc_attr($value); ?>"
                     aria-pressed="<?php echo $isSelected ? 'true' : 'false'; ?>"
-                    aria-label="<?php echo sprintf(__('Rate %d dot%s'), $i, $i > 1 ? 's' : ''); ?>"
-                    title="<?php echo sprintf(__('Rate %d dot%s'), $i, $i > 1 ? 's' : ''); ?>">
+                    aria-label="<?php esc_attr(sprintf(__('Rate %d dot%s', 'ratepress'), $i, $i > 1 ? 's' : '')); ?>"
+                    title="<?php esc_attr(sprintf(__('Rate %d dot%s', 'ratepress'), $i, $i > 1 ? 's' : '')); ?>">
             </button>
         <?php endfor; ?>
     </div>
 
     <?php if ($show_counts): ?>
         <div class="stars-info" id="stars-info-<?php echo esc_attr($object_id); ?>">
-            <span data-stat="average" data-scale="10"><?php echo number_format($display_average, 1); ?></span>
-            <span data-stat="total">(<?php echo htmlspecialchars($total); ?> ratings)</span>
+            <span data-stat="average" data-scale="10"><?php echo esc_html(number_format($display_average, 1)); ?></span>
+            <span data-stat="total">(<?php echo esc_html($total); ?> <?php esc_e('ratings', 'ratepress'); ?>)</span>
         </div>
     <?php endif; ?>
 </div>

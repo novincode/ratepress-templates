@@ -34,15 +34,15 @@ if ($is_js_mode) {
      data-template="modern/heart"
      data-size="<?php echo esc_attr($size); ?>"
      role="group"
-     aria-label="<?php _e('Heart rating widget'); ?>">
+     aria-label="<?php esc_attr_e('Heart rating widget', 'ratepress'); ?>">
      
     <button class="heart-btn <?php echo $is_loved ? 'active' : ''; ?>"
             type="button"
             data-value="1"
             aria-pressed="<?php echo $is_loved ? 'true' : 'false'; ?>"
-            aria-label="<?php echo $is_loved ? __('Unlike') : __('Love this'); ?>"
+            aria-label="<?php echo esc_attr($is_loved ? __('Unlike', 'ratepress') : __('Love this', 'ratepress')); ?>"
             aria-describedby="heart-count-<?php echo esc_attr($object_id); ?>"
-            title="<?php echo $is_loved ? __('Unlike') : __('Love this'); ?>">
+            title="<?php echo esc_attr($is_loved ? __('Unlike', 'ratepress') : __('Love this', 'ratepress')); ?>">
         <svg viewBox="0 0 24 24" fill="none">
             <path class="heart-path" d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke="currentColor" stroke-width="2" fill="currentColor"/>
         </svg>
@@ -50,8 +50,8 @@ if ($is_js_mode) {
             <span class="heart-count" 
                   data-count="positive"
                   id="heart-count-<?php echo esc_attr($object_id); ?>"
-                  aria-label="<?php printf(_n('%d love', '%d loves', $loves), $loves); ?>">
-                <?php echo number_format($loves); ?>
+                  aria-label="<?php esc_attr_e('Number of loves:', 'ratepress'); ?> <?php echo esc_attr($loves); ?>">
+                <?php echo esc_html(number_format($loves)); ?>
             </span>
         <?php endif; ?>
     </button>

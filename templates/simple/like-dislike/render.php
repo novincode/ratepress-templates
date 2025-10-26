@@ -89,8 +89,8 @@ $colors = $color_schemes[$color_scheme] ?? $color_schemes['default'];
                 <span class="ratepress-like-count" 
                       data-count="positive"
                       id="like-count-<?php echo esc_attr($object_id); ?>"
-                      aria-label="<?php echo $likes_count; ?> like<?php echo $likes_count !== 1 ? 's' : ''; ?>">
-                    <?php echo number_format($likes_count); ?>
+                      aria-label="<?php echo esc_attr($likes_count); ?> like<?php echo $likes_count !== 1 ? 's' : ''; ?>">
+                    <?php echo esc_html(number_format($likes_count)); ?>
                 </span>
             <?php endif; ?>
         </button>
@@ -124,8 +124,8 @@ $colors = $color_schemes[$color_scheme] ?? $color_schemes['default'];
                 <span class="ratepress-dislike-count" 
                       data-count="negative"
                       id="dislike-count-<?php echo esc_attr($object_id); ?>"
-                      aria-label="<?php echo $dislikes_count; ?> dislike<?php echo $dislikes_count !== 1 ? 's' : ''; ?>">
-                    <?php echo number_format($dislikes_count); ?>
+                      aria-label="<?php echo esc_attr($dislikes_count); ?> dislike<?php echo $dislikes_count !== 1 ? 's' : ''; ?>">
+                    <?php echo esc_html(number_format($dislikes_count)); ?>
                 </span>
             <?php endif; ?>
         </button>

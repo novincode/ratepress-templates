@@ -38,15 +38,15 @@ if ($is_js_mode) {
      data-template="neon/dual-orbs"
      data-size="<?php echo esc_attr($size); ?>"
      role="group"
-     aria-label="<?php _e('Dual Orbs rating widget'); ?>">
+     aria-label="<?php esc_attr_e('Dual Orbs rating widget', 'ratepress'); ?>">
      
     <button class="orb-btn orb-up <?php echo $user_liked ? 'active' : ''; ?>" 
             type="button"
             data-value="1"
             aria-pressed="<?php echo $user_liked ? 'true' : 'false'; ?>"
-            aria-label="<?php echo $user_liked ? __('Unlike') : __('Like this'); ?>"
+            aria-label="<?php echo esc_attr($user_liked ? __('Unlike', 'ratepress') : __('Like this', 'ratepress')); ?>"
             aria-describedby="orb-up-count-<?php echo esc_attr($object_id); ?>"
-            title="<?php echo $user_liked ? __('Unlike') : __('Like this'); ?>">
+            title="<?php echo esc_attr($user_liked ? __('Unlike', 'ratepress') : __('Like this', 'ratepress')); ?>">
         <svg class="orb-icon" viewBox="0 0 24 24" fill="none">
             <path d="M12 5l0 14M5 12l7-7 7 7" 
                   stroke="currentColor" 
@@ -58,7 +58,7 @@ if ($is_js_mode) {
             <span class="orb-count" 
                   data-count="positive"
                   id="orb-up-count-<?php echo esc_attr($object_id); ?>">
-                <?php echo htmlspecialchars($ups); ?>
+                <?php echo esc_html($ups); ?>
             </span>
         <?php endif; ?>
     </button>
@@ -67,9 +67,9 @@ if ($is_js_mode) {
             type="button"
             data-value="-1"
             aria-pressed="<?php echo $user_disliked ? 'true' : 'false'; ?>"
-            aria-label="<?php echo $user_disliked ? __('Undislike') : __('Dislike this'); ?>"
+            aria-label="<?php echo esc_attr($user_disliked ? __('Undislike', 'ratepress') : __('Dislike this', 'ratepress')); ?>"
             aria-describedby="orb-down-count-<?php echo esc_attr($object_id); ?>"
-            title="<?php echo $user_disliked ? __('Undislike') : __('Dislike this'); ?>">
+            title="<?php echo esc_attr($user_disliked ? __('Undislike', 'ratepress') : __('Dislike this', 'ratepress')); ?>">
         <svg class="orb-icon" viewBox="0 0 24 24" fill="none">
             <path d="M12 19l0-14M5 12l7 7 7-7" 
                   stroke="currentColor" 
@@ -81,7 +81,7 @@ if ($is_js_mode) {
             <span class="orb-count" 
                   data-count="negative"
                   id="orb-down-count-<?php echo esc_attr($object_id); ?>">
-                <?php echo htmlspecialchars($downs); ?>
+                <?php echo esc_html($downs); ?>
             </span>
         <?php endif; ?>
     </button>

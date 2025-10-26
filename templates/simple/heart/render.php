@@ -66,8 +66,8 @@ if ($is_js_mode) {
             <span class="ratepress-heart-count" 
                   data-count="positive"
                   id="heart-count-<?php echo esc_attr($object_id); ?>"
-                  aria-label="<?php echo $hearts_count; ?> person<?php echo $hearts_count !== 1 ? 's' : ''; ?> love<?php echo $hearts_count === 1 ? 's' : ''; ?> this">
-                <?php echo number_format($hearts_count); ?>
+                  aria-label="<?php echo esc_attr($hearts_count); ?> person<?php echo $hearts_count !== 1 ? 's' : ''; ?> love<?php echo $hearts_count === 1 ? 's' : ''; ?> this">
+                <?php echo esc_html(number_format($hearts_count)); ?>
             </span>
         <?php endif; ?>
     </button>

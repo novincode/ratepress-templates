@@ -30,15 +30,15 @@ if ($is_js_mode) {
      data-template="modern/bookmark"
      data-size="<?php echo esc_attr($size); ?>"
      role="group"
-     aria-label="<?php _e('Bookmark rating widget'); ?>">
+     aria-label="<?php esc_attr_e('Bookmark rating widget', 'ratepress'); ?>">
      
     <button class="bookmark-btn <?php echo $is_bookmarked ? 'active' : ''; ?>"
             type="button"
             data-value="1"
             aria-pressed="<?php echo $is_bookmarked ? 'true' : 'false'; ?>"
-     aria-label="<?php echo $is_bookmarked ? __('Remove bookmark') : __('Bookmark'); ?>"
+            aria-label="<?php echo esc_attr($is_bookmarked ? __('Remove bookmark', 'ratepress') : __('Bookmark', 'ratepress')); ?>"
             aria-describedby="bookmark-count-<?php echo esc_attr($object_id); ?>"
-            title="<?php echo $is_bookmarked ? __('Remove bookmark') : __('Bookmark'); ?>">
+            title="<?php echo esc_attr($is_bookmarked ? __('Remove bookmark', 'ratepress') : __('Bookmark', 'ratepress')); ?>">
         <svg viewBox="0 0 24 24" fill="none">
             <path class="bookmark-path" d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" stroke="currentColor" stroke-width="2" fill="currentColor"/>
         </svg>
@@ -46,8 +46,8 @@ if ($is_js_mode) {
             <span class="bookmark-count" 
                   data-count="positive"
                   id="bookmark-count-<?php echo esc_attr($object_id); ?>"
-                  aria-label="<?php printf(_n('%d bookmark', '%d bookmarks', $bookmarks), $bookmarks); ?>">
-                <?php echo number_format($bookmarks); ?>
+                  aria-label="<?php esc_attr_e('Number of bookmarks:', 'ratepress'); ?> <?php echo esc_attr($bookmarks); ?>">
+                <?php echo esc_html(number_format($bookmarks)); ?>
             </span>
         <?php endif; ?>
     </button>

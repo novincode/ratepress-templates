@@ -31,15 +31,15 @@ if ($is_js_mode) {
      data-template="neon/neon-thumbs"
      data-size="<?php echo esc_attr($size); ?>"
      role="group"
-     aria-label="<?php _e('Neon Thumbs rating widget'); ?>">
+     aria-label="<?php esc_attr_e('Neon Thumbs rating widget', 'ratepress'); ?>">
      
     <button class="thumbs-btn <?php echo $is_liked ? 'active' : ''; ?>" 
             type="button"
             data-value="1"
             aria-pressed="<?php echo $is_liked ? 'true' : 'false'; ?>"
-            aria-label="<?php echo $is_liked ? __('Unlike') : __('Like this'); ?>"
+            aria-label="<?php echo esc_attr($is_liked ? __('Unlike', 'ratepress') : __('Like this', 'ratepress')); ?>"
             aria-describedby="thumbs-count-<?php echo esc_attr($object_id); ?>"
-            title="<?php echo $is_liked ? __('Unlike') : __('Like this'); ?>">
+            title="<?php echo esc_attr($is_liked ? __('Unlike', 'ratepress') : __('Like this', 'ratepress')); ?>">
         <svg class="thumbs-icon" viewBox="0 0 24 24" fill="none">
             <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3" 
                   stroke="currentColor" 
@@ -52,7 +52,7 @@ if ($is_js_mode) {
             <span class="thumbs-count" 
                   data-count="positive"
                   id="thumbs-count-<?php echo esc_attr($object_id); ?>">
-                <?php echo htmlspecialchars($likes); ?>
+                <?php echo esc_html($likes); ?>
             </span>
         <?php endif; ?>
     </button>

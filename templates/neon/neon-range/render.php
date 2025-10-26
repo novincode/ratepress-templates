@@ -43,7 +43,7 @@ if ($is_js_mode) {
      data-size="<?php echo esc_attr($size); ?>"
      data-user-rating="<?php echo esc_attr($user_value); ?>"
      role="group"
-     aria-label="<?php _e('Neon Range rating widget'); ?>">
+     aria-label="<?php esc_attr_e('Neon Range rating widget', 'ratepress'); ?>">
      
     <div class="range-container">
         <?php if ($show_value): ?>
@@ -56,18 +56,18 @@ if ($is_js_mode) {
                step="<?php echo esc_attr($step); ?>" 
                value="<?php echo esc_attr($user_rating); ?>"
                data-value="<?php echo esc_attr($user_value); ?>"
-               aria-label="<?php _e('Rate with slider'); ?>"
-               title="<?php _e('Rate with slider'); ?>">
+               aria-label="<?php esc_attr_e('Rate with slider', 'ratepress'); ?>"
+               title="<?php esc_attr_e('Rate with slider', 'ratepress'); ?>">
         <div class="range-labels">
-            <span><?php echo htmlspecialchars($min_value); ?></span>
-            <span><?php echo htmlspecialchars($max_value); ?></span>
+            <span><?php echo esc_html($min_value); ?></span>
+            <span><?php echo esc_html($max_value); ?></span>
         </div>
     </div>
 
     <?php if ($show_counts && !$is_js_mode): ?>
     <div class="range-stats">
-        <span data-stat="average" data-scale="10"><?php echo number_format($display_average, 1); ?>/10</span>
-        <span data-stat="total">(<?php echo htmlspecialchars($total); ?> ratings)</span>
+        <span data-stat="average" data-scale="10"><?php echo esc_html(number_format($display_average, 1)); ?>/10</span>
+        <span data-stat="total">(<?php echo esc_html($total); ?> <?php esc_e('ratings', 'ratepress'); ?>)</span>
     </div>
     <?php endif; ?>
 </div>

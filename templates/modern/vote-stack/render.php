@@ -32,32 +32,32 @@ if ($is_js_mode) {
      data-template="modern/vote-stack"
      data-size="<?php echo esc_attr($size); ?>"
      role="group"
-     aria-label="<?php _e('Vote rating widget'); ?>">
+     aria-label="<?php esc_attr_e('Vote rating widget', 'ratepress'); ?>">
      
     <button class="rp-vote-btn rp-vote-up <?php echo $user_upvoted ? 'active' : ''; ?>"
             type="button"
             data-value="1"
             aria-pressed="<?php echo $user_upvoted ? 'true' : 'false'; ?>"
-            aria-label="<?php echo $user_upvoted ? __('Remove upvote') : __('Upvote'); ?>"
+            aria-label="<?php echo esc_attr($user_upvoted ? __('Remove upvote', 'ratepress') : __('Upvote', 'ratepress')); ?>"
             aria-describedby="vote-score-<?php echo esc_attr($object_id); ?>"
-            title="<?php echo $user_upvoted ? __('Remove upvote') : __('Upvote'); ?>">
+            title="<?php echo esc_attr($user_upvoted ? __('Remove upvote', 'ratepress') : __('Upvote', 'ratepress')); ?>">
         <svg viewBox="0 0 24 24" fill="none"><path d="M7 14l5-5 5 5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </button>
     
     <div class="rp-vote-score" 
          data-count="score"
          id="vote-score-<?php echo esc_attr($object_id); ?>"
-         aria-label="<?php printf(__('Score: %d'), $score); ?>">
-        <?php echo number_format($score); ?>
+         aria-label="<?php esc_attr(sprintf(__('Score: %d', 'ratepress'), $score)); ?>">
+        <?php echo esc_html(number_format($score)); ?>
     </div>
     
     <button class="rp-vote-btn rp-vote-down <?php echo $user_downvoted ? 'active' : ''; ?>"
             type="button"
             data-value="-1"
             aria-pressed="<?php echo $user_downvoted ? 'true' : 'false'; ?>"
-            aria-label="<?php echo $user_downvoted ? __('Remove downvote') : __('Downvote'); ?>"
+            aria-label="<?php echo esc_attr($user_downvoted ? __('Remove downvote', 'ratepress') : __('Downvote', 'ratepress')); ?>"
             aria-describedby="vote-score-<?php echo esc_attr($object_id); ?>"
-            title="<?php echo $user_downvoted ? __('Remove downvote') : __('Downvote'); ?>">
+            title="<?php echo esc_attr($user_downvoted ? __('Remove downvote', 'ratepress') : __('Downvote', 'ratepress')); ?>">
         <svg viewBox="0 0 24 24" fill="none"><path d="M7 10l5 5 5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </button>
 </div>
