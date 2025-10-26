@@ -47,7 +47,10 @@ if ($is_js_mode) {
     <div class="rp-vote-score" 
          data-count="score"
          id="vote-score-<?php echo esc_attr($object_id); ?>"
-         aria-label="<?php esc_attr(sprintf(__('Score: %d', 'ratepress'), $score)); ?>">
+         aria-label="<?php
+            /* translators: %d: vote score number */
+            esc_attr(sprintf(__('Score: %d', 'ratepress'), $score));
+        ?>">
         <?php echo esc_html(number_format($score)); ?>
     </div>
     
