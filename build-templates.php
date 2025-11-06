@@ -56,7 +56,7 @@ class TemplatesBuilder
 
                 // Generate URLs automatically
                 $slug = $config['slug'];
-                $baseUrl = 'https://raw.githubusercontent.com/novincode/ratekit-templates/main/templates/' . $slug;
+                $baseUrl = 'https://raw.githubusercontent.com/novincode/ratepress-templates/ratekit/templates/' . $slug;
                 $downloadUrl = 'https://github.com/novincode/ratekit-templates/tree/main/templates/' . $slug;
 
                 // Check for preview image or generate one
@@ -147,7 +147,7 @@ class TemplatesBuilder
 
         if ($returnCode === 0 && file_exists($previewPath)) {
             echo "✅ Generated preview for {$config['slug']}\n";
-            return "https://raw.githubusercontent.com/novincode/ratekit-templates/main/templates/{$slug}/preview.png";
+            return "https://raw.githubusercontent.com/novincode/ratepress-templates/ratekit/templates/{$slug}/preview.png";
         } else {
             echo "❌ Failed to generate preview: " . implode("\n", $output) . "\n";
             return 'https://via.placeholder.com/320x200/6366f1/ffffff?text=' . urlencode($config['name']);

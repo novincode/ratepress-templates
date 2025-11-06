@@ -13,7 +13,7 @@
             "binary",
             "minimal"
         ],
-        "preview_image": "https://raw.githubusercontent.com/novincode/ratekit-templates/main/templates/modern/bookmark/preview.png",
+        "preview_image": "https://raw.githubusercontent.com/novincode/ratepress-templates/ratekit/templates/modern/bookmark/preview.png",
         "download_url": "https://github.com/novincode/ratekit-templates/tree/main/templates/modern/bookmark",
         "min_ratekit_version": "1.0.0",
         "requires_core_js": true
@@ -27,7 +27,7 @@
         "author": "RateKit",
         "author_uri": "",
         "tags": [],
-        "preview_image": "https://raw.githubusercontent.com/novincode/ratekit-templates/main/templates/modern/heart/preview.png",
+        "preview_image": "https://raw.githubusercontent.com/novincode/ratepress-templates/ratekit/templates/modern/heart/preview.png",
         "download_url": "https://github.com/novincode/ratekit-templates/tree/main/templates/modern/heart",
         "min_ratekit_version": "1.0.0",
         "requires_core_js": true
@@ -41,7 +41,7 @@
         "author": "RateKit",
         "author_uri": "",
         "tags": [],
-        "preview_image": "https://raw.githubusercontent.com/novincode/ratekit-templates/main/templates/modern/like-dislike/preview.png",
+        "preview_image": "https://raw.githubusercontent.com/novincode/ratepress-templates/ratekit/templates/modern/like-dislike/preview.png",
         "download_url": "https://github.com/novincode/ratekit-templates/tree/main/templates/modern/like-dislike",
         "min_ratekit_version": "1.0.0",
         "requires_core_js": true
@@ -60,7 +60,7 @@
             "scale",
             "5-star"
         ],
-        "preview_image": "https://raw.githubusercontent.com/novincode/ratekit-templates/main/templates/modern/stars/preview.png",
+        "preview_image": "https://raw.githubusercontent.com/novincode/ratepress-templates/ratekit/templates/modern/stars/preview.png",
         "download_url": "https://github.com/novincode/ratekit-templates/tree/main/templates/modern/stars",
         "min_ratekit_version": "1.0.0",
         "requires_core_js": true
@@ -79,7 +79,7 @@
             "bipolar",
             "minimal"
         ],
-        "preview_image": "https://raw.githubusercontent.com/novincode/ratekit-templates/main/templates/modern/vote-stack/preview.png",
+        "preview_image": "https://raw.githubusercontent.com/novincode/ratepress-templates/ratekit/templates/modern/vote-stack/preview.png",
         "download_url": "https://github.com/novincode/ratekit-templates/tree/main/templates/modern/vote-stack",
         "min_ratekit_version": "1.0.0",
         "requires_core_js": true
@@ -93,7 +93,7 @@
         "author": "RateKit",
         "author_uri": "",
         "tags": [],
-        "preview_image": "https://raw.githubusercontent.com/novincode/ratekit-templates/main/templates/neon/dual-orbs/preview.png",
+        "preview_image": "https://raw.githubusercontent.com/novincode/ratepress-templates/ratekit/templates/neon/dual-orbs/preview.png",
         "download_url": "https://github.com/novincode/ratekit-templates/tree/main/templates/neon/dual-orbs",
         "min_ratekit_version": "1.0.0",
         "requires_core_js": true
@@ -107,7 +107,7 @@
         "author": "RateKit",
         "author_uri": "",
         "tags": [],
-        "preview_image": "https://raw.githubusercontent.com/novincode/ratekit-templates/main/templates/neon/lightning-bolt/preview.png",
+        "preview_image": "https://raw.githubusercontent.com/novincode/ratepress-templates/ratekit/templates/neon/lightning-bolt/preview.png",
         "download_url": "https://github.com/novincode/ratekit-templates/tree/main/templates/neon/lightning-bolt",
         "min_ratekit_version": "1.0.0",
         "requires_core_js": true
@@ -121,7 +121,7 @@
         "author": "RateKit",
         "author_uri": "",
         "tags": [],
-        "preview_image": "https://raw.githubusercontent.com/novincode/ratekit-templates/main/templates/neon/neon-dots-10/preview.png",
+        "preview_image": "https://raw.githubusercontent.com/novincode/ratepress-templates/ratekit/templates/neon/neon-dots-10/preview.png",
         "download_url": "https://github.com/novincode/ratekit-templates/tree/main/templates/neon/neon-dots-10",
         "min_ratekit_version": "1.0.0",
         "requires_core_js": true
@@ -135,7 +135,7 @@
         "author": "RateKit",
         "author_uri": "",
         "tags": [],
-        "preview_image": "https://raw.githubusercontent.com/novincode/ratekit-templates/main/templates/neon/neon-dots-5/preview.png",
+        "preview_image": "https://raw.githubusercontent.com/novincode/ratepress-templates/ratekit/templates/neon/neon-dots-5/preview.png",
         "download_url": "https://github.com/novincode/ratekit-templates/tree/main/templates/neon/neon-dots-5",
         "min_ratekit_version": "1.0.0",
         "requires_core_js": true
@@ -149,7 +149,7 @@
         "author": "RateKit",
         "author_uri": "",
         "tags": [],
-        "preview_image": "https://raw.githubusercontent.com/novincode/ratekit-templates/main/templates/neon/neon-heart/preview.png",
+        "preview_image": "https://raw.githubusercontent.com/novincode/ratepress-templates/ratekit/templates/neon/neon-heart/preview.png",
         "download_url": "https://github.com/novincode/ratekit-templates/tree/main/templates/neon/neon-heart",
         "min_ratekit_version": "1.0.0",
         "requires_core_js": true
@@ -163,7 +163,7 @@
         "author": "RateKit",
         "author_uri": "",
         "tags": [],
-        "preview_image": "https://raw.githubusercontent.com/novincode/ratekit-templates/main/templates/neon/neon-range/preview.png",
+        "preview_image": "https://raw.githubusercontent.com/novincode/ratepress-templates/ratekit/templates/neon/neon-range/preview.png",
         "download_url": "https://github.com/novincode/ratekit-templates/tree/main/templates/neon/neon-range",
         "min_ratekit_version": "1.0.0",
         "requires_core_js": true
@@ -177,7 +177,7 @@
         "author": "RateKit",
         "author_uri": "",
         "tags": [],
-        "preview_image": "https://raw.githubusercontent.com/novincode/ratekit-templates/main/templates/neon/neon-stars/preview.png",
+        "preview_image": "https://raw.githubusercontent.com/novincode/ratepress-templates/ratekit/templates/neon/neon-stars/preview.png",
         "download_url": "https://github.com/novincode/ratekit-templates/tree/main/templates/neon/neon-stars",
         "min_ratekit_version": "1.0.0",
         "requires_core_js": true
@@ -191,7 +191,7 @@
         "author": "RateKit",
         "author_uri": "",
         "tags": [],
-        "preview_image": "https://raw.githubusercontent.com/novincode/ratekit-templates/main/templates/neon/neon-thumbs/preview.png",
+        "preview_image": "https://raw.githubusercontent.com/novincode/ratepress-templates/ratekit/templates/neon/neon-thumbs/preview.png",
         "download_url": "https://github.com/novincode/ratekit-templates/tree/main/templates/neon/neon-thumbs",
         "min_ratekit_version": "1.0.0",
         "requires_core_js": true
@@ -211,7 +211,7 @@
             "5-star",
             "simple"
         ],
-        "preview_image": "https://raw.githubusercontent.com/novincode/ratekit-templates/main/templates/simple/five-stars/preview.png",
+        "preview_image": "https://raw.githubusercontent.com/novincode/ratepress-templates/ratekit/templates/simple/five-stars/preview.png",
         "download_url": "https://github.com/novincode/ratekit-templates/tree/main/templates/simple/five-stars",
         "min_ratekit_version": "1.0.0",
         "requires_core_js": true
@@ -230,7 +230,7 @@
             "binary",
             "simple"
         ],
-        "preview_image": "https://raw.githubusercontent.com/novincode/ratekit-templates/main/templates/simple/heart/preview.png",
+        "preview_image": "https://raw.githubusercontent.com/novincode/ratepress-templates/ratekit/templates/simple/heart/preview.png",
         "download_url": "https://github.com/novincode/ratekit-templates/tree/main/templates/simple/heart",
         "min_ratekit_version": "1.0.0",
         "requires_core_js": true
@@ -250,7 +250,7 @@
             "bipolar",
             "simple"
         ],
-        "preview_image": "https://raw.githubusercontent.com/novincode/ratekit-templates/main/templates/simple/like-dislike/preview.png",
+        "preview_image": "https://raw.githubusercontent.com/novincode/ratepress-templates/ratekit/templates/simple/like-dislike/preview.png",
         "download_url": "https://github.com/novincode/ratekit-templates/tree/main/templates/simple/like-dislike",
         "min_ratekit_version": "1.0.0",
         "requires_core_js": true
