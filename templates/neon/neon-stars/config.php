@@ -9,7 +9,7 @@ return [
     'name' => 'Neon Stars',
     'description' => 'Futuristic glowing 5-star rating - classic star rating',
     'version' => '1.2.1',
-    'author' => 'RatePress',
+    'author' => 'RateKit',
     'category' => 'scale',
     'styles' => ['style.css'],
     'scripts' => [], // Core JS handles all interactions

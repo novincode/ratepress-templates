@@ -3,7 +3,7 @@
  * Five-Stars Template Renderer - Scale Category
  */
 
-namespace RatePress\Templates;
+namespace RateKit\Templates;
 
 // Get template data
 $data = $template_data ?? new TemplateData([]);
@@ -34,7 +34,7 @@ if ($is_js_mode) {
 }
 ?>
 
-<div class="ratepress-widget ratepress-stars-widget<?php echo $is_js_mode ? ' ratepress-js-mode' : ''; ?>" 
+<div class="ratekit-widget ratekit-stars-widget<?php echo $is_js_mode ? ' ratekit-js-mode' : ''; ?>" 
      data-object-id="<?php echo esc_attr($object_id); ?>"
      data-object-type="<?php echo esc_attr($object_type); ?>"
      data-category="scale" 
@@ -44,9 +44,9 @@ if ($is_js_mode) {
      role="group"
      aria-label="Star rating widget">
      
-    <div class="ratepress-stars-container">
+    <div class="ratekit-stars-container">
         <!-- Interactive Rating Input -->
-        <div class="ratepress-stars-input" 
+        <div class="ratekit-stars-input" 
              role="radiogroup" 
              aria-label="Rate from 1 to 5 stars"
              aria-describedby="stars-info-<?php echo esc_attr($object_id); ?>">
@@ -54,7 +54,7 @@ if ($is_js_mode) {
                 $value = $i / 5;
                 $isSelected = $user_has_rated && ($user_value * 5) >= $i;
             ?>
-                <button class="ratepress-star-btn <?php echo $isSelected ? 'active' : ''; ?>" 
+                <button class="ratekit-star-btn <?php echo $isSelected ? 'active' : ''; ?>" 
                         type="button"
                         data-value="<?php echo esc_attr($value); ?>"
                         data-star="<?php echo esc_attr($i); ?>"
@@ -63,7 +63,7 @@ if ($is_js_mode) {
                         aria-label="Rate <?php echo esc_attr($i); ?> out of 5 stars"
                         title="<?php echo esc_attr($i); ?> star<?php echo $i !== 1 ? 's' : ''; ?>">
                         
-                    <svg class="ratepress-star-icon" 
+                    <svg class="ratekit-star-icon" 
                          viewBox="0 0 24 24" 
                          fill="none" 
                          xmlns="http://www.w3.org/2000/svg"
@@ -83,15 +83,15 @@ if ($is_js_mode) {
         
         <!-- Rating Information -->
         <?php if ($show_counts && ($total_ratings > 0 || $is_js_mode)): ?>
-            <div class="ratepress-stars-info" id="stars-info-<?php echo esc_attr($object_id); ?>">
-                <span class="ratepress-average" 
+            <div class="ratekit-stars-info" id="stars-info-<?php echo esc_attr($object_id); ?>">
+                <span class="ratekit-average" 
                       data-stat="average"
                       data-scale="5"
                       aria-label="Average rating: <?php echo number_format($display_average, 1); ?> out of 5 stars">
                     <?php echo number_format($display_average, 1); ?>
                 </span>
                 
-                <span class="ratepress-count" 
+                <span class="ratekit-count" 
                       data-stat="total"
                       aria-label="<?php echo esc_attr($total_ratings); ?> rating<?php echo $total_ratings !== 1 ? 's' : ''; ?>">
                     <?php echo esc_html(number_format($total_ratings)); ?>

@@ -5,10 +5,10 @@ return [
     'description' => 'Modern heart icon for binary love ratings',
     'category' => 'binary',
     'version' => '1.0.0',
-    'author' => 'RatePress',
-    'author_url' => 'https://ratepress.com',
+    'author' => 'RateKit',
+    'author_url' => 'https://ratekit.com',
     'tags' => ['heart', 'love', 'binary', 'simple'],
-    'min_ratepress_version' => '1.0.0',
+    'min_ratekit_version' => '1.0.0',
     'styles' => ['style.css'],
     'scripts' => [], // Core JS handles all interactions
     'requires_core_js' => true,

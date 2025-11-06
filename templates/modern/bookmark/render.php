@@ -1,5 +1,5 @@
 <?php
-namespace RatePress\Templates;
+namespace RateKit\Templates;
 
 $data = $template_data ?? new TemplateData([]);
 $stats = $data->category_stats ?? [];
@@ -23,22 +23,22 @@ if ($is_js_mode) {
 }
 ?>
 
-<div class="ratepress-widget ratepress-bookmark<?php echo $is_js_mode ? ' ratepress-js-mode' : ''; ?>"<?php echo $theme === 'dark' ? ' data-theme="dark"' : ''; ?>
+<div class="ratekit-widget ratekit-bookmark<?php echo $is_js_mode ? ' ratekit-js-mode' : ''; ?>"<?php echo $theme === 'dark' ? ' data-theme="dark"' : ''; ?>
      data-object-id="<?php echo esc_attr($object_id); ?>"
      data-object-type="<?php echo esc_attr($object_type); ?>"
      data-category="binary"
      data-template="modern/bookmark"
      data-size="<?php echo esc_attr($size); ?>"
      role="group"
-     aria-label="<?php esc_attr_e('Bookmark rating widget', 'ratepress'); ?>">
+     aria-label="<?php esc_attr_e('Bookmark rating widget', 'ratekit'); ?>">
      
     <button class="bookmark-btn <?php echo $is_bookmarked ? 'active' : ''; ?>"
             type="button"
             data-value="1"
             aria-pressed="<?php echo $is_bookmarked ? 'true' : 'false'; ?>"
-            aria-label="<?php echo esc_attr($is_bookmarked ? __('Remove bookmark', 'ratepress') : __('Bookmark', 'ratepress')); ?>"
+            aria-label="<?php echo esc_attr($is_bookmarked ? __('Remove bookmark', 'ratekit') : __('Bookmark', 'ratekit')); ?>"
             aria-describedby="bookmark-count-<?php echo esc_attr($object_id); ?>"
-            title="<?php echo esc_attr($is_bookmarked ? __('Remove bookmark', 'ratepress') : __('Bookmark', 'ratepress')); ?>">
+            title="<?php echo esc_attr($is_bookmarked ? __('Remove bookmark', 'ratekit') : __('Bookmark', 'ratekit')); ?>">
         <svg viewBox="0 0 24 24" fill="none">
             <path class="bookmark-path" d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" stroke="currentColor" stroke-width="2" fill="currentColor"/>
         </svg>
@@ -46,7 +46,7 @@ if ($is_js_mode) {
             <span class="bookmark-count" 
                   data-count="positive"
                   id="bookmark-count-<?php echo esc_attr($object_id); ?>"
-                  aria-label="<?php esc_attr_e('Number of bookmarks:', 'ratepress'); ?> <?php echo esc_attr($bookmarks); ?>">
+                  aria-label="<?php esc_attr_e('Number of bookmarks:', 'ratekit'); ?> <?php echo esc_attr($bookmarks); ?>">
                 <?php echo esc_html(number_format($bookmarks)); ?>
             </span>
         <?php endif; ?>

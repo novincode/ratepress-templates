@@ -1,7 +1,7 @@
 {
-  "name": "ratepress-templates-builder",
+  "name": "ratekit-templates-builder",
   "version": "1.0.0",
-  "description": "Preview generator for RatePress templates",
+  "description": "Preview generator for RateKit templates",
   "private": true,
   "dependencies": {
     "@playwright/test": "^1.55.1"

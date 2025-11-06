@@ -26,7 +26,7 @@
     --heart-text-muted: hsla(0, 0%, 0%, 0.6);
 }
 
-.ratepress-neon-heart {
+.ratekit-neon-heart {
     display: inline-flex;
 }
 
@@ -104,24 +104,24 @@
 }
 
 /* Sizes */
-.ratepress-neon-heart[data-size="small"] .heart-btn {
+.ratekit-neon-heart[data-size="small"] .heart-btn {
     padding: var(--heart-padding-sm);
     font-size: var(--heart-font-sm);
     gap: 10px;
 }
 
-.ratepress-neon-heart[data-size="small"] .heart-btn .heart-icon {
+.ratekit-neon-heart[data-size="small"] .heart-btn .heart-icon {
     width: var(--heart-size-sm);
     height: var(--heart-size-sm);
 }
 
-.ratepress-neon-heart[data-size="large"] .heart-btn {
+.ratekit-neon-heart[data-size="large"] .heart-btn {
     padding: var(--heart-padding-lg);
     font-size: var(--heart-font-lg);
     gap: 16px;
 }
 
-.ratepress-neon-heart[data-size="large"] .heart-btn .heart-icon {
+.ratekit-neon-heart[data-size="large"] .heart-btn .heart-icon {
     width: var(--heart-size-lg);
     height: var(--heart-size-lg);
 }
@@ -152,7 +152,7 @@
 
 /* Responsive */
 @media (max-width: 768px) {
-    .ratepress-neon-heart[data-size="large"] .heart-btn {
+    .ratekit-neon-heart[data-size="large"] .heart-btn {
         padding: var(--heart-padding-md);
         font-size: var(--heart-font-md);
     }

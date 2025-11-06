@@ -5,7 +5,7 @@
  * Smooth animations and theme-adaptive styling
  */
 
-.ratepress-heart-widget {
+.ratekit-heart-widget {
     --heart-color: #e11d48;
     --heart-size: 24px;
     --heart-inactive: rgba(0, 0, 0, 0.6);
@@ -27,8 +27,8 @@
 }
 
 /* Dark theme - only when explicitly set */
-[data-theme="dark"] .ratepress-heart-widget,
-.dark .ratepress-heart-widget {
+[data-theme="dark"] .ratekit-heart-widget,
+.dark .ratekit-heart-widget {
     --heart-inactive: rgba(255, 255, 255, 0.6);
     --heart-hover: rgba(255, 255, 255, 0.8);
     --glass-bg: rgba(255, 255, 255, 0.08);
@@ -37,7 +37,7 @@
     --shadow-hover: 0 12px 40px rgba(239, 68, 68, 0.2);
 }
 
-.ratepress-heart-btn {
+.ratekit-heart-btn {
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -58,7 +58,7 @@
     min-height: 44px;
 }
 
-.ratepress-heart-btn::before {
+.ratekit-heart-btn::before {
     content: '';
     position: absolute;
     inset: 0;
@@ -69,7 +69,7 @@
     pointer-events: none;
 }
 
-.ratepress-heart-btn::after {
+.ratekit-heart-btn::after {
     content: '';
     position: absolute;
     inset: 0;
@@ -79,40 +79,40 @@
     transition: opacity 0.2s ease;
 }
 
-.ratepress-heart-btn:hover::after {
+.ratekit-heart-btn:hover::after {
     opacity: 0.06;
 }
 
-.ratepress-heart-btn:active::after {
+.ratekit-heart-btn:active::after {
     opacity: 0.12;
 }
 
-.ratepress-heart-btn:hover {
+.ratekit-heart-btn:hover {
     color: var(--heart-hover);
     border-color: rgba(0, 0, 0, 0.2);
     transform: translateY(-2px) scale(1.02);
     box-shadow: var(--shadow-hover);
 }
 
-.ratepress-heart-btn:active {
+.ratekit-heart-btn:active {
     transform: translateY(-1px) scale(1.01);
     transition: transform 0.1s ease;
 }
 
-.ratepress-heart-btn.active {
+.ratekit-heart-btn.active {
     color: var(--heart-active);
     background: color-mix(in srgb, var(--heart-color) 8%, transparent);
     border-color: color-mix(in srgb, var(--heart-color) 20%, transparent);
     box-shadow: 0 8px 32px color-mix(in srgb, var(--heart-color) 25%, transparent);
 }
 
-.ratepress-heart-btn.active:hover {
+.ratekit-heart-btn.active:hover {
     background: color-mix(in srgb, var(--heart-color) 12%, transparent);
     border-color: color-mix(in srgb, var(--heart-color) 30%, transparent);
     box-shadow: 0 12px 40px color-mix(in srgb, var(--heart-color) 35%, transparent);
 }
 
-.ratepress-heart-icon {
+.ratekit-heart-icon {
     width: var(--heart-size);
     height: var(--heart-size);
     transition: var(--transition);
@@ -121,31 +121,31 @@
     overflow:visible;
 }
 
-.ratepress-heart-btn .heart-fill {
+.ratekit-heart-btn .heart-fill {
     opacity: 0;
     transition: var(--transition);
     transform-origin: center;
 }
 
-.ratepress-heart-btn.active .heart-fill {
+.ratekit-heart-btn.active .heart-fill {
     opacity: 1;
     animation: heartFill 0.6s var(--bounce);
 }
 
-.ratepress-heart-btn.active .heart-outline {
+.ratekit-heart-btn.active .heart-outline {
     opacity: 0;
 }
 
-.ratepress-heart-btn:hover .ratepress-heart-icon {
+.ratekit-heart-btn:hover .ratekit-heart-icon {
     transform: scale(1.1);
 }
 
-.ratepress-heart-btn.active:hover .ratepress-heart-icon {
+.ratekit-heart-btn.active:hover .ratekit-heart-icon {
     transform: scale(1.15) rotate(5deg);
     animation: heartbeat 1s infinite;
 }
 
-.ratepress-heart-count {
+.ratekit-heart-count {
     font-size: 13px;
     font-weight: 700;
     letter-spacing: -0.01em;
@@ -156,51 +156,51 @@
 }
 
 /* Size variants */
-.ratepress-heart-widget[data-size="small"] {
+.ratekit-heart-widget[data-size="small"] {
     --heart-size: 20px;
 }
 
-.ratepress-heart-widget[data-size="medium"] {
+.ratekit-heart-widget[data-size="medium"] {
     --heart-size: 24px;
 }
 
-.ratepress-heart-widget[data-size="large"] {
+.ratekit-heart-widget[data-size="large"] {
     --heart-size: 28px;
 }
 
-.ratepress-heart-widget[data-size="small"] .ratepress-heart-btn {
+.ratekit-heart-widget[data-size="small"] .ratekit-heart-btn {
     padding: 8px 12px;
     font-size: 12px;
     min-height: 40px;
 }
 
-.ratepress-heart-widget[data-size="medium"] .ratepress-heart-btn {
+.ratekit-heart-widget[data-size="medium"] .ratekit-heart-btn {
     padding: 10px 16px;
     font-size: 14px;
     min-height: 44px;
 }
 
-.ratepress-heart-widget[data-size="large"] .ratepress-heart-btn {
+.ratekit-heart-widget[data-size="large"] .ratekit-heart-btn {
     padding: 12px 20px;
     font-size: 16px;
     min-height: 48px;
 }
 
 /* Loading state */
-.ratepress-heart-widget.loading {
+.ratekit-heart-widget.loading {
     pointer-events: none;
 }
 
-.ratepress-heart-widget.loading .ratepress-heart-btn {
+.ratekit-heart-widget.loading .ratekit-heart-btn {
     opacity: 0.6;
 }
 
-.ratepress-heart-widget.loading .ratepress-heart-icon {
+.ratekit-heart-widget.loading .ratekit-heart-icon {
     animation: heartPulse 1.5s infinite ease-in-out;
 }
 
 /* Error state */
-.ratepress-heart-widget.error .ratepress-heart-btn {
+.ratekit-heart-widget.error .ratekit-heart-btn {
     background: color-mix(in srgb, #ef4444 8%, transparent);
     border-color: color-mix(in srgb, #ef4444 20%, transparent);
     color: #ef4444;
@@ -246,14 +246,14 @@
 }
 
 /* Focus accessibility */
-.ratepress-heart-btn:focus-visible {
+.ratekit-heart-btn:focus-visible {
     outline: 2px solid var(--heart-color);
     outline-offset: 3px;
 }
 
 /* Mobile optimizations */
 @media (max-width: 768px) {
-    .ratepress-heart-btn {
+    .ratekit-heart-btn {
         padding: 12px 16px;
         font-size: 14px;
         gap: 10px;
@@ -282,7 +282,7 @@
 
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
-    .ratepress-heart-widget * {
+    .ratekit-heart-widget * {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;

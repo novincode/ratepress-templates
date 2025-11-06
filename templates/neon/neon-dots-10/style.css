@@ -32,7 +32,7 @@
     --dots-10-text-muted: hsla(0, 0%, 100%, 0.6);
 }
 
-.ratepress-neon-dots-10 {
+.ratekit-neon-dots-10 {
     display: inline-flex;
     flex-direction: column;
     gap: 20px;
@@ -95,7 +95,7 @@
     color: var(--dots-10-text);
 }
 
-.ratepress-average {
+.ratekit-average {
     font-size: 28px;
     font-weight: 800;
     background: linear-gradient(135deg, #a855f7 0%, #f472b6 100%);
@@ -104,7 +104,7 @@
     background-clip: text;
 }
 
-.ratepress-count {
+.ratekit-count {
     font-size: 14px;
     font-weight: 600;
     opacity: 0.6;
@@ -136,7 +136,7 @@
         padding: 10px 12px;
     }
     
-    .ratepress-neon-dots-10[data-size="large"] .dot-10-btn {
+    .ratekit-neon-dots-10[data-size="large"] .dot-10-btn {
         width: var(--dots-10-size-md);
         height: var(--dots-10-size-md);
     }
@@ -146,7 +146,7 @@
         font-size: 14px;
     }
     
-    .ratepress-average {
+    .ratekit-average {
         font-size: 24px;
     }
 }

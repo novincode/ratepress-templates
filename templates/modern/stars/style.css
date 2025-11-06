@@ -1,6 +1,6 @@
 /* Modern Stars Rating - 2026 Clean Design */
 
-.ratepress-stars-widget {
+.ratekit-stars-widget {
     --stars-primary: #ffc107;
     --stars-secondary: #ffb300;
     --stars-hover: #ffd54f;
@@ -25,22 +25,22 @@
 }
 
 /* Dark theme - only when explicitly set */
-[data-theme="dark"] .ratepress-stars-widget,
-.dark .ratepress-stars-widget {
+[data-theme="dark"] .ratekit-stars-widget,
+.dark .ratekit-stars-widget {
     --stars-bg: rgba(255, 255, 255, 0.08);
     --stars-text: rgba(255, 255, 255, 0.95);
     --stars-text-secondary: rgba(255, 255, 255, 0.6);
 }
 
 /* Stars input container */
-.ratepress-stars-widget .stars-input {
+.ratekit-stars-widget .stars-input {
     display: flex;
     gap: var(--stars-gap-medium);
     align-items: center;
 }
 
 /* Star buttons */
-.ratepress-stars-widget .ratepress-star-btn {
+.ratekit-stars-widget .ratekit-star-btn {
     background: none;
     border: none;
     padding: 0;
@@ -54,7 +54,7 @@
     flex-shrink: 0;
 }
 
-.ratepress-stars-widget .ratepress-star-btn svg {
+.ratekit-stars-widget .ratekit-star-btn svg {
     width: 100%;
     height: 100%;
     display: block;
@@ -62,41 +62,41 @@
 }
 
 /* Hover effects */
-.ratepress-stars-widget .ratepress-star-btn:hover {
+.ratekit-stars-widget .ratekit-star-btn:hover {
     color: var(--stars-hover);
     transform: scale(1.15);
 }
 
-.ratepress-stars-widget .ratepress-star-btn:hover ~ .ratepress-star-btn {
+.ratekit-stars-widget .ratekit-star-btn:hover ~ .ratekit-star-btn {
     transform: scale(0.95);
 }
 
 /* Active/selected state */
-.ratepress-stars-widget .ratepress-star-btn.active {
+.ratekit-stars-widget .ratekit-star-btn.active {
     color: var(--stars-primary);
 }
 
-.ratepress-stars-widget .ratepress-star-btn.active:hover {
+.ratekit-stars-widget .ratekit-star-btn.active:hover {
     color: var(--stars-secondary);
 }
 
 /* Interactive fill on hover - fill all stars up to hovered */
-.ratepress-stars-widget .stars-input:hover .ratepress-star-btn {
+.ratekit-stars-widget .stars-input:hover .ratekit-star-btn {
     color: var(--stars-bg);
 }
 
-.ratepress-stars-widget .stars-input .ratepress-star-btn:hover,
-.ratepress-stars-widget .stars-input .ratepress-star-btn:hover ~ .ratepress-star-btn {
+.ratekit-stars-widget .stars-input .ratekit-star-btn:hover,
+.ratekit-stars-widget .stars-input .ratekit-star-btn:hover ~ .ratekit-star-btn {
     color: var(--stars-bg);
 }
 
-.ratepress-stars-widget .stars-input:hover .ratepress-star-btn:hover,
-.ratepress-stars-widget .stars-input .ratepress-star-btn:has(~ .ratepress-star-btn:hover) {
+.ratekit-stars-widget .stars-input:hover .ratekit-star-btn:hover,
+.ratekit-stars-widget .stars-input .ratekit-star-btn:has(~ .ratekit-star-btn:hover) {
     color: var(--stars-hover);
 }
 
 /* Info section */
-.ratepress-stars-widget .stars-info {
+.ratekit-stars-widget .stars-info {
     display: flex;
     align-items: baseline;
     gap: 4px;
@@ -105,52 +105,52 @@
     line-height: 1;
 }
 
-.ratepress-stars-widget .stars-info .ratepress-average {
+.ratekit-stars-widget .stars-info .ratekit-average {
     font-weight: 600;
     color: var(--stars-text);
     font-size: 1rem;
 }
 
-.ratepress-stars-widget .stars-info .ratepress-count {
+.ratekit-stars-widget .stars-info .ratekit-count {
     font-size: 0.875rem;
 }
 
 /* Size variations */
-.ratepress-stars-widget[data-size="small"] {
+.ratekit-stars-widget[data-size="small"] {
     --stars-size-medium: var(--stars-size-small);
     --stars-gap-medium: var(--stars-gap-small);
     --stars-info-size: 0.75rem;
 }
 
-.ratepress-stars-widget[data-size="small"] .stars-info .ratepress-average {
+.ratekit-stars-widget[data-size="small"] .stars-info .ratekit-average {
     font-size: 0.875rem;
 }
 
-.ratepress-stars-widget[data-size="small"] .stars-info .ratepress-count {
+.ratekit-stars-widget[data-size="small"] .stars-info .ratekit-count {
     font-size: 0.75rem;
 }
 
-.ratepress-stars-widget[data-size="large"] {
+.ratekit-stars-widget[data-size="large"] {
     --stars-size-medium: var(--stars-size-large);
     --stars-gap-medium: var(--stars-gap-large);
     --stars-info-size: 1rem;
     gap: 12px;
 }
 
-.ratepress-stars-widget[data-size="large"] .stars-info .ratepress-average {
+.ratekit-stars-widget[data-size="large"] .stars-info .ratekit-average {
     font-size: 1.25rem;
 }
 
-.ratepress-stars-widget[data-size="large"] .stars-info .ratepress-count {
+.ratekit-stars-widget[data-size="large"] .stars-info .ratekit-count {
     font-size: 1rem;
 }
 
 /* Focus styles */
-.ratepress-stars-widget .ratepress-star-btn:focus {
+.ratekit-stars-widget .ratekit-star-btn:focus {
     outline: none;
 }
 
-.ratepress-stars-widget .ratepress-star-btn:focus-visible {
+.ratekit-stars-widget .ratekit-star-btn:focus-visible {
     outline: 2px solid var(--stars-primary);
     outline-offset: 2px;
     border-radius: 4px;
@@ -162,17 +162,17 @@
     50% { transform: scale(1.3); }
 }
 
-.ratepress-stars-widget .ratepress-star-btn.rating-animation {
+.ratekit-stars-widget .ratekit-star-btn.rating-animation {
     animation: starPulse 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Loading state */
-.ratepress-stars-widget.loading .ratepress-star-btn {
+.ratekit-stars-widget.loading .ratekit-star-btn {
     opacity: 0.5;
     cursor: wait;
 }
 
 /* JS mode skeleton */
-.ratepress-stars-widget.ratepress-js-mode .stars-input {
+.ratekit-stars-widget.ratekit-js-mode .stars-input {
     opacity: 0.3;
 }

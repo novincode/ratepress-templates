@@ -41,7 +41,7 @@
     --range-track: hsla(0, 0%, 10%, 0.3);
 }
 
-.ratepress-neon-range {
+.ratekit-neon-range {
     display: inline-flex;
     flex-direction: column;
     gap: 24px;

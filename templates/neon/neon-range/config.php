@@ -9,7 +9,7 @@ return [
     'name' => 'Neon Range',
     'description' => 'Futuristic glowing range slider - smooth 0-10 rating',
     'version' => '1.3.0',
-    'author' => 'RatePress',
+    'author' => 'RateKit',
     'category' => 'scale',
     'styles' => ['style.css'],
     'scripts' => ['script.js'], // Custom script for live value updates

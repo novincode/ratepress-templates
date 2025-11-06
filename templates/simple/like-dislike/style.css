@@ -5,7 +5,7 @@
  * Smooth state transitions and theme-adaptive colors
  */
 
-.ratepress-like-dislike-widget {
+.ratekit-like-dislike-widget {
     --like-color: #059669;
     --dislike-color: #dc2626;
     --icon-size: 24px;
@@ -25,8 +25,8 @@
 }
 
 /* Dark theme - only when explicitly set */
-[data-theme="dark"] .ratepress-like-dislike-widget,
-.dark .ratepress-like-dislike-widget {
+[data-theme="dark"] .ratekit-like-dislike-widget,
+.dark .ratekit-like-dislike-widget {
     --inactive-color: rgba(255, 255, 255, 0.6);
     --hover-color: rgba(255, 255, 255, 0.8);
     --glass-bg: rgba(255, 255, 255, 0.08);
@@ -34,7 +34,7 @@
     --shadow-light: 0 8px 32px rgba(255, 255, 255, 0.1);
 }
 
-.ratepress-buttons-container {
+.ratekit-buttons-container {
     display: flex;
     gap: 6px;
     align-items: center;
@@ -49,7 +49,7 @@
     overflow: hidden;
 }
 
-.ratepress-buttons-container::before {
+.ratekit-buttons-container::before {
     content: '';
     position: absolute;
     inset: 0;
@@ -60,22 +60,22 @@
     pointer-events: none;
 }
 
-.ratepress-buttons-container:hover {
+.ratekit-buttons-container:hover {
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
     border-color: rgba(0, 0, 0, 0.18);
     transform: translateY(-2px);
 }
 
 /* Vertical layout */
-.ratepress-like-dislike-widget[data-layout="vertical"] .ratepress-buttons-container {
+.ratekit-like-dislike-widget[data-layout="vertical"] .ratekit-buttons-container {
     flex-direction: column;
     gap: 4px;
     border-radius: 24px;
     padding: 6px 4px;
 }
 
-.ratepress-like-btn,
-.ratepress-dislike-btn {
+.ratekit-like-btn,
+.ratekit-dislike-btn {
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -96,8 +96,8 @@
     justify-content: center;
 }
 
-.ratepress-like-btn::before,
-.ratepress-dislike-btn::before {
+.ratekit-like-btn::before,
+.ratekit-dislike-btn::before {
     content: '';
     position: absolute;
     inset: 0;
@@ -107,31 +107,31 @@
     transition: opacity 0.2s ease;
 }
 
-.ratepress-like-btn:hover::before,
-.ratepress-dislike-btn:hover::before {
+.ratekit-like-btn:hover::before,
+.ratekit-dislike-btn:hover::before {
     opacity: 0.08;
 }
 
-.ratepress-like-btn:active::before,
-.ratepress-dislike-btn:active::before {
+.ratekit-like-btn:active::before,
+.ratekit-dislike-btn:active::before {
     opacity: 0.15;
 }
 
-.ratepress-like-btn:hover,
-.ratepress-dislike-btn:hover {
+.ratekit-like-btn:hover,
+.ratekit-dislike-btn:hover {
     color: var(--hover-color);
     border-color: rgba(0, 0, 0, 0.15);
     transform: scale(1.05);
 }
 
-.ratepress-like-btn:active,
-.ratepress-dislike-btn:active {
+.ratekit-like-btn:active,
+.ratekit-dislike-btn:active {
     transform: scale(1.02);
     transition: transform 0.1s ease;
 }
 
 /* Like button active state */
-.ratepress-like-btn.active {
+.ratekit-like-btn.active {
     color: var(--like-color);
     background: color-mix(in srgb, var(--like-color) 10%, transparent);
     border-color: color-mix(in srgb, var(--like-color) 20%, transparent);
@@ -139,14 +139,14 @@
     animation: activateButton 0.4s var(--bounce);
 }
 
-.ratepress-like-btn.active:hover {
+.ratekit-like-btn.active:hover {
     background: color-mix(in srgb, var(--like-color) 15%, transparent);
     border-color: color-mix(in srgb, var(--like-color) 30%, transparent);
     box-shadow: 0 6px 25px color-mix(in srgb, var(--like-color) 35%, transparent);
 }
 
 /* Dislike button active state */
-.ratepress-dislike-btn.active {
+.ratekit-dislike-btn.active {
     color: var(--dislike-color);
     background: color-mix(in srgb, var(--dislike-color) 10%, transparent);
     border-color: color-mix(in srgb, var(--dislike-color) 20%, transparent);
@@ -154,14 +154,14 @@
     animation: activateButton 0.4s var(--bounce);
 }
 
-.ratepress-dislike-btn.active:hover {
+.ratekit-dislike-btn.active:hover {
     background: color-mix(in srgb, var(--dislike-color) 15%, transparent);
     border-color: color-mix(in srgb, var(--dislike-color) 30%, transparent);
     box-shadow: 0 6px 25px color-mix(in srgb, var(--dislike-color) 35%, transparent);
 }
 
-.ratepress-like-icon,
-.ratepress-dislike-icon {
+.ratekit-like-icon,
+.ratekit-dislike-icon {
     width: var(--icon-size);
     height: var(--icon-size);
     transition: var(--transition);
@@ -170,39 +170,39 @@
 }
 
 /* Icon fill/outline states */
-.ratepress-like-btn .like-fill,
-.ratepress-dislike-btn .dislike-fill {
+.ratekit-like-btn .like-fill,
+.ratekit-dislike-btn .dislike-fill {
     opacity: 0;
     transition: var(--transition);
     transform-origin: center;
 }
 
-.ratepress-like-btn.active .like-fill,
-.ratepress-dislike-btn.active .dislike-fill {
+.ratekit-like-btn.active .like-fill,
+.ratekit-dislike-btn.active .dislike-fill {
     opacity: 1;
     animation: iconFill 0.5s var(--bounce);
 }
 
-.ratepress-like-btn.active .like-outline,
-.ratepress-dislike-btn.active .dislike-outline {
+.ratekit-like-btn.active .like-outline,
+.ratekit-dislike-btn.active .dislike-outline {
     opacity: 0;
 }
 
-.ratepress-like-btn:hover .ratepress-like-icon,
-.ratepress-dislike-btn:hover .ratepress-dislike-icon {
+.ratekit-like-btn:hover .ratekit-like-icon,
+.ratekit-dislike-btn:hover .ratekit-dislike-icon {
     transform: scale(1.1);
 }
 
-.ratepress-like-btn.active:hover .ratepress-like-icon {
+.ratekit-like-btn.active:hover .ratekit-like-icon {
     transform: scale(1.15) rotate(-5deg);
 }
 
-.ratepress-dislike-btn.active:hover .ratepress-dislike-icon {
+.ratekit-dislike-btn.active:hover .ratekit-dislike-icon {
     transform: scale(1.15) rotate(5deg);
 }
 
-.ratepress-like-count,
-.ratepress-dislike-count {
+.ratekit-like-count,
+.ratekit-dislike-count {
     font-size: 12px;
     font-weight: 700;
     letter-spacing: -0.01em;
@@ -213,7 +213,7 @@
 }
 
 /* Separator between buttons */
-.ratepress-buttons-container[data-layout="horizontal"]::after {
+.ratekit-buttons-container[data-layout="horizontal"]::after {
     content: '';
     width: 1px;
     height: 20px;
@@ -228,36 +228,36 @@
 }
 
 /* Size variants */
-.ratepress-like-dislike-widget[data-size="small"] {
+.ratekit-like-dislike-widget[data-size="small"] {
     --icon-size: 20px;
 }
 
-.ratepress-like-dislike-widget[data-size="medium"] {
+.ratekit-like-dislike-widget[data-size="medium"] {
     --icon-size: 24px;
 }
 
-.ratepress-like-dislike-widget[data-size="large"] {
+.ratekit-like-dislike-widget[data-size="large"] {
     --icon-size: 28px;
 }
 
-.ratepress-like-dislike-widget[data-size="small"] .ratepress-like-btn,
-.ratepress-like-dislike-widget[data-size="small"] .ratepress-dislike-btn {
+.ratekit-like-dislike-widget[data-size="small"] .ratekit-like-btn,
+.ratekit-like-dislike-widget[data-size="small"] .ratekit-dislike-btn {
     padding: 6px 10px;
     font-size: 11px;
     min-height: 32px;
     min-width: 32px;
 }
 
-.ratepress-like-dislike-widget[data-size="medium"] .ratepress-like-btn,
-.ratepress-like-dislike-widget[data-size="medium"] .ratepress-dislike-btn {
+.ratekit-like-dislike-widget[data-size="medium"] .ratekit-like-btn,
+.ratekit-like-dislike-widget[data-size="medium"] .ratekit-dislike-btn {
     padding: 8px 14px;
     font-size: 13px;
     min-height: 36px;
     min-width: 36px;
 }
 
-.ratepress-like-dislike-widget[data-size="large"] .ratepress-like-btn,
-.ratepress-like-dislike-widget[data-size="large"] .ratepress-dislike-btn {
+.ratekit-like-dislike-widget[data-size="large"] .ratekit-like-btn,
+.ratekit-like-dislike-widget[data-size="large"] .ratekit-dislike-btn {
     padding: 10px 18px;
     font-size: 15px;
     min-height: 40px;
@@ -265,29 +265,29 @@
 }
 
 /* Loading state */
-.ratepress-like-dislike-widget.loading {
+.ratekit-like-dislike-widget.loading {
     pointer-events: none;
 }
 
-.ratepress-like-dislike-widget.loading .ratepress-like-btn,
-.ratepress-like-dislike-widget.loading .ratepress-dislike-btn {
+.ratekit-like-dislike-widget.loading .ratekit-like-btn,
+.ratekit-like-dislike-widget.loading .ratekit-dislike-btn {
     opacity: 0.5;
 }
 
-.ratepress-like-dislike-widget.loading .ratepress-like-icon,
-.ratepress-like-dislike-widget.loading .ratepress-dislike-icon {
+.ratekit-like-dislike-widget.loading .ratekit-like-icon,
+.ratekit-like-dislike-widget.loading .ratekit-dislike-icon {
     animation: thumbPulse 1.5s infinite ease-in-out;
 }
 
 /* Error state */
-.ratepress-like-dislike-widget.error .ratepress-buttons-container {
+.ratekit-like-dislike-widget.error .ratekit-buttons-container {
     background: color-mix(in srgb, #ef4444 8%, transparent);
     border-color: color-mix(in srgb, #ef4444 20%, transparent);
     animation: errorShake 0.5s ease-in-out;
 }
 
-.ratepress-like-dislike-widget.error .ratepress-like-btn,
-.ratepress-like-dislike-widget.error .ratepress-dislike-btn {
+.ratekit-like-dislike-widget.error .ratekit-like-btn,
+.ratekit-like-dislike-widget.error .ratekit-dislike-btn {
     color: #ef4444;
 }
 
@@ -331,29 +331,29 @@
 }
 
 /* Focus accessibility */
-.ratepress-like-btn:focus-visible,
-.ratepress-dislike-btn:focus-visible {
+.ratekit-like-btn:focus-visible,
+.ratekit-dislike-btn:focus-visible {
     outline: 2px solid currentColor;
     outline-offset: 3px;
 }
 
 /* Mobile optimizations */
 @media (max-width: 768px) {
-    .ratepress-like-btn,
-    .ratepress-dislike-btn {
+    .ratekit-like-btn,
+    .ratekit-dislike-btn {
         padding: 10px 14px;
         min-height: 44px;
         min-width: 44px;
         font-size: 13px;
     }
     
-    .ratepress-buttons-container {
+    .ratekit-buttons-container {
         gap: 8px;
         padding: 6px;
     }
     
-    .ratepress-like-dislike-widget[data-size="small"] .ratepress-like-btn,
-    .ratepress-like-dislike-widget[data-size="small"] .ratepress-dislike-btn {
+    .ratekit-like-dislike-widget[data-size="small"] .ratekit-like-btn,
+    .ratekit-like-dislike-widget[data-size="small"] .ratekit-dislike-btn {
         min-height: 40px;
         min-width: 40px;
     }
@@ -380,7 +380,7 @@
 
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
-    .ratepress-like-dislike-widget * {
+    .ratekit-like-dislike-widget * {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;

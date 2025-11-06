@@ -9,7 +9,7 @@ return [
     'name' => 'Neon Thumbs',
     'description' => 'Futuristic glowing thumbs up - simple like with glow',
     'version' => '1.1.0',
-    'author' => 'RatePress',
+    'author' => 'RateKit',
     'category' => 'binary',
     'styles' => ['style.css'],
     'scripts' => [], // Core JS handles all interactions

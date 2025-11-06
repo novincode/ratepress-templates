@@ -3,7 +3,7 @@
  * Heart Template Renderer - Binary Category
  */
 
-namespace RatePress\Templates;
+namespace RateKit\Templates;
 
 // Get template data
 $data = $template_data ?? new TemplateData([]);
@@ -30,7 +30,7 @@ if ($is_js_mode) {
 }
 ?>
 
-<div class="ratepress-widget ratepress-heart-widget<?php echo $is_js_mode ? ' ratepress-js-mode' : ''; ?>"
+<div class="ratekit-widget ratekit-heart-widget<?php echo $is_js_mode ? ' ratekit-js-mode' : ''; ?>"
      data-object-id="<?php echo esc_attr($object_id); ?>"
      data-object-type="<?php echo esc_attr($object_type); ?>"
      data-category="binary"
@@ -39,7 +39,7 @@ if ($is_js_mode) {
      role="group"
      aria-label="Heart rating widget">
      
-    <button class="ratepress-heart-btn <?php echo $is_loved ? 'active' : ''; ?>" 
+    <button class="ratekit-heart-btn <?php echo $is_loved ? 'active' : ''; ?>" 
             type="button"
             data-value="1"
             aria-pressed="<?php echo $is_loved ? 'true' : 'false'; ?>"
@@ -47,7 +47,7 @@ if ($is_js_mode) {
             aria-describedby="heart-count-<?php echo esc_attr($object_id); ?>"
             title="<?php echo $is_loved ? 'Remove love' : 'Love this'; ?>">
             
-        <svg class="ratepress-heart-icon" 
+        <svg class="ratekit-heart-icon" 
              viewBox="0 0 24 24" 
              fill="none" 
              xmlns="http://www.w3.org/2000/svg"
@@ -63,7 +63,7 @@ if ($is_js_mode) {
         </svg>
         
         <?php if ($show_counts): ?>
-            <span class="ratepress-heart-count" 
+            <span class="ratekit-heart-count" 
                   data-count="positive"
                   id="heart-count-<?php echo esc_attr($object_id); ?>"
                   aria-label="<?php echo esc_attr($hearts_count); ?> person<?php echo $hearts_count !== 1 ? 's' : ''; ?> love<?php echo $hearts_count === 1 ? 's' : ''; ?> this">

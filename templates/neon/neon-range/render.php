@@ -3,7 +3,7 @@
  * Neon Range Renderer
  */
 
-namespace RatePress\Templates;
+namespace RateKit\Templates;
 
 $data = $template_data ?? new TemplateData([]);
 $stats = $data->category_stats ?? [];
@@ -35,7 +35,7 @@ if ($is_js_mode) {
 }
 ?>
 
-<div class="ratepress-widget ratepress-neon-range<?php echo $is_js_mode ? ' ratepress-js-mode' : ''; ?>"<?php echo $theme === 'dark' ? ' data-theme="dark"' : ''; ?>
+<div class="ratekit-widget ratekit-neon-range<?php echo $is_js_mode ? ' ratekit-js-mode' : ''; ?>"<?php echo $theme === 'dark' ? ' data-theme="dark"' : ''; ?>
      data-object-id="<?php echo esc_attr($object_id); ?>"
      data-object-type="<?php echo esc_attr($object_type); ?>"
      data-category="scale"
@@ -43,7 +43,7 @@ if ($is_js_mode) {
      data-size="<?php echo esc_attr($size); ?>"
      data-user-rating="<?php echo esc_attr($user_value); ?>"
      role="group"
-     aria-label="<?php esc_attr_e('Neon Range rating widget', 'ratepress'); ?>">
+     aria-label="<?php esc_attr_e('Neon Range rating widget', 'ratekit'); ?>">
      
     <div class="range-container">
         <?php if ($show_value): ?>
@@ -56,8 +56,8 @@ if ($is_js_mode) {
                step="<?php echo esc_attr($step); ?>" 
                value="<?php echo esc_attr($user_rating); ?>"
                data-value="<?php echo esc_attr($user_value); ?>"
-               aria-label="<?php esc_attr_e('Rate with slider', 'ratepress'); ?>"
-               title="<?php esc_attr_e('Rate with slider', 'ratepress'); ?>">
+               aria-label="<?php esc_attr_e('Rate with slider', 'ratekit'); ?>"
+               title="<?php esc_attr_e('Rate with slider', 'ratekit'); ?>">
         <div class="range-labels">
             <span><?php echo esc_html($min_value); ?></span>
             <span><?php echo esc_html($max_value); ?></span>
@@ -67,7 +67,7 @@ if ($is_js_mode) {
     <?php if ($show_counts && !$is_js_mode): ?>
     <div class="range-stats">
         <span data-stat="average" data-scale="10"><?php echo esc_html(number_format($display_average, 1)); ?>/10</span>
-        <span data-stat="total">(<?php echo esc_html($total); ?> <?php esc_e('ratings', 'ratepress'); ?>)</span>
+        <span data-stat="total">(<?php echo esc_html($total); ?> <?php esc_e('ratings', 'ratekit'); ?>)</span>
     </div>
     <?php endif; ?>
 </div>

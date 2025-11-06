@@ -9,7 +9,7 @@ return [
     'name' => 'Neon Heart',
     'description' => 'Futuristic glowing heart - love it with a glowing heart',
     'version' => '1.0.2',
-    'author' => 'RatePress',
+    'author' => 'RateKit',
     'category' => 'binary',
     'styles' => ['style.css'],
     'scripts' => [], // Core JS handles all interactions

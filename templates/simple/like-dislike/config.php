@@ -5,10 +5,10 @@ return [
     'description' => 'Modern thumbs up/down for bipolar ratings',
     'category' => 'bipolar',
     'version' => '1.0.0',
-    'author' => 'RatePress',
-    'author_url' => 'https://ratepress.com',
+    'author' => 'RateKit',
+    'author_url' => 'https://ratekit.com',
     'tags' => ['thumbs', 'like', 'dislike', 'bipolar', 'simple'],
-    'min_ratepress_version' => '1.0.0',
+    'min_ratekit_version' => '1.0.0',
     'styles' => ['style.css'],
     'scripts' => [], // Core JS handles all interactions
     'requires_core_js' => true,

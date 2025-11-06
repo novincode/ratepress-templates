@@ -1,6 +1,6 @@
 <?php
 /**
- * RatePress Templates Build Script
+ * RateKit Templates Build Script
  *
  * Generates templates.json from individual template config.php files
  * Run with: php build-templates.php
@@ -56,8 +56,8 @@ class TemplatesBuilder
 
                 // Generate URLs automatically
                 $slug = $config['slug'];
-                $baseUrl = 'https://raw.githubusercontent.com/novincode/ratepress-templates/main/templates/' . $slug;
-                $downloadUrl = 'https://github.com/novincode/ratepress-templates/tree/main/templates/' . $slug;
+                $baseUrl = 'https://raw.githubusercontent.com/novincode/ratekit-templates/main/templates/' . $slug;
+                $downloadUrl = 'https://github.com/novincode/ratekit-templates/tree/main/templates/' . $slug;
 
                 // Check for preview image or generate one
                 $previewPath = $templateDir . '/preview.png';
@@ -85,7 +85,7 @@ class TemplatesBuilder
                     'tags' => $config['tags'] ?? [],
                     'preview_image' => $previewUrl,
                     'download_url' => $downloadUrl,
-                    'min_ratepress_version' => $config['min_ratepress_version'] ?? '1.0.0',
+                    'min_ratekit_version' => $config['min_ratekit_version'] ?? '1.0.0',
                     'requires_core_js' => $config['requires_core_js'] ?? false,
                 ];
 
@@ -147,7 +147,7 @@ class TemplatesBuilder
 
         if ($returnCode === 0 && file_exists($previewPath)) {
             echo "✅ Generated preview for {$config['slug']}\n";
-            return "https://raw.githubusercontent.com/novincode/ratepress-templates/main/templates/{$slug}/preview.png";
+            return "https://raw.githubusercontent.com/novincode/ratekit-templates/main/templates/{$slug}/preview.png";
         } else {
             echo "❌ Failed to generate preview: " . implode("\n", $output) . "\n";
             return 'https://via.placeholder.com/320x200/6366f1/ffffff?text=' . urlencode($config['name']);
@@ -296,19 +296,19 @@ class TemplatesBuilder
         // Create a demo based on category
         switch ($category) {
             case 'binary':
-                return '<div class="ratepress-widget ratepress-' . str_replace('/', '-', $slug) . '" data-size="medium">
-                    <button class="ratepress-heart-btn active" type="button">
-                        <svg class="ratepress-heart-icon" viewBox="0 0 24 24" fill="none">
+                return '<div class="ratekit-widget ratekit-' . str_replace('/', '-', $slug) . '" data-size="medium">
+                    <button class="ratekit-heart-btn active" type="button">
+                        <svg class="ratekit-heart-icon" viewBox="0 0 24 24" fill="none">
                             <path class="heart-outline" d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke="currentColor" stroke-width="1.5"/>
                             <path class="heart-fill" d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" fill="currentColor"/>
                         </svg>
-                        <span class="ratepress-heart-count">42</span>
+                        <span class="ratekit-heart-count">42</span>
                     </button>
                 </div>';
 
             case 'bipolar':
-                return '<div class="ratepress-widget ratepress-favorite-widget" data-size="medium">
-                    <button class="ratepress-favorite-btn active" type="button">
+                return '<div class="ratekit-widget ratekit-favorite-widget" data-size="medium">
+                    <button class="ratekit-favorite-btn active" type="button">
                         <svg viewBox="0 0 24 24" fill="currentColor">
                             <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
                         </svg>
@@ -317,11 +317,11 @@ class TemplatesBuilder
 
             case 'scale':
             default:
-                return '<div class="ratepress-widget ratepress-stars-widget" data-size="medium">
-                    <div class="ratepress-stars">
+                return '<div class="ratekit-widget ratekit-stars-widget" data-size="medium">
+                    <div class="ratekit-stars">
                         ' . str_repeat('<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>', 5) . '
                     </div>
-                    <span class="ratepress-rating-text">4.5 out of 5</span>
+                    <span class="ratekit-rating-text">4.5 out of 5</span>
                 </div>';
         }
     }
@@ -329,7 +329,7 @@ class TemplatesBuilder
 
 // Run the build
 if ($argc > 1 && ($argv[1] === '--help' || $argv[1] === '-h')) {
-    echo "RatePress Templates Builder\n\n";
+    echo "RateKit Templates Builder\n\n";
     echo "Usage: php build-templates.php [options] [templates-dir] [output-file]\n\n";
     echo "Options:\n";
     echo "  --override-previews    Regenerate all preview images, even if they exist\n";
@@ -347,7 +347,7 @@ if ($argc > 1 && ($argv[1] === '--help' || $argv[1] === '-h')) {
 
 // Run the build
 if ($argc > 1 && ($argv[1] === '--help' || $argv[1] === '-h')) {
-    echo "RatePress Templates Builder\n\n";
+    echo "RateKit Templates Builder\n\n";
     echo "Usage: php build-templates.php [options] [templates-dir] [output-file]\n\n";
     echo "Options:\n";
     echo "  --override-previews    Regenerate all preview images, even if they exist\n";

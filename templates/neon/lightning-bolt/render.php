@@ -3,7 +3,7 @@
  * Neon Lightning Bolt Renderer
  */
 
-namespace RatePress\Templates;
+namespace RateKit\Templates;
 
 $data = $template_data ?? new TemplateData([]);
 $stats = $data->category_stats ?? [];
@@ -27,22 +27,22 @@ if ($is_js_mode) {
 }
 ?>
 
-<div class="ratepress-widget ratepress-lightning-bolt<?php echo $is_js_mode ? ' ratepress-js-mode' : ''; ?>"<?php echo $theme === 'dark' ? ' data-theme="dark"' : ''; ?>
+<div class="ratekit-widget ratekit-lightning-bolt<?php echo $is_js_mode ? ' ratekit-js-mode' : ''; ?>"<?php echo $theme === 'dark' ? ' data-theme="dark"' : ''; ?>
      data-object-id="<?php echo esc_attr($object_id); ?>"
      data-object-type="<?php echo esc_attr($object_type); ?>"
      data-category="binary"
      data-template="neon/lightning-bolt"
      data-size="<?php echo esc_attr($size); ?>"
      role="group"
-     aria-label="<?php esc_attr_e('Lightning Bolt rating widget', 'ratepress'); ?>">
+     aria-label="<?php esc_attr_e('Lightning Bolt rating widget', 'ratekit'); ?>">
      
     <button class="lightning-btn <?php echo $is_energized ? 'active' : ''; ?>" 
             type="button"
             data-value="1"
             aria-pressed="<?php echo $is_energized ? 'true' : 'false'; ?>"
-            aria-label="<?php echo esc_attr($is_energized ? __('Unenergize', 'ratepress') : __('Energize this', 'ratepress')); ?>"
+            aria-label="<?php echo esc_attr($is_energized ? __('Unenergize', 'ratekit') : __('Energize this', 'ratekit')); ?>"
             aria-describedby="lightning-count-<?php echo esc_attr($object_id); ?>"
-            title="<?php echo esc_attr($is_energized ? __('Unenergize', 'ratepress') : __('Energize this', 'ratepress')); ?>">
+            title="<?php echo esc_attr($is_energized ? __('Unenergize', 'ratekit') : __('Energize this', 'ratekit')); ?>">
         <svg class="lightning-icon" viewBox="0 0 24 24" fill="none">
             <path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z" 
                   fill="currentColor" 

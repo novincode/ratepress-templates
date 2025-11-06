@@ -32,7 +32,7 @@
     --stars-text-muted: hsla(0, 0%, 100%, 0.6);
 }
 
-.ratepress-neon-stars {
+.ratekit-neon-stars {
     display: inline-flex;
     flex-direction: column;
     gap: 20px;
@@ -108,7 +108,7 @@
     color: var(--stars-text);
 }
 
-.ratepress-average {
+.ratekit-average {
     font-size: 28px;
     font-weight: 800;
     background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
@@ -117,19 +117,19 @@
     background-clip: text;
 }
 
-.ratepress-count {
+.ratekit-count {
     font-size: 14px;
     font-weight: 600;
     opacity: 0.6;
 }
 
 /* Sizes */
-.ratepress-neon-stars[data-size="small"] .star-btn {
+.ratekit-neon-stars[data-size="small"] .star-btn {
     width: var(--stars-size-sm);
     height: var(--stars-size-sm);
 }
 
-.ratepress-neon-stars[data-size="large"] .star-btn {
+.ratekit-neon-stars[data-size="large"] .star-btn {
     width: var(--stars-size-lg);
     height: var(--stars-size-lg);
 }
@@ -160,7 +160,7 @@
         padding: 10px 12px;
     }
     
-    .ratepress-neon-stars[data-size="large"] .star-btn {
+    .ratekit-neon-stars[data-size="large"] .star-btn {
         width: var(--stars-size-md);
         height: var(--stars-size-md);
     }
@@ -170,7 +170,7 @@
         font-size: 14px;
     }
     
-    .ratepress-average {
+    .ratekit-average {
         font-size: 24px;
     }
 }

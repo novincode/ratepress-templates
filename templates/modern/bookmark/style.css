@@ -12,7 +12,7 @@
     --bookmark-font-lg: 18px;
 }
 
-.ratepress-bookmark {
+.ratekit-bookmark {
     display: inline-flex;
 }
 
@@ -72,22 +72,22 @@
     font-weight: 700;
 }
 
-.ratepress-bookmark[data-size="small"] .bookmark-btn {
+.ratekit-bookmark[data-size="small"] .bookmark-btn {
     padding: var(--bookmark-padding-sm);
     font-size: var(--bookmark-font-sm);
 }
 
-.ratepress-bookmark[data-size="small"] svg {
+.ratekit-bookmark[data-size="small"] svg {
     width: var(--bookmark-size-sm);
     height: var(--bookmark-size-sm);
 }
 
-.ratepress-bookmark[data-size="large"] .bookmark-btn {
+.ratekit-bookmark[data-size="large"] .bookmark-btn {
     padding: var(--bookmark-padding-lg);
     font-size: var(--bookmark-font-lg);
 }
 
-.ratepress-bookmark[data-size="large"] svg {
+.ratekit-bookmark[data-size="large"] svg {
     width: var(--bookmark-size-lg);
     height: var(--bookmark-size-lg);
 }

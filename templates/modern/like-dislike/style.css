@@ -1,6 +1,6 @@
 /* Modern Like/Dislike - 2026 Clean Design */
 
-.ratepress-likedislike {
+.ratekit-likedislike {
     --likedislike-like: #10b981;
     --likedislike-like-hover: #059669;
     --likedislike-dislike: #ef4444;
@@ -29,8 +29,8 @@
 }
 
 /* Dark theme - only when explicitly set */
-[data-theme="dark"] .ratepress-likedislike,
-.dark .ratepress-likedislike {
+[data-theme="dark"] .ratekit-likedislike,
+.dark .ratekit-likedislike {
     --likedislike-bg: rgba(255, 255, 255, 0.08);
     --likedislike-bg-hover: rgba(255, 255, 255, 0.12);
     --likedislike-text: rgba(255, 255, 255, 0.95);
@@ -38,15 +38,15 @@
 }
 
 /* Buttons container */
-.ratepress-likedislike .likedislike-buttons {
+.ratekit-likedislike .likedislike-buttons {
     display: flex;
     gap: var(--likedislike-gap-medium);
     align-items: center;
 }
 
 /* Button base styles */
-.ratepress-likedislike .like-btn,
-.ratepress-likedislike .dislike-btn {
+.ratekit-likedislike .like-btn,
+.ratekit-likedislike .dislike-btn {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -64,51 +64,51 @@
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-.ratepress-likedislike .like-btn svg,
-.ratepress-likedislike .dislike-btn svg {
+.ratekit-likedislike .like-btn svg,
+.ratekit-likedislike .dislike-btn svg {
     width: var(--likedislike-icon-medium);
     height: var(--likedislike-icon-medium);
     flex-shrink: 0;
 }
 
 /* Like button */
-.ratepress-likedislike .like-btn:hover {
+.ratekit-likedislike .like-btn:hover {
     background: var(--likedislike-like);
     color: white;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
 }
 
-.ratepress-likedislike .like-btn.active {
+.ratekit-likedislike .like-btn.active {
     background: var(--likedislike-like);
     color: white;
     box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
 }
 
-.ratepress-likedislike .like-btn.active:hover {
+.ratekit-likedislike .like-btn.active:hover {
     background: var(--likedislike-like-hover);
 }
 
 /* Dislike button */
-.ratepress-likedislike .dislike-btn:hover {
+.ratekit-likedislike .dislike-btn:hover {
     background: var(--likedislike-dislike);
     color: white;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
 }
 
-.ratepress-likedislike .dislike-btn.active {
+.ratekit-likedislike .dislike-btn.active {
     background: var(--likedislike-dislike);
     color: white;
     box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3);
 }
 
-.ratepress-likedislike .dislike-btn.active:hover {
+.ratekit-likedislike .dislike-btn.active:hover {
     background: var(--likedislike-dislike-hover);
 }
 
 /* Count text */
-.ratepress-likedislike .count {
+.ratekit-likedislike .count {
     font-size: 0.875rem;
     font-weight: 600;
     line-height: 1;
@@ -117,68 +117,68 @@
 }
 
 /* Percentage display */
-.ratepress-likedislike .likedislike-percentage {
+.ratekit-likedislike .likedislike-percentage {
     font-size: 0.875rem;
     color: var(--likedislike-text-secondary);
     font-weight: 500;
 }
 
 /* Size variations */
-.ratepress-likedislike[data-size="small"] {
+.ratekit-likedislike[data-size="small"] {
     --likedislike-size-medium: var(--likedislike-size-small);
     --likedislike-icon-medium: var(--likedislike-icon-small);
     --likedislike-gap-medium: var(--likedislike-gap-small);
 }
 
-.ratepress-likedislike[data-size="small"] .like-btn,
-.ratepress-likedislike[data-size="small"] .dislike-btn {
+.ratekit-likedislike[data-size="small"] .like-btn,
+.ratekit-likedislike[data-size="small"] .dislike-btn {
     padding: 0 12px;
     border-radius: 8px;
     font-size: 0.75rem;
 }
 
-.ratepress-likedislike[data-size="small"] .count {
+.ratekit-likedislike[data-size="small"] .count {
     font-size: 0.75rem;
 }
 
-.ratepress-likedislike[data-size="small"] .likedislike-percentage {
+.ratekit-likedislike[data-size="small"] .likedislike-percentage {
     font-size: 0.75rem;
 }
 
-.ratepress-likedislike[data-size="large"] {
+.ratekit-likedislike[data-size="large"] {
     --likedislike-size-medium: var(--likedislike-size-large);
     --likedislike-icon-medium: var(--likedislike-icon-large);
     --likedislike-gap-medium: var(--likedislike-gap-large);
     gap: 12px;
 }
 
-.ratepress-likedislike[data-size="large"] .like-btn,
-.ratepress-likedislike[data-size="large"] .dislike-btn {
+.ratekit-likedislike[data-size="large"] .like-btn,
+.ratekit-likedislike[data-size="large"] .dislike-btn {
     padding: 0 20px;
     border-radius: 16px;
     font-size: 1rem;
 }
 
-.ratepress-likedislike[data-size="large"] .count {
+.ratekit-likedislike[data-size="large"] .count {
     font-size: 1rem;
 }
 
-.ratepress-likedislike[data-size="large"] .likedislike-percentage {
+.ratekit-likedislike[data-size="large"] .likedislike-percentage {
     font-size: 1rem;
 }
 
 /* Focus styles */
-.ratepress-likedislike .like-btn:focus,
-.ratepress-likedislike .dislike-btn:focus {
+.ratekit-likedislike .like-btn:focus,
+.ratekit-likedislike .dislike-btn:focus {
     outline: none;
 }
 
-.ratepress-likedislike .like-btn:focus-visible {
+.ratekit-likedislike .like-btn:focus-visible {
     outline: 2px solid var(--likedislike-like);
     outline-offset: 2px;
 }
 
-.ratepress-likedislike .dislike-btn:focus-visible {
+.ratekit-likedislike .dislike-btn:focus-visible {
     outline: 2px solid var(--likedislike-dislike);
     outline-offset: 2px;
 }
@@ -189,19 +189,19 @@
     50% { transform: scale(0.95); }
 }
 
-.ratepress-likedislike .like-btn.rating-animation,
-.ratepress-likedislike .dislike-btn.rating-animation {
+.ratekit-likedislike .like-btn.rating-animation,
+.ratekit-likedislike .dislike-btn.rating-animation {
     animation: buttonPop 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Loading state */
-.ratepress-likedislike.loading .like-btn,
-.ratepress-likedislike.loading .dislike-btn {
+.ratekit-likedislike.loading .like-btn,
+.ratekit-likedislike.loading .dislike-btn {
     opacity: 0.5;
     cursor: wait;
 }
 
 /* JS mode skeleton */
-.ratepress-likedislike.ratepress-js-mode .likedislike-buttons {
+.ratekit-likedislike.ratekit-js-mode .likedislike-buttons {
     opacity: 0.3;
 }

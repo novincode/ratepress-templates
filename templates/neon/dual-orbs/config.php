@@ -9,7 +9,7 @@ return [
     'name' => 'Neon Dual Orbs',
     'description' => 'Futuristic glowing dual orbs - up or down energy',
     'version' => '1.1.0',
-    'author' => 'RatePress',
+    'author' => 'RateKit',
     'category' => 'bipolar',
     'styles' => ['style.css'],
     'scripts' => [], // Core JS handles all interactions

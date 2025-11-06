@@ -1,10 +1,10 @@
-# RatePress Community Templates
+# RateKit Community Templates
 
-Welcome to the RatePress Community Templates repository! This is a collection of rating templates that can be installed directly into RatePress through the Templates marketplace.
+Welcome to the RateKit Community Templates repository! This is a collection of rating templates that can be installed directly into RateKit through the Templates marketplace.
 
 ## 🎨 Available Templates
 
-Browse and install templates directly from your RatePress admin panel under **RatePress → Templates**.
+Browse and install templates directly from your RateKit admin panel under **RateKit → Templates**.
 
 Current templates:
 - **modern/heart** - Glassmorphism heart icon with animations for binary love ratings
@@ -54,12 +54,12 @@ return [
     'download_url' => 'https://...', // Download URL
 
     // Version Requirements
-    'min_ratepress_version' => '1.0.0',
+    'min_ratekit_version' => '1.0.0',
 
     // Technical Requirements
     'styles' => ['style.css'],
     'scripts' => [], // Leave empty if using core JS
-    'requires_core_js' => true, // RatePress core JS handles interactions
+    'requires_core_js' => true, // RateKit core JS handles interactions
 
     // Features & Capabilities
     'supports' => [
@@ -117,7 +117,7 @@ Study the core templates in `core/templates/simple/` for real working examples.
 
 ```php
 <?php
-namespace RatePress\Templates;
+namespace RateKit\Templates;
 
 // Get template data
 $data = $template_data ?? new TemplateData([]);
@@ -132,14 +132,14 @@ $object_type = $data->object_type ?? 'post';
 // For scale: $display_average = $average * 5; (0.0-1.0 to 1-5 stars)
 ?>
 
-<div class="ratepress-widget ratepress-your-template"
+<div class="ratekit-widget ratekit-your-template"
      data-object-id="<?php echo esc_attr($object_id); ?>"
      data-object-type="<?php echo esc_attr($object_type); ?>"
      data-category="binary"
      data-template="namespace/template-name"
      role="group">
      
-    <button class="ratepress-btn" 
+    <button class="ratekit-btn" 
             type="button"
             data-value="1"
             aria-pressed="false">
@@ -150,7 +150,7 @@ $object_type = $data->object_type ?? 'post';
 
 ### Data Attributes (Required)
 
-Your template's root element must include these data attributes for RatePress core JS:
+Your template's root element must include these data attributes for RateKit core JS:
 
 - `data-object-id`: The post/object ID being rated
 - `data-object-type`: Type of object ('post', 'comment', etc.)
@@ -160,7 +160,7 @@ Your template's root element must include these data attributes for RatePress co
 
 ### JavaScript
 
-**DO NOT write custom JavaScript** unless absolutely necessary. RatePress core JS automatically handles:
+**DO NOT write custom JavaScript** unless absolutely necessary. RateKit core JS automatically handles:
 - Click events on elements with `data-value` attributes
 - AJAX rating submission
 - Real-time count updates
@@ -190,28 +190,28 @@ Leave `script.js` empty or add only template-specific animations/effects.
 
 ```css
 /* Use BEM naming convention */
-.ratepress-template.your-template-slug {
+.ratekit-template.your-template-slug {
     /* Base styles */
 }
 
-.ratepress-template.your-template-slug .element {
+.ratekit-template.your-template-slug .element {
     /* Element styles */
 }
 
-.ratepress-template.your-template-slug .element--modifier {
+.ratekit-template.your-template-slug .element--modifier {
     /* Modifier styles */
 }
 
 /* Ensure mobile responsiveness */
 @media (max-width: 768px) {
-    .ratepress-template.your-template-slug {
+    .ratekit-template.your-template-slug {
         /* Mobile styles */
     }
 }
 
 /* Support dark mode */
 @media (prefers-color-scheme: dark) {
-    .ratepress-template.your-template-slug {
+    .ratekit-template.your-template-slug {
         /* Dark mode styles */
     }
 }
@@ -250,7 +250,7 @@ Before submitting, ensure:
 - [ ] Preview image included (800x600px)
 - [ ] No hardcoded URLs or paths
 - [ ] Proper escaping of output (esc_attr, esc_html, etc.)
-- [ ] JavaScript uses RatePress.submitRating() API
+- [ ] JavaScript uses RateKit.submitRating() API
 - [ ] Tested in latest WordPress version
 - [ ] `tags` array included in config.php for search functionality
 - [ ] Repository has `TEMPLATES_BUILD_TOKEN` secret configured (one-time setup)
@@ -271,16 +271,16 @@ Consider supporting both light and dark modes:
 
 ```css
 :root {
-    --ratepress-primary: #3b82f6;
-    --ratepress-success: #10b981;
-    --ratepress-danger: #ef4444;
+    --ratekit-primary: #3b82f6;
+    --ratekit-success: #10b981;
+    --ratekit-danger: #ef4444;
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --ratepress-primary: #60a5fa;
-        --ratepress-success: #34d399;
-        --ratepress-danger: #f87171;
+        --ratekit-primary: #60a5fa;
+        --ratekit-success: #34d399;
+        --ratekit-danger: #f87171;
     }
 }
 ```
@@ -294,17 +294,17 @@ Test your template with:
 3. **Mobile Devices**: Various screen sizes
 4. **Browsers**: Chrome, Firefox, Safari, Edge
 5. **WordPress Versions**: Latest and previous major version
-6. **Themes**: Popular themes (Astra, GeneratePress, etc.)
+6. **Themes**: Popular themes (Astra, GeneRatekit, etc.)
 
 ## 📝 License
 
-All templates in this repository are licensed under GPL v2 or later, matching WordPress and RatePress licensing.
+All templates in this repository are licensed under GPL v2 or later, matching WordPress and RateKit licensing.
 
 ## 💬 Support
 
-- **Documentation**: https://ratepress.com/docs
-- **Issues**: https://github.com/novincode/ratepress-templates/issues
-- **Community**: https://wordpress.org/support/plugin/ratepress
+- **Documentation**: https://ratekit.com/docs
+- **Issues**: https://github.com/novincode/ratekit-templates/issues
+- **Community**: https://wordpress.org/support/plugin/ratekit
 
 ## 🌟 Featured Templates
 
@@ -315,4 +315,4 @@ Check out these community favorites:
 
 ---
 
-Made with ❤️ by the RatePress Community
+Made with ❤️ by the RateKit Community

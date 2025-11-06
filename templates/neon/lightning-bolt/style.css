@@ -38,7 +38,7 @@
     --lightning-text-muted: hsla(0, 0%, 100%, 0.6);
 }
 
-.ratepress-lightning-bolt {
+.ratekit-lightning-bolt {
     display: inline-flex;
     position: relative;
 }
@@ -124,24 +124,24 @@
 }
 
 /* Sizes */
-.ratepress-lightning-bolt[data-size="small"] .lightning-btn {
+.ratekit-lightning-bolt[data-size="small"] .lightning-btn {
     padding: var(--lightning-padding-sm);
     font-size: var(--lightning-font-sm);
     gap: 10px;
 }
 
-.ratepress-lightning-bolt[data-size="small"] .lightning-btn .lightning-icon {
+.ratekit-lightning-bolt[data-size="small"] .lightning-btn .lightning-icon {
     width: var(--lightning-size-sm);
     height: var(--lightning-size-sm);
 }
 
-.ratepress-lightning-bolt[data-size="large"] .lightning-btn {
+.ratekit-lightning-bolt[data-size="large"] .lightning-btn {
     padding: var(--lightning-padding-lg);
     font-size: var(--lightning-font-lg);
     gap: 16px;
 }
 
-.ratepress-lightning-bolt[data-size="large"] .lightning-btn .lightning-icon {
+.ratekit-lightning-bolt[data-size="large"] .lightning-btn .lightning-icon {
     width: var(--lightning-size-lg);
     height: var(--lightning-size-lg);
 }
@@ -172,7 +172,7 @@
 
 /* Responsive */
 @media (max-width: 768px) {
-    .ratepress-lightning-bolt[data-size="large"] .lightning-btn {
+    .ratekit-lightning-bolt[data-size="large"] .lightning-btn {
         padding: var(--lightning-padding-md);
         font-size: var(--lightning-font-md);
     }

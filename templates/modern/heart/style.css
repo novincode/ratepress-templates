@@ -16,7 +16,7 @@
     --heart-font-lg: 18px;
 }
 
-.ratepress-heart {
+.ratekit-heart {
     display: inline-flex;
     align-items: center;
 }
@@ -87,24 +87,24 @@
 }
 
 /* Sizes */
-.ratepress-heart[data-size="small"] .heart-btn {
+.ratekit-heart[data-size="small"] .heart-btn {
     padding: var(--heart-padding-sm);
     font-size: var(--heart-font-sm);
     gap: 8px;
 }
 
-.ratepress-heart[data-size="small"] .heart-btn svg {
+.ratekit-heart[data-size="small"] .heart-btn svg {
     width: var(--heart-size-sm);
     height: var(--heart-size-sm);
 }
 
-.ratepress-heart[data-size="large"] .heart-btn {
+.ratekit-heart[data-size="large"] .heart-btn {
     padding: var(--heart-padding-lg);
     font-size: var(--heart-font-lg);
     gap: 14px;
 }
 
-.ratepress-heart[data-size="large"] .heart-btn svg {
+.ratekit-heart[data-size="large"] .heart-btn svg {
     width: var(--heart-size-lg);
     height: var(--heart-size-lg);
 }

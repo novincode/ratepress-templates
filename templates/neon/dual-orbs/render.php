@@ -3,7 +3,7 @@
  * Neon Dual Orbs Renderer
  */
 
-namespace RatePress\Templates;
+namespace RateKit\Templates;
 
 $data = $template_data ?? new TemplateData([]);
 $stats = $data->category_stats ?? [];
@@ -31,22 +31,22 @@ if ($is_js_mode) {
 }
 ?>
 
-<div class="ratepress-widget ratepress-dual-orbs<?php echo $is_js_mode ? ' ratepress-js-mode' : ''; ?>"<?php echo $theme === 'dark' ? ' data-theme="dark"' : ''; ?>
+<div class="ratekit-widget ratekit-dual-orbs<?php echo $is_js_mode ? ' ratekit-js-mode' : ''; ?>"<?php echo $theme === 'dark' ? ' data-theme="dark"' : ''; ?>
      data-object-id="<?php echo esc_attr($object_id); ?>"
      data-object-type="<?php echo esc_attr($object_type); ?>"
      data-category="bipolar"
      data-template="neon/dual-orbs"
      data-size="<?php echo esc_attr($size); ?>"
      role="group"
-     aria-label="<?php esc_attr_e('Dual Orbs rating widget', 'ratepress'); ?>">
+     aria-label="<?php esc_attr_e('Dual Orbs rating widget', 'ratekit'); ?>">
      
     <button class="orb-btn orb-up <?php echo $user_liked ? 'active' : ''; ?>" 
             type="button"
             data-value="1"
             aria-pressed="<?php echo $user_liked ? 'true' : 'false'; ?>"
-            aria-label="<?php echo esc_attr($user_liked ? __('Unlike', 'ratepress') : __('Like this', 'ratepress')); ?>"
+            aria-label="<?php echo esc_attr($user_liked ? __('Unlike', 'ratekit') : __('Like this', 'ratekit')); ?>"
             aria-describedby="orb-up-count-<?php echo esc_attr($object_id); ?>"
-            title="<?php echo esc_attr($user_liked ? __('Unlike', 'ratepress') : __('Like this', 'ratepress')); ?>">
+            title="<?php echo esc_attr($user_liked ? __('Unlike', 'ratekit') : __('Like this', 'ratekit')); ?>">
         <svg class="orb-icon" viewBox="0 0 24 24" fill="none">
             <path d="M12 5l0 14M5 12l7-7 7 7" 
                   stroke="currentColor" 
@@ -67,9 +67,9 @@ if ($is_js_mode) {
             type="button"
             data-value="-1"
             aria-pressed="<?php echo $user_disliked ? 'true' : 'false'; ?>"
-            aria-label="<?php echo esc_attr($user_disliked ? __('Undislike', 'ratepress') : __('Dislike this', 'ratepress')); ?>"
+            aria-label="<?php echo esc_attr($user_disliked ? __('Undislike', 'ratekit') : __('Dislike this', 'ratekit')); ?>"
             aria-describedby="orb-down-count-<?php echo esc_attr($object_id); ?>"
-            title="<?php echo esc_attr($user_disliked ? __('Undislike', 'ratepress') : __('Dislike this', 'ratepress')); ?>">
+            title="<?php echo esc_attr($user_disliked ? __('Undislike', 'ratekit') : __('Dislike this', 'ratekit')); ?>">
         <svg class="orb-icon" viewBox="0 0 24 24" fill="none">
             <path d="M12 19l0-14M5 12l7 7 7-7" 
                   stroke="currentColor" 

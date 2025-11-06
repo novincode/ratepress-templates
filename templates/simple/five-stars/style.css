@@ -5,7 +5,7 @@
  * Theme-adaptive colors and micro-animations
  */
 
-.ratepress-stars-widget {
+.ratekit-stars-widget {
     --star-color: #f59e0b;
     --star-size: 20px; /* Default medium size */
     --button-padding: 4px; /* Default padding */
@@ -30,8 +30,8 @@
 }
 
 /* Dark theme - only when explicitly set */
-[data-theme="dark"] .ratepress-stars-widget,
-.dark .ratepress-stars-widget {
+[data-theme="dark"] .ratekit-stars-widget,
+.dark .ratekit-stars-widget {
     --star-inactive: rgba(255, 255, 255, 0.5);
     --star-hover: rgba(255, 255, 255, 0.7);
     --glass-bg: rgba(255, 255, 255, 0.08);
@@ -40,14 +40,14 @@
     --shadow-hover: 0 12px 40px rgba(255, 255, 255, 0.15);
 }
 
-.ratepress-stars-container {
+.ratekit-stars-container {
     display: flex;
     align-items: center;
     gap: 16px;
     flex-wrap: wrap;
 }
 
-.ratepress-stars-input {
+.ratekit-stars-input {
     display: flex;
     gap: var(--star-gap);
     padding: 4px;
@@ -61,7 +61,7 @@
     overflow: hidden;
 }
 
-.ratepress-stars-input::before {
+.ratekit-stars-input::before {
     content: '';
     position: absolute;
     inset: 0;
@@ -72,13 +72,13 @@
     pointer-events: none;
 }
 
-.ratepress-stars-input:hover {
+.ratekit-stars-input:hover {
     box-shadow: var(--shadow-hover);
     border-color: rgba(0, 0, 0, 0.18);
     transform: translateY(-2px);
 }
 
-.ratepress-star-btn {
+.ratekit-star-btn {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -95,7 +95,7 @@
     overflow: hidden;
 }
 
-.ratepress-star-btn::before {
+.ratekit-star-btn::before {
     content: '';
     position: absolute;
     inset: 0;
@@ -105,45 +105,45 @@
     transition: opacity 0.2s ease;
 }
 
-.ratepress-star-btn:hover::before {
+.ratekit-star-btn:hover::before {
     opacity: 0.06;
 }
 
-.ratepress-star-btn:active::before {
+.ratekit-star-btn:active::before {
     opacity: 0.12;
 }
 
-.ratepress-star-btn:hover {
+.ratekit-star-btn:hover {
     color: var(--star-hover);
     transform: scale(1.05);
 }
 
-.ratepress-star-btn:active {
+.ratekit-star-btn:active {
     transform: scale(1.02);
     transition: transform 0.1s ease;
 }
 
-.ratepress-star-btn.active {
+.ratekit-star-btn.active {
     color: var(--star-active);
     animation: starActivate 0.5s var(--bounce);
 }
 
 /* Demo mode - disable interactions */
-.ratepress-demo .ratepress-star-btn {
+.ratekit-demo .ratekit-star-btn {
     cursor: default;
     pointer-events: none;
 }
 
-.ratepress-demo .ratepress-star-btn:hover {
+.ratekit-demo .ratekit-star-btn:hover {
     transform: none;
 }
 
-.ratepress-demo .ratepress-stars-input:hover {
+.ratekit-demo .ratekit-stars-input:hover {
     transform: none;
     box-shadow: var(--shadow-light);
 }
 
-.ratepress-star-icon {
+.ratekit-star-icon {
     width: var(--star-size);
     height: var(--star-size);
     transition: var(--transition);
@@ -151,22 +151,22 @@
     filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
 }
 
-.ratepress-star-btn .star-fill {
+.ratekit-star-btn .star-fill {
     opacity: 0;
     transition: var(--transition);
     transform-origin: center;
 }
 
-.ratepress-star-btn.active .star-fill {
+.ratekit-star-btn.active .star-fill {
     opacity: 1;
     animation: starFill 0.4s var(--bounce);
 }
 
-.ratepress-star-btn.active .star-outline {
+.ratekit-star-btn.active .star-outline {
     opacity: 0;
 }
 
-.ratepress-stars-info {
+.ratekit-stars-info {
     display: flex;
     align-items: center;
     gap: 8px;
@@ -176,7 +176,7 @@
     color: var(--star-inactive);
 }
 
-.ratepress-average {
+.ratekit-average {
     color: var(--star-color);
     font-weight: 700;
     font-size: 16px;
@@ -184,106 +184,106 @@
     text-shadow: 0 1px 2px rgba(245, 158, 11, 0.2);
 }
 
-.ratepress-count {
+.ratekit-count {
     font-size: 13px;
     opacity: 0.7;
     font-weight: 400;
 }
 
-.ratepress-count::before {
+.ratekit-count::before {
     content: '(';
 }
 
-.ratepress-count::after {
+.ratekit-count::after {
     content: ')';
 }
 
 /* Size variants - Optimized for realistic proportions */
-.ratepress-stars-widget[data-size="small"] {
+.ratekit-stars-widget[data-size="small"] {
     --star-size: 16px;
     --button-padding: 4px;
     --star-gap: 1px;
 }
 
-.ratepress-stars-widget[data-size="medium"] {
+.ratekit-stars-widget[data-size="medium"] {
     --star-size: 20px;
     --button-padding: 4px;
     --star-gap: 2px;
 }
 
-.ratepress-stars-widget[data-size="large"] {
+.ratekit-stars-widget[data-size="large"] {
     --star-size: 24px;
     --button-padding: 4px;
     --star-gap: 3px;
 }
 
-.ratepress-stars-widget[data-size="small"] .ratepress-stars-input {
+.ratekit-stars-widget[data-size="small"] .ratekit-stars-input {
     gap: var(--star-gap);
 }
 
-.ratepress-stars-widget[data-size="medium"] .ratepress-stars-input {
+.ratekit-stars-widget[data-size="medium"] .ratekit-stars-input {
     gap: var(--star-gap);
 }
 
-.ratepress-stars-widget[data-size="large"] .ratepress-stars-input {
+.ratekit-stars-widget[data-size="large"] .ratekit-stars-input {
     gap: var(--star-gap);
 }
 
-.ratepress-stars-widget[data-size="small"] .ratepress-star-btn {
+.ratekit-stars-widget[data-size="small"] .ratekit-star-btn {
     width: calc(var(--star-size) + (var(--button-padding) * 2));
     height: calc(var(--star-size) + (var(--button-padding) * 2));
 }
 
-.ratepress-stars-widget[data-size="medium"] .ratepress-star-btn {
+.ratekit-stars-widget[data-size="medium"] .ratekit-star-btn {
     width: calc(var(--star-size) + (var(--button-padding) * 2));
     height: calc(var(--star-size) + (var(--button-padding) * 2));
 }
 
-.ratepress-stars-widget[data-size="large"] .ratepress-star-btn {
+.ratekit-stars-widget[data-size="large"] .ratekit-star-btn {
     width: calc(var(--star-size) + (var(--button-padding) * 2));
     height: calc(var(--star-size) + (var(--button-padding) * 2));
 }
 
 /* Size-specific font adjustments */
-.ratepress-stars-widget[data-size="small"] .ratepress-average {
+.ratekit-stars-widget[data-size="small"] .ratekit-average {
     font-size: 14px;
 }
 
-.ratepress-stars-widget[data-size="medium"] .ratepress-average {
+.ratekit-stars-widget[data-size="medium"] .ratekit-average {
     font-size: 16px;
 }
 
-.ratepress-stars-widget[data-size="large"] .ratepress-average {
+.ratekit-stars-widget[data-size="large"] .ratekit-average {
     font-size: 18px;
 }
 
-.ratepress-stars-widget[data-size="small"] .ratepress-stars-info {
+.ratekit-stars-widget[data-size="small"] .ratekit-stars-info {
     font-size: 12px;
 }
 
-.ratepress-stars-widget[data-size="medium"] .ratepress-stars-info {
+.ratekit-stars-widget[data-size="medium"] .ratekit-stars-info {
     font-size: 14px;
 }
 
-.ratepress-stars-widget[data-size="large"] .ratepress-stars-info {
+.ratekit-stars-widget[data-size="large"] .ratekit-stars-info {
     font-size: 16px;
 }
 
 /* Loading state */
-.ratepress-stars-widget.loading {
+.ratekit-stars-widget.loading {
     pointer-events: none;
 }
 
-.ratepress-stars-widget.loading .ratepress-star-btn {
+.ratekit-stars-widget.loading .ratekit-star-btn {
     opacity: 0.5;
 }
 
-.ratepress-stars-widget.loading .ratepress-star-icon {
+.ratekit-stars-widget.loading .ratekit-star-icon {
     animation: starPulse 1.5s infinite ease-in-out;
 }
 
 /* Error state */
-.ratepress-stars-widget.error .ratepress-stars-input {
+.ratekit-stars-widget.error .ratekit-stars-input {
     background: color-mix(in srgb, #ef4444 8%, transparent);
     border-color: color-mix(in srgb, #ef4444 20%, transparent);
     animation: errorShake 0.5s ease-in-out;
@@ -329,7 +329,7 @@
 }
 
 /* Focus accessibility */
-.ratepress-star-btn:focus-visible {
+.ratekit-star-btn:focus-visible {
     outline: 2px solid var(--star-color);
     outline-offset: 3px;
     border-radius: 8px;
@@ -337,24 +337,24 @@
 
 /* Mobile optimizations */
 @media (max-width: 768px) {
-    .ratepress-star-btn {
+    .ratekit-star-btn {
         min-width: calc(var(--star-size) + (var(--button-padding) * 2));
         min-height: calc(var(--star-size) + (var(--button-padding) * 2));
     }
     
-    .ratepress-stars-input {
+    .ratekit-stars-input {
         gap: var(--star-gap);
         padding: 6px;
     }
     
-    .ratepress-stars-container {
+    .ratekit-stars-container {
         gap: 12px;
     }
 }
 
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
-    .ratepress-stars-widget * {
+    .ratekit-stars-widget * {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;

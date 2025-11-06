@@ -9,7 +9,7 @@ return [
     'name' => 'Neon Dots (1-10)',
     'description' => 'Futuristic glowing 10-dot rating - maximum precision',
     'version' => '1.3.1',
-    'author' => 'RatePress',
+    'author' => 'RateKit',
     'category' => 'scale',
     'styles' => ['style.css'],
     'scripts' => [], // Core JS handles all interactions

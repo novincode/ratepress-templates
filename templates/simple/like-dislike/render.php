@@ -6,9 +6,9 @@
  * Bipolar logic: -1 (dislike), 0 (neutral), 1 (like)
  */
 
-namespace RatePress\Templates;
+namespace RateKit\Templates;
 
-use const RatePress\TEXT_DOMAIN;
+use const RateKit\TEXT_DOMAIN;
 
 // Get template data
 $data = $template_data ?? new TemplateData([]);
@@ -49,7 +49,7 @@ $color_schemes = [
 $colors = $color_schemes[$color_scheme] ?? $color_schemes['default'];
 ?>
 
-<div class="ratepress-widget ratepress-like-dislike-widget<?php echo $is_js_mode ? ' ratepress-js-mode' : ''; ?>"
+<div class="ratekit-widget ratekit-like-dislike-widget<?php echo $is_js_mode ? ' ratekit-js-mode' : ''; ?>"
      data-object-id="<?php echo esc_attr($object_id); ?>"
      data-object-type="<?php echo esc_attr($object_type); ?>"
      data-category="bipolar"
@@ -59,9 +59,9 @@ $colors = $color_schemes[$color_scheme] ?? $color_schemes['default'];
      role="group"
      aria-label="Like or dislike rating widget">
      
-    <div class="ratepress-buttons-container" data-layout="<?php echo esc_attr($layout); ?>">
+    <div class="ratekit-buttons-container" data-layout="<?php echo esc_attr($layout); ?>">
         <!-- Like Button -->
-        <button class="ratepress-like-btn <?php echo $user_liked ? 'active' : ''; ?>" 
+        <button class="ratekit-like-btn <?php echo $user_liked ? 'active' : ''; ?>" 
                 type="button"
                 data-value="1"
                 aria-pressed="<?php echo $user_liked ? 'true' : 'false'; ?>"
@@ -69,7 +69,7 @@ $colors = $color_schemes[$color_scheme] ?? $color_schemes['default'];
                 aria-describedby="like-count-<?php echo esc_attr($object_id); ?>"
                 title="<?php echo $user_liked ? 'Remove like' : 'Like this'; ?>">
                 
-            <svg class="ratepress-like-icon" 
+            <svg class="ratekit-like-icon" 
                  viewBox="0 0 24 24" 
                  fill="none" 
                  xmlns="http://www.w3.org/2000/svg"
@@ -86,7 +86,7 @@ $colors = $color_schemes[$color_scheme] ?? $color_schemes['default'];
             </svg>
             
             <?php if ($show_counts): ?>
-                <span class="ratepress-like-count" 
+                <span class="ratekit-like-count" 
                       data-count="positive"
                       id="like-count-<?php echo esc_attr($object_id); ?>"
                       aria-label="<?php echo esc_attr($likes_count); ?> like<?php echo $likes_count !== 1 ? 's' : ''; ?>">
@@ -96,7 +96,7 @@ $colors = $color_schemes[$color_scheme] ?? $color_schemes['default'];
         </button>
         
         <!-- Dislike Button -->
-        <button class="ratepress-dislike-btn <?php echo $user_disliked ? 'active' : ''; ?>" 
+        <button class="ratekit-dislike-btn <?php echo $user_disliked ? 'active' : ''; ?>" 
                 type="button"
                 data-value="-1"
                 aria-pressed="<?php echo $user_disliked ? 'true' : 'false'; ?>"
@@ -104,7 +104,7 @@ $colors = $color_schemes[$color_scheme] ?? $color_schemes['default'];
                 aria-describedby="dislike-count-<?php echo esc_attr($object_id); ?>"
                 title="<?php echo $user_disliked ? 'Remove dislike' : 'Dislike this'; ?>">
                 
-            <svg class="ratepress-dislike-icon" 
+            <svg class="ratekit-dislike-icon" 
                  viewBox="0 0 24 24" 
                  fill="none" 
                  xmlns="http://www.w3.org/2000/svg"
@@ -121,7 +121,7 @@ $colors = $color_schemes[$color_scheme] ?? $color_schemes['default'];
             </svg>
             
             <?php if ($show_counts): ?>
-                <span class="ratepress-dislike-count" 
+                <span class="ratekit-dislike-count" 
                       data-count="negative"
                       id="dislike-count-<?php echo esc_attr($object_id); ?>"
                       aria-label="<?php echo esc_attr($dislikes_count); ?> dislike<?php echo $dislikes_count !== 1 ? 's' : ''; ?>">

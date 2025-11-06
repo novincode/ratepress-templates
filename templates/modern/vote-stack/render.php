@@ -1,5 +1,5 @@
 <?php
-namespace RatePress\Templates;
+namespace RateKit\Templates;
 
 $data = $template_data ?? new TemplateData([]);
 $stats = $data->category_stats ?? [];
@@ -25,22 +25,22 @@ if ($is_js_mode) {
 }
 ?>
 
-<div class="ratepress-widget rp-vote-stack<?php echo $is_js_mode ? ' rp-js-mode' : ''; ?>"<?php echo $theme === 'dark' ? ' data-theme="dark"' : ''; ?>
+<div class="ratekit-widget rp-vote-stack<?php echo $is_js_mode ? ' rp-js-mode' : ''; ?>"<?php echo $theme === 'dark' ? ' data-theme="dark"' : ''; ?>
      data-object-id="<?php echo esc_attr($object_id); ?>"
      data-object-type="<?php echo esc_attr($object_type); ?>"
      data-category="bipolar"
      data-template="modern/vote-stack"
      data-size="<?php echo esc_attr($size); ?>"
      role="group"
-     aria-label="<?php esc_attr_e('Vote rating widget', 'ratepress'); ?>">
+     aria-label="<?php esc_attr_e('Vote rating widget', 'ratekit'); ?>">
      
     <button class="rp-vote-btn rp-vote-up <?php echo $user_upvoted ? 'active' : ''; ?>"
             type="button"
             data-value="1"
             aria-pressed="<?php echo $user_upvoted ? 'true' : 'false'; ?>"
-            aria-label="<?php echo esc_attr($user_upvoted ? __('Remove upvote', 'ratepress') : __('Upvote', 'ratepress')); ?>"
+            aria-label="<?php echo esc_attr($user_upvoted ? __('Remove upvote', 'ratekit') : __('Upvote', 'ratekit')); ?>"
             aria-describedby="vote-score-<?php echo esc_attr($object_id); ?>"
-            title="<?php echo esc_attr($user_upvoted ? __('Remove upvote', 'ratepress') : __('Upvote', 'ratepress')); ?>">
+            title="<?php echo esc_attr($user_upvoted ? __('Remove upvote', 'ratekit') : __('Upvote', 'ratekit')); ?>">
         <svg viewBox="0 0 24 24" fill="none"><path d="M7 14l5-5 5 5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </button>
     
@@ -49,7 +49,7 @@ if ($is_js_mode) {
          id="vote-score-<?php echo esc_attr($object_id); ?>"
          aria-label="<?php
             /* translators: %d: vote score number */
-            esc_attr(sprintf(__('Score: %d', 'ratepress'), $score));
+            esc_attr(sprintf(__('Score: %d', 'ratekit'), $score));
         ?>">
         <?php echo esc_html(number_format($score)); ?>
     </div>
@@ -58,9 +58,9 @@ if ($is_js_mode) {
             type="button"
             data-value="-1"
             aria-pressed="<?php echo $user_downvoted ? 'true' : 'false'; ?>"
-            aria-label="<?php echo esc_attr($user_downvoted ? __('Remove downvote', 'ratepress') : __('Downvote', 'ratepress')); ?>"
+            aria-label="<?php echo esc_attr($user_downvoted ? __('Remove downvote', 'ratekit') : __('Downvote', 'ratekit')); ?>"
             aria-describedby="vote-score-<?php echo esc_attr($object_id); ?>"
-            title="<?php echo esc_attr($user_downvoted ? __('Remove downvote', 'ratepress') : __('Downvote', 'ratepress')); ?>">
+            title="<?php echo esc_attr($user_downvoted ? __('Remove downvote', 'ratekit') : __('Downvote', 'ratekit')); ?>">
         <svg viewBox="0 0 24 24" fill="none"><path d="M7 10l5 5 5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </button>
 </div>

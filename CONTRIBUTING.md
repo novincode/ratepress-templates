@@ -1,6 +1,6 @@
-# Contributing to RatePress Templates
+# Contributing to RateKit Templates
 
-Thank you for considering contributing to the RatePress Templates collection! This document provides guidelines for contributing templates.
+Thank you for considering contributing to the RateKit Templates collection! This document provides guidelines for contributing templates.
 
 ## Code of Conduct
 
@@ -53,7 +53,7 @@ Thank you for considering contributing to the RatePress Templates collection! Th
 
 ### JavaScript
 - Use modern ES6+ syntax
-- Leverage RatePress core API
+- Leverage RateKit core API
 - Handle errors gracefully
 - No jQuery dependencies (unless necessary)
 - Proper event delegation
@@ -63,7 +63,7 @@ Thank you for considering contributing to the RatePress Templates collection! Th
 - Mobile-first approach
 - Support for `prefers-color-scheme`
 - No `!important` unless absolutely necessary
-- Prefix classes with `ratepress-`
+- Prefix classes with `ratekit-`
 
 ## Testing Checklist
 
@@ -80,7 +80,7 @@ Before submitting, test your template with:
 - [ ] Chrome, Firefox, Safari, Edge
 - [ ] Light and dark modes
 - [ ] WordPress 5.0+ compatibility
-- [ ] Popular themes (Astra, GeneratePress, Twenty Twenty-*)
+- [ ] Popular themes (Astra, GeneRatekit, Twenty Twenty-*)
 
 ## Pull Request Process
 
@@ -125,6 +125,6 @@ All contributions must be licensed under GPL v2 or later, matching WordPress lic
 Contributors will be:
 - Listed in the template's `config.php` as author
 - Mentioned in release notes
-- Featured on the RatePress website (with permission)
+- Featured on the RateKit website (with permission)
 
 Thank you for contributing! 🎉

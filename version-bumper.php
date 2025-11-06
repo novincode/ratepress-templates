@@ -1,6 +1,6 @@
 <?php
 /**
- * RatePress Templates Version Bumper
+ * RateKit Templates Version Bumper
  *
  * Automatically bumps version numbers in template config.php files
  * based on git changes since last commit.
@@ -268,7 +268,7 @@ class VersionBumper
 
 // Command line interface
 if ($argc > 1 && $argv[1] === '--help') {
-    echo "RatePress Templates Version Bumper\n\n";
+    echo "RateKit Templates Version Bumper\n\n";
     echo "Usage: php version-bumper.php [templates-dir]\n\n";
     echo "Arguments:\n";
     echo "  templates-dir  Directory containing templates (default: templates)\n\n";
@@ -293,4 +293,4 @@ if (!$bumper->isGitRepository()) {
 
 $bumper->bumpVersions();
 ?></content>
-<parameter name="filePath">/Users/shayanmoradi/Desktop/Work/wp-ratepress/remote-templates/version-bumper.php
+<parameter name="filePath">/Users/shayanmoradi/Desktop/Work/wp-ratekit/remote-templates/version-bumper.php

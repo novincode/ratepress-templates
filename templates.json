@@ -5,17 +5,17 @@
         "description": "Clean bookmark button for saving content",
         "category": "binary",
         "version": "1.0.5",
-        "author": "RatePress",
-        "author_uri": "https://ratepress.com",
+        "author": "RateKit",
+        "author_uri": "https://ratekit.com",
         "tags": [
             "bookmark",
             "save",
             "binary",
             "minimal"
         ],
-        "preview_image": "https://raw.githubusercontent.com/novincode/ratepress-templates/main/templates/modern/bookmark/preview.png",
-        "download_url": "https://github.com/novincode/ratepress-templates/tree/main/templates/modern/bookmark",
-        "min_ratepress_version": "1.0.0",
+        "preview_image": "https://raw.githubusercontent.com/novincode/ratekit-templates/main/templates/modern/bookmark/preview.png",
+        "download_url": "https://github.com/novincode/ratekit-templates/tree/main/templates/modern/bookmark",
+        "min_ratekit_version": "1.0.0",
         "requires_core_js": true
     },
     {
@@ -24,12 +24,12 @@
         "description": "Smooth animated heart - clean, modern, 2026 style",
         "category": "binary",
         "version": "1.0.5",
-        "author": "RatePress",
+        "author": "RateKit",
         "author_uri": "",
         "tags": [],
-        "preview_image": "https://raw.githubusercontent.com/novincode/ratepress-templates/main/templates/modern/heart/preview.png",
-        "download_url": "https://github.com/novincode/ratepress-templates/tree/main/templates/modern/heart",
-        "min_ratepress_version": "1.0.0",
+        "preview_image": "https://raw.githubusercontent.com/novincode/ratekit-templates/main/templates/modern/heart/preview.png",
+        "download_url": "https://github.com/novincode/ratekit-templates/tree/main/templates/modern/heart",
+        "min_ratekit_version": "1.0.0",
         "requires_core_js": true
     },
     {
@@ -38,12 +38,12 @@
         "description": "Clean like/dislike buttons with modern design - 2026 style",
         "category": "bipolar",
         "version": "1.0.5",
-        "author": "RatePress",
+        "author": "RateKit",
         "author_uri": "",
         "tags": [],
-        "preview_image": "https://raw.githubusercontent.com/novincode/ratepress-templates/main/templates/modern/like-dislike/preview.png",
-        "download_url": "https://github.com/novincode/ratepress-templates/tree/main/templates/modern/like-dislike",
-        "min_ratepress_version": "1.0.0",
+        "preview_image": "https://raw.githubusercontent.com/novincode/ratekit-templates/main/templates/modern/like-dislike/preview.png",
+        "download_url": "https://github.com/novincode/ratekit-templates/tree/main/templates/modern/like-dislike",
+        "min_ratekit_version": "1.0.0",
         "requires_core_js": true
     },
     {
@@ -52,17 +52,17 @@
         "description": "Smooth 5-star rating with hover effects",
         "category": "scale",
         "version": "1.0.5",
-        "author": "RatePress",
-        "author_uri": "https://ratepress.com",
+        "author": "RateKit",
+        "author_uri": "https://ratekit.com",
         "tags": [
             "stars",
             "rating",
             "scale",
             "5-star"
         ],
-        "preview_image": "https://raw.githubusercontent.com/novincode/ratepress-templates/main/templates/modern/stars/preview.png",
-        "download_url": "https://github.com/novincode/ratepress-templates/tree/main/templates/modern/stars",
-        "min_ratepress_version": "1.0.0",
+        "preview_image": "https://raw.githubusercontent.com/novincode/ratekit-templates/main/templates/modern/stars/preview.png",
+        "download_url": "https://github.com/novincode/ratekit-templates/tree/main/templates/modern/stars",
+        "min_ratekit_version": "1.0.0",
         "requires_core_js": true
     },
     {
@@ -71,17 +71,17 @@
         "description": "Clean vertical voting like Stack Overflow",
         "category": "bipolar",
         "version": "1.0.5",
-        "author": "RatePress",
-        "author_uri": "https://ratepress.com",
+        "author": "RateKit",
+        "author_uri": "https://ratekit.com",
         "tags": [
             "vote",
             "stackoverflow",
             "bipolar",
             "minimal"
         ],
-        "preview_image": "https://raw.githubusercontent.com/novincode/ratepress-templates/main/templates/modern/vote-stack/preview.png",
-        "download_url": "https://github.com/novincode/ratepress-templates/tree/main/templates/modern/vote-stack",
-        "min_ratepress_version": "1.0.0",
+        "preview_image": "https://raw.githubusercontent.com/novincode/ratekit-templates/main/templates/modern/vote-stack/preview.png",
+        "download_url": "https://github.com/novincode/ratekit-templates/tree/main/templates/modern/vote-stack",
+        "min_ratekit_version": "1.0.0",
         "requires_core_js": true
     },
     {
@@ -90,12 +90,12 @@
         "description": "Futuristic glowing dual orbs - up or down energy",
         "category": "bipolar",
         "version": "1.1.0",
-        "author": "RatePress",
+        "author": "RateKit",
         "author_uri": "",
         "tags": [],
-        "preview_image": "https://raw.githubusercontent.com/novincode/ratepress-templates/main/templates/neon/dual-orbs/preview.png",
-        "download_url": "https://github.com/novincode/ratepress-templates/tree/main/templates/neon/dual-orbs",
-        "min_ratepress_version": "1.0.0",
+        "preview_image": "https://raw.githubusercontent.com/novincode/ratekit-templates/main/templates/neon/dual-orbs/preview.png",
+        "download_url": "https://github.com/novincode/ratekit-templates/tree/main/templates/neon/dual-orbs",
+        "min_ratekit_version": "1.0.0",
         "requires_core_js": true
     },
     {
@@ -104,12 +104,12 @@
         "description": "Futuristic glowing lightning bolt - energize with a single strike",
         "category": "binary",
         "version": "1.1.0",
-        "author": "RatePress",
+        "author": "RateKit",
         "author_uri": "",
         "tags": [],
-        "preview_image": "https://raw.githubusercontent.com/novincode/ratepress-templates/main/templates/neon/lightning-bolt/preview.png",
-        "download_url": "https://github.com/novincode/ratepress-templates/tree/main/templates/neon/lightning-bolt",
-        "min_ratepress_version": "1.0.0",
+        "preview_image": "https://raw.githubusercontent.com/novincode/ratekit-templates/main/templates/neon/lightning-bolt/preview.png",
+        "download_url": "https://github.com/novincode/ratekit-templates/tree/main/templates/neon/lightning-bolt",
+        "min_ratekit_version": "1.0.0",
         "requires_core_js": true
     },
     {
@@ -118,12 +118,12 @@
         "description": "Futuristic glowing 10-dot rating - maximum precision",
         "category": "scale",
         "version": "1.3.1",
-        "author": "RatePress",
+        "author": "RateKit",
         "author_uri": "",
         "tags": [],
-        "preview_image": "https://raw.githubusercontent.com/novincode/ratepress-templates/main/templates/neon/neon-dots-10/preview.png",
-        "download_url": "https://github.com/novincode/ratepress-templates/tree/main/templates/neon/neon-dots-10",
-        "min_ratepress_version": "1.0.0",
+        "preview_image": "https://raw.githubusercontent.com/novincode/ratekit-templates/main/templates/neon/neon-dots-10/preview.png",
+        "download_url": "https://github.com/novincode/ratekit-templates/tree/main/templates/neon/neon-dots-10",
+        "min_ratekit_version": "1.0.0",
         "requires_core_js": true
     },
     {
@@ -132,12 +132,12 @@
         "description": "Futuristic glowing 5-dot rating - precision dots",
         "category": "scale",
         "version": "1.2.1",
-        "author": "RatePress",
+        "author": "RateKit",
         "author_uri": "",
         "tags": [],
-        "preview_image": "https://raw.githubusercontent.com/novincode/ratepress-templates/main/templates/neon/neon-dots-5/preview.png",
-        "download_url": "https://github.com/novincode/ratepress-templates/tree/main/templates/neon/neon-dots-5",
-        "min_ratepress_version": "1.0.0",
+        "preview_image": "https://raw.githubusercontent.com/novincode/ratekit-templates/main/templates/neon/neon-dots-5/preview.png",
+        "download_url": "https://github.com/novincode/ratekit-templates/tree/main/templates/neon/neon-dots-5",
+        "min_ratekit_version": "1.0.0",
         "requires_core_js": true
     },
     {
@@ -146,12 +146,12 @@
         "description": "Futuristic glowing heart - love it with a glowing heart",
         "category": "binary",
         "version": "1.0.2",
-        "author": "RatePress",
+        "author": "RateKit",
         "author_uri": "",
         "tags": [],
-        "preview_image": "https://raw.githubusercontent.com/novincode/ratepress-templates/main/templates/neon/neon-heart/preview.png",
-        "download_url": "https://github.com/novincode/ratepress-templates/tree/main/templates/neon/neon-heart",
-        "min_ratepress_version": "1.0.0",
+        "preview_image": "https://raw.githubusercontent.com/novincode/ratekit-templates/main/templates/neon/neon-heart/preview.png",
+        "download_url": "https://github.com/novincode/ratekit-templates/tree/main/templates/neon/neon-heart",
+        "min_ratekit_version": "1.0.0",
         "requires_core_js": true
     },
     {
@@ -160,12 +160,12 @@
         "description": "Futuristic glowing range slider - smooth 0-10 rating",
         "category": "scale",
         "version": "1.3.0",
-        "author": "RatePress",
+        "author": "RateKit",
         "author_uri": "",
         "tags": [],
-        "preview_image": "https://raw.githubusercontent.com/novincode/ratepress-templates/main/templates/neon/neon-range/preview.png",
-        "download_url": "https://github.com/novincode/ratepress-templates/tree/main/templates/neon/neon-range",
-        "min_ratepress_version": "1.0.0",
+        "preview_image": "https://raw.githubusercontent.com/novincode/ratekit-templates/main/templates/neon/neon-range/preview.png",
+        "download_url": "https://github.com/novincode/ratekit-templates/tree/main/templates/neon/neon-range",
+        "min_ratekit_version": "1.0.0",
         "requires_core_js": true
     },
     {
@@ -174,12 +174,12 @@
         "description": "Futuristic glowing 5-star rating - classic star rating",
         "category": "scale",
         "version": "1.2.1",
-        "author": "RatePress",
+        "author": "RateKit",
         "author_uri": "",
         "tags": [],
-        "preview_image": "https://raw.githubusercontent.com/novincode/ratepress-templates/main/templates/neon/neon-stars/preview.png",
-        "download_url": "https://github.com/novincode/ratepress-templates/tree/main/templates/neon/neon-stars",
-        "min_ratepress_version": "1.0.0",
+        "preview_image": "https://raw.githubusercontent.com/novincode/ratekit-templates/main/templates/neon/neon-stars/preview.png",
+        "download_url": "https://github.com/novincode/ratekit-templates/tree/main/templates/neon/neon-stars",
+        "min_ratekit_version": "1.0.0",
         "requires_core_js": true
     },
     {
@@ -188,12 +188,12 @@
         "description": "Futuristic glowing thumbs up - simple like with glow",
         "category": "binary",
         "version": "1.1.0",
-        "author": "RatePress",
+        "author": "RateKit",
         "author_uri": "",
         "tags": [],
-        "preview_image": "https://raw.githubusercontent.com/novincode/ratepress-templates/main/templates/neon/neon-thumbs/preview.png",
-        "download_url": "https://github.com/novincode/ratepress-templates/tree/main/templates/neon/neon-thumbs",
-        "min_ratepress_version": "1.0.0",
+        "preview_image": "https://raw.githubusercontent.com/novincode/ratekit-templates/main/templates/neon/neon-thumbs/preview.png",
+        "download_url": "https://github.com/novincode/ratekit-templates/tree/main/templates/neon/neon-thumbs",
+        "min_ratekit_version": "1.0.0",
         "requires_core_js": true
     },
     {
@@ -202,8 +202,8 @@
         "description": "Modern star rating for scale ratings (1-5 stars)",
         "category": "scale",
         "version": "1.0.0",
-        "author": "RatePress",
-        "author_uri": "https://ratepress.com",
+        "author": "RateKit",
+        "author_uri": "https://ratekit.com",
         "tags": [
             "stars",
             "rating",
@@ -211,9 +211,9 @@
             "5-star",
             "simple"
         ],
-        "preview_image": "https://raw.githubusercontent.com/novincode/ratepress-templates/main/templates/simple/five-stars/preview.png",
-        "download_url": "https://github.com/novincode/ratepress-templates/tree/main/templates/simple/five-stars",
-        "min_ratepress_version": "1.0.0",
+        "preview_image": "https://raw.githubusercontent.com/novincode/ratekit-templates/main/templates/simple/five-stars/preview.png",
+        "download_url": "https://github.com/novincode/ratekit-templates/tree/main/templates/simple/five-stars",
+        "min_ratekit_version": "1.0.0",
         "requires_core_js": true
     },
     {
@@ -222,17 +222,17 @@
         "description": "Modern heart icon for binary love ratings",
         "category": "binary",
         "version": "1.0.0",
-        "author": "RatePress",
-        "author_uri": "https://ratepress.com",
+        "author": "RateKit",
+        "author_uri": "https://ratekit.com",
         "tags": [
             "heart",
             "love",
             "binary",
             "simple"
         ],
-        "preview_image": "https://raw.githubusercontent.com/novincode/ratepress-templates/main/templates/simple/heart/preview.png",
-        "download_url": "https://github.com/novincode/ratepress-templates/tree/main/templates/simple/heart",
-        "min_ratepress_version": "1.0.0",
+        "preview_image": "https://raw.githubusercontent.com/novincode/ratekit-templates/main/templates/simple/heart/preview.png",
+        "download_url": "https://github.com/novincode/ratekit-templates/tree/main/templates/simple/heart",
+        "min_ratekit_version": "1.0.0",
         "requires_core_js": true
     },
     {
@@ -241,8 +241,8 @@
         "description": "Modern thumbs up/down for bipolar ratings",
         "category": "bipolar",
         "version": "1.0.0",
-        "author": "RatePress",
-        "author_uri": "https://ratepress.com",
+        "author": "RateKit",
+        "author_uri": "https://ratekit.com",
         "tags": [
             "thumbs",
             "like",
@@ -250,9 +250,9 @@
             "bipolar",
             "simple"
         ],
-        "preview_image": "https://raw.githubusercontent.com/novincode/ratepress-templates/main/templates/simple/like-dislike/preview.png",
-        "download_url": "https://github.com/novincode/ratepress-templates/tree/main/templates/simple/like-dislike",
-        "min_ratepress_version": "1.0.0",
+        "preview_image": "https://raw.githubusercontent.com/novincode/ratekit-templates/main/templates/simple/like-dislike/preview.png",
+        "download_url": "https://github.com/novincode/ratekit-templates/tree/main/templates/simple/like-dislike",
+        "min_ratekit_version": "1.0.0",
         "requires_core_js": true
     }
 ]

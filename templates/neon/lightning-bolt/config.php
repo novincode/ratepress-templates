@@ -9,7 +9,7 @@ return [
     'name' => 'Neon Lightning Bolt',
     'description' => 'Futuristic glowing lightning bolt - energize with a single strike',
     'version' => '1.1.0',
-    'author' => 'RatePress',
+    'author' => 'RateKit',
     'category' => 'binary',
     'styles' => ['style.css'],
     'scripts' => [], // Core JS handles all interactions

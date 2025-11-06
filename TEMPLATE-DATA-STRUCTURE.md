@@ -1,8 +1,8 @@
-# RatePress Template Data Structure v2
+# RateKit Template Data Structure v2
 
 ## Headless & Scalable Template System
 
-This document defines the standardized data attribute structure that ALL RatePress templates must follow. The core JS uses ONLY these data attributes, making it completely template-agnostic.
+This document defines the standardized data attribute structure that ALL RateKit templates must follow. The core JS uses ONLY these data attributes, making it completely template-agnostic.
 
 ---
 
@@ -11,7 +11,7 @@ This document defines the standardized data attribute structure that ALL RatePre
 Every rating widget must have these attributes on the root element:
 
 ```html
-<div class="ratepress-widget TEMPLATE-SPECIFIC-CLASS"
+<div class="ratekit-widget TEMPLATE-SPECIFIC-CLASS"
      data-object-id="123"
      data-object-type="post"
      data-category="scale"
@@ -145,7 +145,7 @@ The core JS automatically adds/removes the `.active` class on buttons based on u
 
 ### Binary Template (Heart/Like)
 ```html
-<div class="ratepress-widget my-heart"
+<div class="ratekit-widget my-heart"
      data-object-id="123"
      data-object-type="post"
      data-category="binary"
@@ -161,7 +161,7 @@ The core JS automatically adds/removes the `.active` class on buttons based on u
 
 ### Bipolar Template (Like/Dislike)
 ```html
-<div class="ratepress-widget my-likedislike"
+<div class="ratekit-widget my-likedislike"
      data-object-id="123"
      data-object-type="post"
      data-category="bipolar"
@@ -182,7 +182,7 @@ The core JS automatically adds/removes the `.active` class on buttons based on u
 
 ### Scale Template (5 Stars)
 ```html
-<div class="ratepress-widget my-stars"
+<div class="ratekit-widget my-stars"
      data-object-id="123"
      data-object-type="post"
      data-category="scale"
@@ -206,7 +206,7 @@ The core JS automatically adds/removes the `.active` class on buttons based on u
 
 ### Scale Template (10 Dots)
 ```html
-<div class="ratepress-widget my-dots"
+<div class="ratekit-widget my-dots"
      data-object-id="123"
      data-object-type="post"
      data-category="scale"
@@ -235,7 +235,7 @@ The core JS automatically adds/removes the `.active` class on buttons based on u
 
 ### Scale Template (Range Slider)
 ```html
-<div class="ratepress-widget my-range"
+<div class="ratekit-widget my-range"
      data-object-id="123"
      data-object-type="post"
      data-category="scale"
@@ -296,9 +296,9 @@ When creating a new template, verify:
 
 ### Old (v1) - Class-based:
 ```html
-<button class="ratepress-star-btn active">★</button>
-<span class="ratepress-average">4.2</span>
-<span class="ratepress-count">156</span>
+<button class="ratekit-star-btn active">★</button>
+<span class="ratekit-average">4.2</span>
+<span class="ratekit-count">156</span>
 ```
 
 ### New (v2) - Data-based:
@@ -309,6 +309,6 @@ When creating a new template, verify:
 ```
 
 **Changes:**
-- `ratepress-star-btn` → use any class, just needs `data-value`
-- `ratepress-average` → `data-stat="average"` with `data-scale`
-- `ratepress-count` → `data-stat="total"`
+- `ratekit-star-btn` → use any class, just needs `data-value`
+- `ratekit-average` → `data-stat="average"` with `data-scale`
+- `ratekit-count` → `data-stat="total"`
