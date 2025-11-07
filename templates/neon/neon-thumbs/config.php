@@ -1,4 +1,8 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 /**
  * Neon Thumbs Template Configuration
  * Futuristic glowing thumbs up for binary ratings

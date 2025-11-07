@@ -1,4 +1,8 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 return [
     'slug' => 'simple/like-dislike',
     'name' => 'Like-Dislike',

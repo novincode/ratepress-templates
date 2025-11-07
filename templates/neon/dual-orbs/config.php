@@ -1,4 +1,8 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 /**
  * Neon Dual Orbs Template Configuration
  * Futuristic glowing dual orbs for bipolar ratings

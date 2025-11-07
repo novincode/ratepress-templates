@@ -1,4 +1,8 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 /**
  * Modern Heart Template Configuration
  * Clean animated heart for binary love ratings

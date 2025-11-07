@@ -1,4 +1,8 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 /**
  * Neon Heart Template Configuration
  * Futuristic glowing heart for binary love ratings

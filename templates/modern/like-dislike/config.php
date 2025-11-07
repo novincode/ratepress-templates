@@ -1,4 +1,8 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 /**
  * Modern Like/Dislike Template Configuration
  * Clean, modern binary voting with thumbs up/down

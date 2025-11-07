@@ -1,4 +1,8 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 /**
  * Neon Dots 5 Template Configuration
  * Futuristic glowing 5-dot rating scale

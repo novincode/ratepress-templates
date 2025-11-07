@@ -1,4 +1,8 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 return [
     'slug' => 'modern/bookmark',
     'name' => 'Modern Bookmark',

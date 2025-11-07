@@ -1,4 +1,8 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 return [
     'slug' => 'modern/stars',
     'name' => 'Modern Stars',

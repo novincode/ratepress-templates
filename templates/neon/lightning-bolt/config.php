@@ -1,4 +1,8 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 /**
  * Neon Lightning Bolt Template Configuration
  * Futuristic glowing lightning bolt for binary ratings
