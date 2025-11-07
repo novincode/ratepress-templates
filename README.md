@@ -303,7 +303,7 @@ All templates in this repository are licensed under GPL v2 or later, matching Wo
 ## 💬 Support
 
 - **Documentation**: https://ratekit.com/docs
-- **Issues**: https://github.com/novincode/ratekit-templates/issues
+- **Issues**: https://github.com/novincode/ratepress-templates/issues
 - **Community**: https://wordpress.org/support/plugin/ratekit
 
 ## 🌟 Featured Templates

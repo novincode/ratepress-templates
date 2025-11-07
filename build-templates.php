@@ -57,7 +57,7 @@ class TemplatesBuilder
                 // Generate URLs automatically
                 $slug = $config['slug'];
                 $baseUrl = 'https://raw.githubusercontent.com/novincode/ratepress-templates/ratekit/templates/' . $slug;
-                $downloadUrl = 'https://github.com/novincode/ratekit-templates/tree/main/templates/' . $slug;
+                $downloadUrl = 'https://github.com/novincode/ratepress-templates/tree/main/templates/' . $slug;
 
                 // Check for preview image or generate one
                 $previewPath = $templateDir . '/preview.png';
