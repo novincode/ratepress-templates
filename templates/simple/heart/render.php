@@ -37,15 +37,15 @@ if ($is_js_mode) {
      data-template="heart"
      data-size="<?php echo esc_attr($size); ?>"
      role="group"
-     aria-label="Heart rating widget">
+     aria-label="<?php esc_attr_e('Heart rating widget', 'ratekit'); ?>">
      
     <button class="ratekit-heart-btn <?php echo $is_loved ? 'active' : ''; ?>" 
             type="button"
             data-value="1"
             aria-pressed="<?php echo $is_loved ? 'true' : 'false'; ?>"
-            aria-label="<?php echo $is_loved ? 'Remove love' : 'Love this'; ?>"
+            aria-label="<?php echo esc_attr($is_loved ? __('Remove love', 'ratekit') : __('Love this', 'ratekit')); ?>"
             aria-describedby="heart-count-<?php echo esc_attr($object_id); ?>"
-            title="<?php echo $is_loved ? 'Remove love' : 'Love this'; ?>">
+            title="<?php echo esc_attr($is_loved ? __('Remove love', 'ratekit') : __('Love this', 'ratekit')); ?>">
             
         <svg class="ratekit-heart-icon" 
              viewBox="0 0 24 24" 

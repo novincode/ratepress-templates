@@ -65,9 +65,9 @@ $colors = $color_schemes[$color_scheme] ?? $color_schemes['default'];
                 type="button"
                 data-value="1"
                 aria-pressed="<?php echo $user_liked ? 'true' : 'false'; ?>"
-                aria-label="<?php echo $user_liked ? 'Remove like' : 'Like this'; ?>"
+                aria-label="<?php echo esc_attr($user_liked ? __('Remove like', 'ratekit') : __('Like this', 'ratekit')); ?>"
                 aria-describedby="like-count-<?php echo esc_attr($object_id); ?>"
-                title="<?php echo $user_liked ? 'Remove like' : 'Like this'; ?>">
+                title="<?php echo esc_attr($user_liked ? __('Remove like', 'ratekit') : __('Like this', 'ratekit')); ?>">
                 
             <svg class="ratekit-like-icon" 
                  viewBox="0 0 24 24" 
@@ -100,9 +100,9 @@ $colors = $color_schemes[$color_scheme] ?? $color_schemes['default'];
                 type="button"
                 data-value="-1"
                 aria-pressed="<?php echo $user_disliked ? 'true' : 'false'; ?>"
-                aria-label="<?php echo $user_disliked ? 'Remove dislike' : 'Dislike this'; ?>"
+                aria-label="<?php echo esc_attr($user_disliked ? __('Remove dislike', 'ratekit') : __('Dislike this', 'ratekit')); ?>"
                 aria-describedby="dislike-count-<?php echo esc_attr($object_id); ?>"
-                title="<?php echo $user_disliked ? 'Remove dislike' : 'Dislike this'; ?>">
+                title="<?php echo esc_attr($user_disliked ? __('Remove dislike', 'ratekit') : __('Dislike this', 'ratekit')); ?>">
                 
             <svg class="ratekit-dislike-icon" 
                  viewBox="0 0 24 24" 

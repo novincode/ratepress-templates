@@ -49,7 +49,7 @@ if ($is_js_mode) {
          id="vote-score-<?php echo esc_attr($object_id); ?>"
          aria-label="<?php
             /* translators: %d: vote score number */
-            esc_attr(sprintf(__('Score: %d', 'ratekit'), $score));
+            echo esc_attr(sprintf(__('Score: %d', 'ratekit'), $score));
         ?>">
         <?php echo esc_html(number_format($score)); ?>
     </div>

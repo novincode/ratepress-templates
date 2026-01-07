@@ -42,15 +42,14 @@ if ($is_js_mode) {
      data-size="<?php echo esc_attr($size); ?>"
      data-user-rating="<?php echo esc_attr($user_value); ?>"
      role="group"
-     aria-label="Star rating widget">
+     aria-label="<?php esc_attr_e('Star rating widget', 'ratekit'); ?>">
      
     <div class="ratekit-stars-container">
         <!-- Interactive Rating Input -->
         <div class="ratekit-stars-input" 
              role="radiogroup" 
-             aria-label="Rate from 1 to 5 stars"
-             aria-describedby="stars-info-<?php echo esc_attr($object_id); ?>">
-            <?php for ($i = 1; $i <= 5; $i++): 
+             aria-label="<?php esc_attr_e('Rate from 1 to 5 stars', 'ratekit'); ?>"
+             aria-describedby="stars-info-<?php echo esc_attr($object_id); ?>"><?php for ($i = 1; $i <= 5; $i++): 
                 $value = $i / 5;
                 $isSelected = $user_has_rated && ($user_value * 5) >= $i;
             ?>
@@ -60,8 +59,14 @@ if ($is_js_mode) {
                         data-star="<?php echo esc_attr($i); ?>"
                         role="radio"
                         aria-checked="<?php echo $isSelected ? 'true' : 'false'; ?>"
-                        aria-label="Rate <?php echo esc_attr($i); ?> out of 5 stars"
-                        title="<?php echo esc_attr($i); ?> star<?php echo $i !== 1 ? 's' : ''; ?>">
+                        aria-label="<?php 
+                            /* translators: %d: star rating number from 1 to 5 */
+                            echo esc_attr(sprintf(__('Rate %d out of 5 stars', 'ratekit'), $i)); 
+                        ?>"
+                        title="<?php 
+                            /* translators: %d: star rating number */
+                            echo esc_attr(sprintf(_n('%d star', '%d stars', $i, 'ratekit'), $i)); 
+                        ?>">
                         
                     <svg class="ratekit-star-icon" 
                          viewBox="0 0 24 24" 
@@ -87,13 +92,19 @@ if ($is_js_mode) {
                 <span class="ratekit-average" 
                       data-stat="average"
                       data-scale="5"
-                      aria-label="Average rating: <?php echo number_format($display_average, 1); ?> out of 5 stars">
-                    <?php echo number_format($display_average, 1); ?>
+                      aria-label="<?php 
+                          /* translators: %s: average rating value */
+                          echo esc_attr(sprintf(__('Average rating: %s out of 5 stars', 'ratekit'), number_format($display_average, 1))); 
+                      ?>">
+                    <?php echo esc_html(number_format($display_average, 1)); ?>
                 </span>
                 
                 <span class="ratekit-count" 
                       data-stat="total"
-                      aria-label="<?php echo esc_attr($total_ratings); ?> rating<?php echo $total_ratings !== 1 ? 's' : ''; ?>">
+                      aria-label="<?php 
+                          /* translators: %d: number of ratings */
+                          echo esc_attr(sprintf(_n('%d rating', '%d ratings', $total_ratings, 'ratekit'), $total_ratings)); 
+                      ?>">
                     <?php echo esc_html(number_format($total_ratings)); ?>
                 </span>
             </div>
