@@ -8,6 +8,8 @@
 
 namespace RateKit\Templates;
 
+defined( 'ABSPATH' ) || exit;
+
 use const RateKit\TEXT_DOMAIN;
 
 // Get template data
@@ -49,7 +51,7 @@ $color_schemes = [
 $colors = $color_schemes[$color_scheme] ?? $color_schemes['default'];
 ?>
 
-<div class="ratekit-widget ratekit-like-dislike-widget<?php echo $is_js_mode ? ' ratekit-js-mode' : ''; ?>"
+<div class="ratekit-widget ratekit-like-dislike-widget<?php echo esc_attr( $is_js_mode ? ' ratekit-js-mode' : '' ); ?>"
      data-object-id="<?php echo esc_attr($object_id); ?>"
      data-object-type="<?php echo esc_attr($object_type); ?>"
      data-category="bipolar"
@@ -57,14 +59,14 @@ $colors = $color_schemes[$color_scheme] ?? $color_schemes['default'];
      data-size="<?php echo esc_attr($size); ?>"
      data-layout="<?php echo esc_attr($layout); ?>"
      role="group"
-     aria-label="Like or dislike rating widget">
+     aria-label="<?php echo esc_attr__('Like or dislike rating widget', 'ratekit'); ?>">
      
     <div class="ratekit-buttons-container" data-layout="<?php echo esc_attr($layout); ?>">
         <!-- Like Button -->
-        <button class="ratekit-like-btn <?php echo $user_liked ? 'active' : ''; ?>" 
+        <button class="ratekit-like-btn <?php echo esc_attr( $user_liked ? 'active' : '' ); ?>" 
                 type="button"
                 data-value="1"
-                aria-pressed="<?php echo $user_liked ? 'true' : 'false'; ?>"
+                aria-pressed="<?php echo esc_attr( $user_liked ? 'true' : 'false' ); ?>"
                 aria-label="<?php echo esc_attr($user_liked ? __('Remove like', 'ratekit') : __('Like this', 'ratekit')); ?>"
                 aria-describedby="like-count-<?php echo esc_attr($object_id); ?>"
                 title="<?php echo esc_attr($user_liked ? __('Remove like', 'ratekit') : __('Like this', 'ratekit')); ?>">
@@ -96,10 +98,10 @@ $colors = $color_schemes[$color_scheme] ?? $color_schemes['default'];
         </button>
         
         <!-- Dislike Button -->
-        <button class="ratekit-dislike-btn <?php echo $user_disliked ? 'active' : ''; ?>" 
+        <button class="ratekit-dislike-btn <?php echo esc_attr( $user_disliked ? 'active' : '' ); ?>" 
                 type="button"
                 data-value="-1"
-                aria-pressed="<?php echo $user_disliked ? 'true' : 'false'; ?>"
+                aria-pressed="<?php echo esc_attr( $user_disliked ? 'true' : 'false' ); ?>"
                 aria-label="<?php echo esc_attr($user_disliked ? __('Remove dislike', 'ratekit') : __('Dislike this', 'ratekit')); ?>"
                 aria-describedby="dislike-count-<?php echo esc_attr($object_id); ?>"
                 title="<?php echo esc_attr($user_disliked ? __('Remove dislike', 'ratekit') : __('Dislike this', 'ratekit')); ?>">

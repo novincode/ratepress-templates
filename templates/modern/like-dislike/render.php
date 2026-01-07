@@ -1,5 +1,11 @@
 <?php
+/**
+ * Modern Like-Dislike Renderer
+ */
+
 namespace RateKit\Templates;
+
+defined( 'ABSPATH' ) || exit;
 
 $data = $template_data ?? new TemplateData([]);
 $stats = $data->category_stats ?? [];
@@ -33,7 +39,7 @@ $user_liked = $user_has_rated && $user_value > 0;
 $user_disliked = $user_has_rated && $user_value < 0;
 ?>
 
-<div class="ratekit-widget ratekit-likedislike<?php echo $is_js_mode ? ' ratekit-js-mode' : ''; ?>"<?php echo $theme === 'dark' ? ' data-theme="dark"' : ''; ?>
+<div class="ratekit-widget ratekit-likedislike<?php echo esc_attr( $is_js_mode ? ' ratekit-js-mode' : '' ); ?>"<?php echo esc_attr( $theme === 'dark' ? ' data-theme="dark"' : '' ); ?>
      data-object-id="<?php echo esc_attr($object_id); ?>"
      data-object-type="<?php echo esc_attr($object_type); ?>"
      data-category="bipolar"
@@ -43,10 +49,10 @@ $user_disliked = $user_has_rated && $user_value < 0;
      aria-label="<?php esc_attr_e('Like or dislike rating widget', 'ratekit'); ?>">
      
     <div class="likedislike-buttons">
-        <button class="like-btn <?php echo $user_liked ? 'active' : ''; ?>"
+        <button class="like-btn <?php echo esc_attr( $user_liked ? 'active' : '' ); ?>"
                 type="button"
                 data-value="1"
-                aria-pressed="<?php echo $user_liked ? 'true' : 'false'; ?>"
+                aria-pressed="<?php echo esc_attr( $user_liked ? 'true' : 'false' ); ?>"
                 aria-label="<?php echo esc_attr($user_liked ? __('Remove like', 'ratekit') : __('Like this', 'ratekit')); ?>"
                 aria-describedby="like-count-<?php echo esc_attr($object_id); ?>"
                 title="<?php echo esc_attr($user_liked ? __('Remove like', 'ratekit') : __('Like this', 'ratekit')); ?>">
@@ -63,10 +69,10 @@ $user_disliked = $user_has_rated && $user_value < 0;
             <?php endif; ?>
         </button>
         
-        <button class="dislike-btn <?php echo $user_disliked ? 'active' : ''; ?>"
+        <button class="dislike-btn <?php echo esc_attr( $user_disliked ? 'active' : '' ); ?>"
                 type="button"
                 data-value="-1"
-                aria-pressed="<?php echo $user_disliked ? 'true' : 'false'; ?>"
+                aria-pressed="<?php echo esc_attr( $user_disliked ? 'true' : 'false' ); ?>"
                 aria-label="<?php echo esc_attr($user_disliked ? __('Remove dislike', 'ratekit') : __('Dislike this', 'ratekit')); ?>"
                 aria-describedby="dislike-count-<?php echo esc_attr($object_id); ?>"
                 title="<?php echo esc_attr($user_disliked ? __('Remove dislike', 'ratekit') : __('Dislike this', 'ratekit')); ?>">
@@ -86,7 +92,7 @@ $user_disliked = $user_has_rated && $user_value < 0;
     
     <?php if ($show_percentage && $total > 0): ?>
         <div class="likedislike-percentage">
-            <?php echo esc_html($percentage); ?>% <?php esc_e('positive', 'ratekit'); ?>
+            <?php echo esc_html($percentage); ?>% <?php esc_html_e('positive', 'ratekit'); ?>
         </div>
     <?php endif; ?>
 </div>

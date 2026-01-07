@@ -1,5 +1,11 @@
 <?php
+/**
+ * Modern Stars Renderer
+ */
+
 namespace RateKit\Templates;
+
+defined( 'ABSPATH' ) || exit;
 
 $data = $template_data ?? new TemplateData([]);
 $stats = $data->category_stats ?? [];
@@ -27,7 +33,7 @@ if ($is_js_mode) {
 }
 ?>
 
-<div class="ratekit-widget ratekit-stars-widget<?php echo $is_js_mode ? ' ratekit-js-mode' : ''; ?>"<?php echo $theme === 'dark' ? ' data-theme="dark"' : ''; ?>
+<div class="ratekit-widget ratekit-stars-widget<?php echo esc_attr( $is_js_mode ? ' ratekit-js-mode' : '' ); ?>"<?php echo esc_attr( $theme === 'dark' ? ' data-theme="dark"' : '' ); ?>
      data-object-id="<?php echo esc_attr($object_id); ?>"
      data-object-type="<?php echo esc_attr($object_type); ?>"
      data-category="scale"
@@ -45,14 +51,14 @@ if ($is_js_mode) {
             $value = $i / 5;
             $isSelected = $user_has_rated && ($user_value * 5) >= $i;
         ?>
-            <button class="ratekit-star-btn <?php echo $isSelected ? 'active' : ''; ?>"
+            <button class="ratekit-star-btn <?php echo esc_attr( $isSelected ? 'active' : '' ); ?>"
                     type="button"
                     data-value="<?php echo esc_attr($value); ?>"
                     data-star="<?php echo esc_attr($i); ?>"
                     role="radio"
-                    aria-checked="<?php echo $isSelected ? 'true' : 'false'; ?>"
-                    aria-label="<?php esc_attr(sprintf(__('Rate %d out of 5 stars', 'ratekit'), $i)); ?>"
-                    title="<?php esc_attr(sprintf(__('%d star%s', 'ratekit'), $i, $i !== 1 ? 's' : '')); ?>">
+                    aria-checked="<?php echo esc_attr( $isSelected ? 'true' : 'false' ); ?>"
+                    aria-label="<?php echo esc_attr(sprintf(__('Rate %d out of 5 stars', 'ratekit'), $i)); ?>"
+                    title="<?php echo esc_attr(sprintf(__('%d star%s', 'ratekit'), $i, $i !== 1 ? 's' : '')); ?>">
                 <svg viewBox="0 0 24 24" fill="currentColor">
                     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                 </svg>
@@ -64,11 +70,11 @@ if ($is_js_mode) {
         <div class="stars-info" id="stars-info-<?php echo esc_attr($object_id); ?>">
             <span data-stat="average" 
                   data-scale="5"
-                  aria-label="<?php esc_attr(sprintf(__('Average rating: %s out of 5 stars', 'ratekit'), number_format($display_average, 1))); ?>">
+                  aria-label="<?php echo esc_attr(sprintf(__('Average rating: %s out of 5 stars', 'ratekit'), number_format($display_average, 1))); ?>">
                 <?php echo esc_html(number_format($display_average, 1)); ?>
             </span>
             <span data-stat="total"
-                  aria-label="<?php esc_attr(sprintf(_n('%d rating', '%d ratings', $total, 'ratekit'), $total)); ?>">
+                  aria-label="<?php echo esc_attr(sprintf(_n('%d rating', '%d ratings', $total, 'ratekit'), $total)); ?>">
                 (<?php echo esc_html(number_format($total)); ?>)
             </span>
         </div>

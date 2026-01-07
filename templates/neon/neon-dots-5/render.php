@@ -5,6 +5,8 @@
 
 namespace RateKit\Templates;
 
+defined( 'ABSPATH' ) || exit;
+
 $data = $template_data ?? new TemplateData([]);
 $stats = $data->category_stats ?? [];
 $user_value = $data->user_value ?? 0;
@@ -31,7 +33,7 @@ if ($is_js_mode) {
 }
 ?>
 
-<div class="ratekit-widget ratekit-neon-dots-5<?php echo $is_js_mode ? ' ratekit-js-mode' : ''; ?>"<?php echo $theme === 'dark' ? ' data-theme="dark"' : ''; ?>
+<div class="ratekit-widget ratekit-neon-dots-5<?php echo esc_attr( $is_js_mode ? ' ratekit-js-mode' : '' ); ?>"<?php echo esc_attr( $theme === 'dark' ? ' data-theme="dark"' : '' ); ?>
      data-object-id="<?php echo esc_attr($object_id); ?>"
      data-object-type="<?php echo esc_attr($object_type); ?>"
      data-category="scale"
@@ -49,12 +51,12 @@ if ($is_js_mode) {
             $value = $i / 5;
             $isSelected = $user_has_rated && ($user_value * 5) >= $i;
         ?>
-            <button class="dot-5-btn <?php echo $isSelected ? 'active' : ''; ?>"
+            <button class="dot-5-btn <?php echo esc_attr( $isSelected ? 'active' : '' ); ?>"
                     type="button"
                     data-value="<?php echo esc_attr($value); ?>"
-                    aria-pressed="<?php echo $isSelected ? 'true' : 'false'; ?>"
-                    aria-label="<?php esc_attr(sprintf(__('Rate %d dot%s', 'ratekit'), $i, $i > 1 ? 's' : '')); ?>"
-                    title="<?php esc_attr(sprintf(__('Rate %d dot%s', 'ratekit'), $i, $i > 1 ? 's' : '')); ?>">
+                    aria-pressed="<?php echo esc_attr( $isSelected ? 'true' : 'false' ); ?>"
+                    aria-label="<?php echo esc_attr(sprintf(__('Rate %d dot%s', 'ratekit'), $i, $i > 1 ? 's' : '')); ?>"
+                    title="<?php echo esc_attr(sprintf(__('Rate %d dot%s', 'ratekit'), $i, $i > 1 ? 's' : '')); ?>">
             </button>
         <?php endfor; ?>
     </div>
@@ -62,7 +64,7 @@ if ($is_js_mode) {
     <?php if ($show_counts): ?>
         <div class="stars-info" id="stars-info-<?php echo esc_attr($object_id); ?>">
             <span data-stat="average" data-scale="5"><?php echo esc_html(number_format($display_average, 1)); ?></span>
-            <span data-stat="total">(<?php echo esc_html($total); ?> <?php esc_e('ratings', 'ratekit'); ?>)</span>
+            <span data-stat="total">(<?php echo esc_html($total); ?> <?php esc_html_e('ratings', 'ratekit'); ?>)</span>
         </div>
     <?php endif; ?>
 </div>

@@ -5,6 +5,8 @@
 
 namespace RateKit\Templates;
 
+defined( 'ABSPATH' ) || exit;
+
 // Get template data
 $data = $template_data ?? new TemplateData([]);
 $stats = $data->category_stats ?? [];
@@ -34,7 +36,7 @@ if ($is_js_mode) {
 }
 ?>
 
-<div class="ratekit-widget ratekit-stars-widget<?php echo $is_js_mode ? ' ratekit-js-mode' : ''; ?>" 
+<div class="ratekit-widget ratekit-stars-widget<?php echo esc_attr( $is_js_mode ? ' ratekit-js-mode' : '' ); ?>" 
      data-object-id="<?php echo esc_attr($object_id); ?>"
      data-object-type="<?php echo esc_attr($object_type); ?>"
      data-category="scale" 
@@ -53,12 +55,12 @@ if ($is_js_mode) {
                 $value = $i / 5;
                 $isSelected = $user_has_rated && ($user_value * 5) >= $i;
             ?>
-                <button class="ratekit-star-btn <?php echo $isSelected ? 'active' : ''; ?>" 
+                <button class="ratekit-star-btn <?php echo esc_attr( $isSelected ? 'active' : '' ); ?>" 
                         type="button"
                         data-value="<?php echo esc_attr($value); ?>"
                         data-star="<?php echo esc_attr($i); ?>"
                         role="radio"
-                        aria-checked="<?php echo $isSelected ? 'true' : 'false'; ?>"
+                        aria-checked="<?php echo esc_attr( $isSelected ? 'true' : 'false' ); ?>"
                         aria-label="<?php 
                             /* translators: %d: star rating number from 1 to 5 */
                             echo esc_attr(sprintf(__('Rate %d out of 5 stars', 'ratekit'), $i)); 

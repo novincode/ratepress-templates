@@ -5,6 +5,8 @@
 
 namespace RateKit\Templates;
 
+defined( 'ABSPATH' ) || exit;
+
 $data = $template_data ?? new TemplateData([]);
 $stats = $data->category_stats ?? [];
 $user_value = $data->user_value ?? 0;
@@ -27,7 +29,7 @@ if ($is_js_mode) {
 }
 ?>
 
-<div class="ratekit-widget ratekit-lightning-bolt<?php echo $is_js_mode ? ' ratekit-js-mode' : ''; ?>"<?php echo $theme === 'dark' ? ' data-theme="dark"' : ''; ?>
+<div class="ratekit-widget ratekit-lightning-bolt<?php echo esc_attr( $is_js_mode ? ' ratekit-js-mode' : '' ); ?>"<?php echo esc_attr( $theme === 'dark' ? ' data-theme="dark"' : '' ); ?>
      data-object-id="<?php echo esc_attr($object_id); ?>"
      data-object-type="<?php echo esc_attr($object_type); ?>"
      data-category="binary"
@@ -36,10 +38,10 @@ if ($is_js_mode) {
      role="group"
      aria-label="<?php esc_attr_e('Lightning Bolt rating widget', 'ratekit'); ?>">
      
-    <button class="lightning-btn <?php echo $is_energized ? 'active' : ''; ?>" 
+    <button class="lightning-btn <?php echo esc_attr( $is_energized ? 'active' : '' ); ?>" 
             type="button"
             data-value="1"
-            aria-pressed="<?php echo $is_energized ? 'true' : 'false'; ?>"
+            aria-pressed="<?php echo esc_attr( $is_energized ? 'true' : 'false' ); ?>"
             aria-label="<?php echo esc_attr($is_energized ? __('Unenergize', 'ratekit') : __('Energize this', 'ratekit')); ?>"
             aria-describedby="lightning-count-<?php echo esc_attr($object_id); ?>"
             title="<?php echo esc_attr($is_energized ? __('Unenergize', 'ratekit') : __('Energize this', 'ratekit')); ?>">

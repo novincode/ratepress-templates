@@ -5,6 +5,8 @@
 
 namespace RateKit\Templates;
 
+defined( 'ABSPATH' ) || exit;
+
 $data = $template_data ?? new TemplateData([]);
 $stats = $data->category_stats ?? [];
 $user_value = $data->user_value ?? 0;
@@ -31,7 +33,7 @@ if ($is_js_mode) {
 }
 ?>
 
-<div class="ratekit-widget ratekit-dual-orbs<?php echo $is_js_mode ? ' ratekit-js-mode' : ''; ?>"<?php echo $theme === 'dark' ? ' data-theme="dark"' : ''; ?>
+<div class="ratekit-widget ratekit-dual-orbs<?php echo esc_attr( $is_js_mode ? ' ratekit-js-mode' : '' ); ?>"<?php echo esc_attr( $theme === 'dark' ? ' data-theme="dark"' : '' ); ?>
      data-object-id="<?php echo esc_attr($object_id); ?>"
      data-object-type="<?php echo esc_attr($object_type); ?>"
      data-category="bipolar"
@@ -40,10 +42,10 @@ if ($is_js_mode) {
      role="group"
      aria-label="<?php esc_attr_e('Dual Orbs rating widget', 'ratekit'); ?>">
      
-    <button class="orb-btn orb-up <?php echo $user_liked ? 'active' : ''; ?>" 
+    <button class="orb-btn orb-up <?php echo esc_attr( $user_liked ? 'active' : '' ); ?>" 
             type="button"
             data-value="1"
-            aria-pressed="<?php echo $user_liked ? 'true' : 'false'; ?>"
+            aria-pressed="<?php echo esc_attr( $user_liked ? 'true' : 'false' ); ?>"
             aria-label="<?php echo esc_attr($user_liked ? __('Unlike', 'ratekit') : __('Like this', 'ratekit')); ?>"
             aria-describedby="orb-up-count-<?php echo esc_attr($object_id); ?>"
             title="<?php echo esc_attr($user_liked ? __('Unlike', 'ratekit') : __('Like this', 'ratekit')); ?>">
@@ -63,10 +65,10 @@ if ($is_js_mode) {
         <?php endif; ?>
     </button>
     
-    <button class="orb-btn orb-down <?php echo $user_disliked ? 'active' : ''; ?>" 
+    <button class="orb-btn orb-down <?php echo esc_attr( $user_disliked ? 'active' : '' ); ?>" 
             type="button"
             data-value="-1"
-            aria-pressed="<?php echo $user_disliked ? 'true' : 'false'; ?>"
+            aria-pressed="<?php echo esc_attr( $user_disliked ? 'true' : 'false' ); ?>"
             aria-label="<?php echo esc_attr($user_disliked ? __('Undislike', 'ratekit') : __('Dislike this', 'ratekit')); ?>"
             aria-describedby="orb-down-count-<?php echo esc_attr($object_id); ?>"
             title="<?php echo esc_attr($user_disliked ? __('Undislike', 'ratekit') : __('Dislike this', 'ratekit')); ?>">

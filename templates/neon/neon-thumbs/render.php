@@ -1,6 +1,11 @@
 <?php
-// Test change for version bumping
+/**
+ * Neon Thumbs Renderer
+ */
+
 namespace RateKit\Templates;
+
+defined( 'ABSPATH' ) || exit;
 
 $data = $template_data ?? new TemplateData([]);
 $stats = $data->category_stats ?? [];
@@ -24,7 +29,7 @@ if ($is_js_mode) {
 }
 ?>
 
-<div class="ratekit-widget ratekit-neon-thumbs<?php echo $is_js_mode ? ' ratekit-js-mode' : ''; ?>"<?php echo $theme === 'dark' ? ' data-theme="dark"' : ''; ?>
+<div class="ratekit-widget ratekit-neon-thumbs<?php echo esc_attr( $is_js_mode ? ' ratekit-js-mode' : '' ); ?>"<?php echo esc_attr( $theme === 'dark' ? ' data-theme="dark"' : '' ); ?>
      data-object-id="<?php echo esc_attr($object_id); ?>"
      data-object-type="<?php echo esc_attr($object_type); ?>"
      data-category="binary"
@@ -33,10 +38,10 @@ if ($is_js_mode) {
      role="group"
      aria-label="<?php esc_attr_e('Neon Thumbs rating widget', 'ratekit'); ?>">
      
-    <button class="thumbs-btn <?php echo $is_liked ? 'active' : ''; ?>" 
+    <button class="thumbs-btn <?php echo esc_attr( $is_liked ? 'active' : '' ); ?>" 
             type="button"
             data-value="1"
-            aria-pressed="<?php echo $is_liked ? 'true' : 'false'; ?>"
+            aria-pressed="<?php echo esc_attr( $is_liked ? 'true' : 'false' ); ?>"
             aria-label="<?php echo esc_attr($is_liked ? __('Unlike', 'ratekit') : __('Like this', 'ratekit')); ?>"
             aria-describedby="thumbs-count-<?php echo esc_attr($object_id); ?>"
             title="<?php echo esc_attr($is_liked ? __('Unlike', 'ratekit') : __('Like this', 'ratekit')); ?>">

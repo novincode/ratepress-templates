@@ -5,6 +5,8 @@
 
 namespace RateKit\Templates;
 
+defined( 'ABSPATH' ) || exit;
+
 $data = $template_data ?? new TemplateData([]);
 $stats = $data->category_stats ?? [];
 $user_value = $data->user_value ?? 0;
@@ -27,7 +29,7 @@ if ($is_js_mode) {
 }
 ?>
 
-<div class="ratekit-widget ratekit-heart<?php echo $is_js_mode ? ' ratekit-js-mode' : ''; ?>"<?php echo $theme === 'dark' ? ' data-theme="dark"' : ''; ?>
+<div class="ratekit-widget ratekit-heart<?php echo esc_attr( $is_js_mode ? ' ratekit-js-mode' : '' ); ?>"<?php echo esc_attr( $theme === 'dark' ? ' data-theme="dark"' : '' ); ?>
      data-object-id="<?php echo esc_attr($object_id); ?>"
      data-object-type="<?php echo esc_attr($object_type); ?>"
      data-category="binary"
@@ -36,10 +38,10 @@ if ($is_js_mode) {
      role="group"
      aria-label="<?php esc_attr_e('Heart rating widget', 'ratekit'); ?>">
      
-    <button class="heart-btn <?php echo $is_loved ? 'active' : ''; ?>"
+    <button class="heart-btn <?php echo esc_attr( $is_loved ? 'active' : '' ); ?>"
             type="button"
             data-value="1"
-            aria-pressed="<?php echo $is_loved ? 'true' : 'false'; ?>"
+            aria-pressed="<?php echo esc_attr( $is_loved ? 'true' : 'false' ); ?>"
             aria-label="<?php echo esc_attr($is_loved ? __('Unlike', 'ratekit') : __('Love this', 'ratekit')); ?>"
             aria-describedby="heart-count-<?php echo esc_attr($object_id); ?>"
             title="<?php echo esc_attr($is_loved ? __('Unlike', 'ratekit') : __('Love this', 'ratekit')); ?>">

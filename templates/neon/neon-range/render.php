@@ -5,6 +5,8 @@
 
 namespace RateKit\Templates;
 
+defined( 'ABSPATH' ) || exit;
+
 $data = $template_data ?? new TemplateData([]);
 $stats = $data->category_stats ?? [];
 $user_value = $data->user_value ?? 0;
@@ -35,7 +37,7 @@ if ($is_js_mode) {
 }
 ?>
 
-<div class="ratekit-widget ratekit-neon-range<?php echo $is_js_mode ? ' ratekit-js-mode' : ''; ?>"<?php echo $theme === 'dark' ? ' data-theme="dark"' : ''; ?>
+<div class="ratekit-widget ratekit-neon-range<?php echo esc_attr( $is_js_mode ? ' ratekit-js-mode' : '' ); ?>"<?php echo esc_attr( $theme === 'dark' ? ' data-theme="dark"' : '' ); ?>
      data-object-id="<?php echo esc_attr($object_id); ?>"
      data-object-type="<?php echo esc_attr($object_type); ?>"
      data-category="scale"
@@ -67,7 +69,7 @@ if ($is_js_mode) {
     <?php if ($show_counts && !$is_js_mode): ?>
     <div class="range-stats">
         <span data-stat="average" data-scale="10"><?php echo esc_html(number_format($display_average, 1)); ?>/10</span>
-        <span data-stat="total">(<?php echo esc_html($total); ?> <?php esc_e('ratings', 'ratekit'); ?>)</span>
+        <span data-stat="total">(<?php echo esc_html($total); ?> <?php esc_html_e('ratings', 'ratekit'); ?>)</span>
     </div>
     <?php endif; ?>
 </div>

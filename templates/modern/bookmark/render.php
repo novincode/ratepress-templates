@@ -1,5 +1,11 @@
 <?php
+/**
+ * Modern Bookmark Renderer
+ */
+
 namespace RateKit\Templates;
+
+defined( 'ABSPATH' ) || exit;
 
 $data = $template_data ?? new TemplateData([]);
 $stats = $data->category_stats ?? [];
@@ -23,7 +29,7 @@ if ($is_js_mode) {
 }
 ?>
 
-<div class="ratekit-widget ratekit-bookmark<?php echo $is_js_mode ? ' ratekit-js-mode' : ''; ?>"<?php echo $theme === 'dark' ? ' data-theme="dark"' : ''; ?>
+<div class="ratekit-widget ratekit-bookmark<?php echo esc_attr( $is_js_mode ? ' ratekit-js-mode' : '' ); ?>"<?php echo esc_attr( $theme === 'dark' ? ' data-theme="dark"' : '' ); ?>
      data-object-id="<?php echo esc_attr($object_id); ?>"
      data-object-type="<?php echo esc_attr($object_type); ?>"
      data-category="binary"
@@ -32,10 +38,10 @@ if ($is_js_mode) {
      role="group"
      aria-label="<?php esc_attr_e('Bookmark rating widget', 'ratekit'); ?>">
      
-    <button class="bookmark-btn <?php echo $is_bookmarked ? 'active' : ''; ?>"
+    <button class="bookmark-btn <?php echo esc_attr( $is_bookmarked ? 'active' : '' ); ?>"
             type="button"
             data-value="1"
-            aria-pressed="<?php echo $is_bookmarked ? 'true' : 'false'; ?>"
+            aria-pressed="<?php echo esc_attr( $is_bookmarked ? 'true' : 'false' ); ?>"
             aria-label="<?php echo esc_attr($is_bookmarked ? __('Remove bookmark', 'ratekit') : __('Bookmark', 'ratekit')); ?>"
             aria-describedby="bookmark-count-<?php echo esc_attr($object_id); ?>"
             title="<?php echo esc_attr($is_bookmarked ? __('Remove bookmark', 'ratekit') : __('Bookmark', 'ratekit')); ?>">

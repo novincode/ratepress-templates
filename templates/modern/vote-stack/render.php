@@ -1,5 +1,11 @@
 <?php
+/**
+ * Modern Vote Stack Renderer
+ */
+
 namespace RateKit\Templates;
+
+defined( 'ABSPATH' ) || exit;
 
 $data = $template_data ?? new TemplateData([]);
 $stats = $data->category_stats ?? [];
@@ -25,7 +31,7 @@ if ($is_js_mode) {
 }
 ?>
 
-<div class="ratekit-widget rp-vote-stack<?php echo $is_js_mode ? ' rp-js-mode' : ''; ?>"<?php echo $theme === 'dark' ? ' data-theme="dark"' : ''; ?>
+<div class="ratekit-widget rp-vote-stack<?php echo esc_attr( $is_js_mode ? ' rp-js-mode' : '' ); ?>"<?php echo esc_attr( $theme === 'dark' ? ' data-theme="dark"' : '' ); ?>
      data-object-id="<?php echo esc_attr($object_id); ?>"
      data-object-type="<?php echo esc_attr($object_type); ?>"
      data-category="bipolar"
@@ -34,10 +40,10 @@ if ($is_js_mode) {
      role="group"
      aria-label="<?php esc_attr_e('Vote rating widget', 'ratekit'); ?>">
      
-    <button class="rp-vote-btn rp-vote-up <?php echo $user_upvoted ? 'active' : ''; ?>"
+    <button class="rp-vote-btn rp-vote-up <?php echo esc_attr( $user_upvoted ? 'active' : '' ); ?>"
             type="button"
             data-value="1"
-            aria-pressed="<?php echo $user_upvoted ? 'true' : 'false'; ?>"
+            aria-pressed="<?php echo esc_attr( $user_upvoted ? 'true' : 'false' ); ?>"
             aria-label="<?php echo esc_attr($user_upvoted ? __('Remove upvote', 'ratekit') : __('Upvote', 'ratekit')); ?>"
             aria-describedby="vote-score-<?php echo esc_attr($object_id); ?>"
             title="<?php echo esc_attr($user_upvoted ? __('Remove upvote', 'ratekit') : __('Upvote', 'ratekit')); ?>">
@@ -54,10 +60,10 @@ if ($is_js_mode) {
         <?php echo esc_html(number_format($score)); ?>
     </div>
     
-    <button class="rp-vote-btn rp-vote-down <?php echo $user_downvoted ? 'active' : ''; ?>"
+    <button class="rp-vote-btn rp-vote-down <?php echo esc_attr( $user_downvoted ? 'active' : '' ); ?>"
             type="button"
             data-value="-1"
-            aria-pressed="<?php echo $user_downvoted ? 'true' : 'false'; ?>"
+            aria-pressed="<?php echo esc_attr( $user_downvoted ? 'true' : 'false' ); ?>"
             aria-label="<?php echo esc_attr($user_downvoted ? __('Remove downvote', 'ratekit') : __('Downvote', 'ratekit')); ?>"
             aria-describedby="vote-score-<?php echo esc_attr($object_id); ?>"
             title="<?php echo esc_attr($user_downvoted ? __('Remove downvote', 'ratekit') : __('Downvote', 'ratekit')); ?>">
